@@ -1,0 +1,735 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */; };
+		F0F7D48D297075E300778015 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48C297075E300778015 /* ContentView.swift */; };
+		F0F7D48F297075E400778015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D48E297075E400778015 /* Assets.xcassets */; };
+		F0F7D492297075E400778015 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D491297075E400778015 /* Preview Assets.xcassets */; };
+		F0F7D49C297075E500778015 /* EatAtHomeExpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D49B297075E500778015 /* EatAtHomeExpressTests.swift */; };
+		F0F7D4A6297075E500778015 /* EatAtHomeExpressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4A5297075E500778015 /* EatAtHomeExpressUITests.swift */; };
+		F0F7D4A8297075E500778015 /* EatAtHomeExpressUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4A7297075E500778015 /* EatAtHomeExpressUITestsLaunchTests.swift */; };
+		F0F7D4B82970781500778015 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4B72970781500778015 /* Home.swift */; };
+		F0F7D4BA2970782600778015 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4B92970782600778015 /* Menu.swift */; };
+		F0F7D4BE2970785100778015 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4BD2970785100778015 /* Item.swift */; };
+		F0F7D4C02970786600778015 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4BF2970786600778015 /* HomeViewModel.swift */; };
+		F0F7D4C22970790B00778015 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D4C12970790B00778015 /* GoogleService-Info.plist */; };
+		F0F7D4C529707A7C00778015 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4C429707A7C00778015 /* FirebaseAuth */; };
+		F0F7D4C729707A7C00778015 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4C629707A7C00778015 /* FirebaseDatabase */; };
+		F0F7D4C929707A7C00778015 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4C829707A7C00778015 /* FirebaseDatabaseSwift */; };
+		F0F7D4CB29707A7C00778015 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4CA29707A7C00778015 /* FirebaseFirestore */; };
+		F0F7D4CD29707A7C00778015 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4CC29707A7C00778015 /* FirebaseFirestoreSwift */; };
+		F0F7D4CF29707A7C00778015 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4CE29707A7C00778015 /* FirebaseFunctions */; };
+		F0F7D4D129707A7C00778015 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4D029707A7C00778015 /* FirebaseStorage */; };
+		F0F7D4D429707BB500778015 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4D329707BB500778015 /* SDWebImageSwiftUI */; };
+		F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4D529707C4A00778015 /* ItemView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0F7D498297075E500778015 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0F7D47F297075E200778015 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0F7D486297075E200778015;
+			remoteInfo = EatAtHomeExpress;
+		};
+		F0F7D4A2297075E500778015 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0F7D47F297075E200778015 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0F7D486297075E200778015;
+			remoteInfo = EatAtHomeExpress;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F0F7D487297075E300778015 /* EatAtHomeExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAtHomeExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressApp.swift; sourceTree = "<group>"; };
+		F0F7D48C297075E300778015 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F0F7D48E297075E400778015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0F7D491297075E400778015 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F0F7D497297075E500778015 /* EatAtHomeExpressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatAtHomeExpressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F7D49B297075E500778015 /* EatAtHomeExpressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressTests.swift; sourceTree = "<group>"; };
+		F0F7D4A1297075E500778015 /* EatAtHomeExpressUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatAtHomeExpressUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F7D4A5297075E500778015 /* EatAtHomeExpressUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressUITests.swift; sourceTree = "<group>"; };
+		F0F7D4A7297075E500778015 /* EatAtHomeExpressUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F0F7D4B72970781500778015 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F0F7D4B92970782600778015 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		F0F7D4BD2970785100778015 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F0F7D4BF2970786600778015 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F0F7D4C12970790B00778015 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F0F7D4D529707C4A00778015 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0F7D484297075E200778015 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F7D4CD29707A7C00778015 /* FirebaseFirestoreSwift in Frameworks */,
+				F0F7D4C929707A7C00778015 /* FirebaseDatabaseSwift in Frameworks */,
+				F0F7D4CB29707A7C00778015 /* FirebaseFirestore in Frameworks */,
+				F0F7D4CF29707A7C00778015 /* FirebaseFunctions in Frameworks */,
+				F0F7D4D429707BB500778015 /* SDWebImageSwiftUI in Frameworks */,
+				F0F7D4D129707A7C00778015 /* FirebaseStorage in Frameworks */,
+				F0F7D4C729707A7C00778015 /* FirebaseDatabase in Frameworks */,
+				F0F7D4C529707A7C00778015 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F7D494297075E500778015 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F7D49E297075E500778015 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F0F7D47E297075E200778015 = {
+			isa = PBXGroup;
+			children = (
+				F0F7D489297075E300778015 /* EatAtHomeExpress */,
+				F0F7D49A297075E500778015 /* EatAtHomeExpressTests */,
+				F0F7D4A4297075E500778015 /* EatAtHomeExpressUITests */,
+				F0F7D488297075E300778015 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F0F7D488297075E300778015 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D487297075E300778015 /* EatAtHomeExpress.app */,
+				F0F7D497297075E500778015 /* EatAtHomeExpressTests.xctest */,
+				F0F7D4A1297075E500778015 /* EatAtHomeExpressUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0F7D489297075E300778015 /* EatAtHomeExpress */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D4C12970790B00778015 /* GoogleService-Info.plist */,
+				F0F7D4B6297077C100778015 /* ViewModel */,
+				F0F7D4B5297077AF00778015 /* Model */,
+				F0F7D4B4297077A100778015 /* View */,
+				F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */,
+				F0F7D48C297075E300778015 /* ContentView.swift */,
+				F0F7D48E297075E400778015 /* Assets.xcassets */,
+				F0F7D490297075E400778015 /* Preview Content */,
+			);
+			path = EatAtHomeExpress;
+			sourceTree = "<group>";
+		};
+		F0F7D490297075E400778015 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D491297075E400778015 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F0F7D49A297075E500778015 /* EatAtHomeExpressTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D49B297075E500778015 /* EatAtHomeExpressTests.swift */,
+			);
+			path = EatAtHomeExpressTests;
+			sourceTree = "<group>";
+		};
+		F0F7D4A4297075E500778015 /* EatAtHomeExpressUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D4A5297075E500778015 /* EatAtHomeExpressUITests.swift */,
+				F0F7D4A7297075E500778015 /* EatAtHomeExpressUITestsLaunchTests.swift */,
+			);
+			path = EatAtHomeExpressUITests;
+			sourceTree = "<group>";
+		};
+		F0F7D4B4297077A100778015 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D4B72970781500778015 /* Home.swift */,
+				F0F7D4B92970782600778015 /* Menu.swift */,
+				F0F7D4D529707C4A00778015 /* ItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0F7D4B5297077AF00778015 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D4BD2970785100778015 /* Item.swift */,
+			);
+			name = Model;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		F0F7D4B6297077C100778015 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F0F7D4BF2970786600778015 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0F7D486297075E200778015 /* EatAtHomeExpress */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0F7D4AB297075E500778015 /* Build configuration list for PBXNativeTarget "EatAtHomeExpress" */;
+			buildPhases = (
+				F0F7D483297075E200778015 /* Sources */,
+				F0F7D484297075E200778015 /* Frameworks */,
+				F0F7D485297075E200778015 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EatAtHomeExpress;
+			packageProductDependencies = (
+				F0F7D4C429707A7C00778015 /* FirebaseAuth */,
+				F0F7D4C629707A7C00778015 /* FirebaseDatabase */,
+				F0F7D4C829707A7C00778015 /* FirebaseDatabaseSwift */,
+				F0F7D4CA29707A7C00778015 /* FirebaseFirestore */,
+				F0F7D4CC29707A7C00778015 /* FirebaseFirestoreSwift */,
+				F0F7D4CE29707A7C00778015 /* FirebaseFunctions */,
+				F0F7D4D029707A7C00778015 /* FirebaseStorage */,
+				F0F7D4D329707BB500778015 /* SDWebImageSwiftUI */,
+			);
+			productName = EatAtHomeExpress;
+			productReference = F0F7D487297075E300778015 /* EatAtHomeExpress.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0F7D496297075E500778015 /* EatAtHomeExpressTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0F7D4AE297075E500778015 /* Build configuration list for PBXNativeTarget "EatAtHomeExpressTests" */;
+			buildPhases = (
+				F0F7D493297075E500778015 /* Sources */,
+				F0F7D494297075E500778015 /* Frameworks */,
+				F0F7D495297075E500778015 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0F7D499297075E500778015 /* PBXTargetDependency */,
+			);
+			name = EatAtHomeExpressTests;
+			productName = EatAtHomeExpressTests;
+			productReference = F0F7D497297075E500778015 /* EatAtHomeExpressTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F0F7D4A0297075E500778015 /* EatAtHomeExpressUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0F7D4B1297075E500778015 /* Build configuration list for PBXNativeTarget "EatAtHomeExpressUITests" */;
+			buildPhases = (
+				F0F7D49D297075E500778015 /* Sources */,
+				F0F7D49E297075E500778015 /* Frameworks */,
+				F0F7D49F297075E500778015 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0F7D4A3297075E500778015 /* PBXTargetDependency */,
+			);
+			name = EatAtHomeExpressUITests;
+			productName = EatAtHomeExpressUITests;
+			productReference = F0F7D4A1297075E500778015 /* EatAtHomeExpressUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0F7D47F297075E200778015 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					F0F7D486297075E200778015 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					F0F7D496297075E500778015 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F0F7D486297075E200778015;
+					};
+					F0F7D4A0297075E500778015 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F0F7D486297075E200778015;
+					};
+				};
+			};
+			buildConfigurationList = F0F7D482297075E200778015 /* Build configuration list for PBXProject "EatAtHomeExpress" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0F7D47E297075E200778015;
+			packageReferences = (
+				F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F0F7D4D229707BB400778015 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
+			productRefGroup = F0F7D488297075E300778015 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0F7D486297075E200778015 /* EatAtHomeExpress */,
+				F0F7D496297075E500778015 /* EatAtHomeExpressTests */,
+				F0F7D4A0297075E500778015 /* EatAtHomeExpressUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0F7D485297075E200778015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F7D492297075E400778015 /* Preview Assets.xcassets in Resources */,
+				F0F7D4C22970790B00778015 /* GoogleService-Info.plist in Resources */,
+				F0F7D48F297075E400778015 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F7D495297075E500778015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F7D49F297075E500778015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0F7D483297075E200778015 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F7D4BE2970785100778015 /* Item.swift in Sources */,
+				F0F7D4C02970786600778015 /* HomeViewModel.swift in Sources */,
+				F0F7D48D297075E300778015 /* ContentView.swift in Sources */,
+				F0F7D4B82970781500778015 /* Home.swift in Sources */,
+				F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */,
+				F0F7D4BA2970782600778015 /* Menu.swift in Sources */,
+				F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F7D493297075E500778015 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F7D49C297075E500778015 /* EatAtHomeExpressTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F7D49D297075E500778015 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F7D4A8297075E500778015 /* EatAtHomeExpressUITestsLaunchTests.swift in Sources */,
+				F0F7D4A6297075E500778015 /* EatAtHomeExpressUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0F7D499297075E500778015 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0F7D486297075E200778015 /* EatAtHomeExpress */;
+			targetProxy = F0F7D498297075E500778015 /* PBXContainerItemProxy */;
+		};
+		F0F7D4A3297075E500778015 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0F7D486297075E200778015 /* EatAtHomeExpress */;
+			targetProxy = F0F7D4A2297075E500778015 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F0F7D4A9297075E500778015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F0F7D4AA297075E500778015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0F7D4AC297075E500778015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development: alexander.gallorini@icloud.com (6MS2HGC7DD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: alexander.gallorini@icloud.com (6MS2HGC7DD)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EatAtHomeExpress/Preview Content\"";
+				DEVELOPMENT_TEAM = V4BLJ44247;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.EatAtHomeExpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F0F7D4AD297075E500778015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development: alexander.gallorini@icloud.com (6MS2HGC7DD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: alexander.gallorini@icloud.com (6MS2HGC7DD)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EatAtHomeExpress/Preview Content\"";
+				DEVELOPMENT_TEAM = V4BLJ44247;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.EatAtHomeExpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F0F7D4AF297075E500778015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V4BLJ44247;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.EatAtHomeExpressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EatAtHomeExpress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EatAtHomeExpress";
+			};
+			name = Debug;
+		};
+		F0F7D4B0297075E500778015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V4BLJ44247;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.EatAtHomeExpressTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EatAtHomeExpress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EatAtHomeExpress";
+			};
+			name = Release;
+		};
+		F0F7D4B2297075E500778015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V4BLJ44247;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.EatAtHomeExpressUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EatAtHomeExpress;
+			};
+			name = Debug;
+		};
+		F0F7D4B3297075E500778015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V4BLJ44247;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.EatAtHomeExpressUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EatAtHomeExpress;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0F7D482297075E200778015 /* Build configuration list for PBXProject "EatAtHomeExpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0F7D4A9297075E500778015 /* Debug */,
+				F0F7D4AA297075E500778015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0F7D4AB297075E500778015 /* Build configuration list for PBXNativeTarget "EatAtHomeExpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0F7D4AC297075E500778015 /* Debug */,
+				F0F7D4AD297075E500778015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0F7D4AE297075E500778015 /* Build configuration list for PBXNativeTarget "EatAtHomeExpressTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0F7D4AF297075E500778015 /* Debug */,
+				F0F7D4B0297075E500778015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0F7D4B1297075E500778015 /* Build configuration list for PBXNativeTarget "EatAtHomeExpressUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0F7D4B2297075E500778015 /* Debug */,
+				F0F7D4B3297075E500778015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		F0F7D4D229707BB400778015 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F0F7D4C429707A7C00778015 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F0F7D4C629707A7C00778015 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		F0F7D4C829707A7C00778015 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		F0F7D4CA29707A7C00778015 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F0F7D4CC29707A7C00778015 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		F0F7D4CE29707A7C00778015 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		F0F7D4D029707A7C00778015 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4C329707A7C00778015 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		F0F7D4D329707BB500778015 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0F7D4D229707BB400778015 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F0F7D47F297075E200778015 /* Project object */;
+}
