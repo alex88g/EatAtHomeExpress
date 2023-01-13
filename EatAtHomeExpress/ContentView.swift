@@ -9,9 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-
-        Home()
         
+        NavigationView{
+            
+            Home()
+            
+        }
     }
 }
 

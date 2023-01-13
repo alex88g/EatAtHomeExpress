@@ -38,6 +38,7 @@ struct Home: View {
                     Spacer(minLength: 0)
                     
                 }
+                
                 .padding([.horizontal,.top])
                 
                 Divider()
@@ -58,89 +59,103 @@ struct Home: View {
                         .animation(.easeIn)
                     }
                 }
+                
                 .padding(.horizontal)
                 .padding(.top,10)
                 
                 Divider()
                 
-                ScrollView(.vertical, showsIndicators: false, content: {
+                if HomeModel.items.isEmpty{
                     
-                    VStack(spacing: 25){
+                    Spacer()
+                    
+                    ProgressView()
+                    
+                    Spacer()
+                }
+                
+                else{
+                    ScrollView(.vertical, showsIndicators: false, content: {
                         
-                        ForEach(HomeModel.filtered){ item in
+                        VStack(spacing: 25){
                             
-                            // item view
-                            
-                            ZStack(alignment: Alignment(horizontal: .center, vertical: .top), content: {
+                            ForEach(HomeModel.filtered){ item in
                                 
-                                ItemView(item: item)
+                                // item view
                                 
-                                HStack{
+                                ZStack(alignment: Alignment(horizontal: .center, vertical: .top), content: {
                                     
-                                    Text("FREE DELIVERY")
-                                        .foregroundColor(.white)
-                                        .padding(.vertical,10)
-                                        .padding(.horizontal)
-                                        .background(Color("red"))
+                                    ItemView(item: item)
                                     
-                                    Spacer(minLength: 0)
-                                    
-                                    Button(action: {}, label: {
+                                    HStack{
                                         
-                                        Image(systemName: "plus")
+                                        Text("FREE DELIVERY")
                                             .foregroundColor(.white)
-                                            .padding(10)
+                                            .padding(.vertical,10)
+                                            .padding(.horizontal)
                                             .background(Color("red"))
-                                            .clipShape(Circle())
-                                    })
+                                        
+                                        Spacer(minLength: 0)
+                                        
+                                        Button(action: {
+                                            HomeModel.addToCart(item: item)
+                                            
+                                        }, label: {
+                                            
+                                            Image(systemName: item.isAdded ? "checkmark" : "plus")
+                                                .foregroundColor(.white)
+                                                .padding(10)
+                                                .background(item.isAdded ? Color.green: Color ("red"))
+                                                .clipShape(Circle())
+                                        })
+                                        
+                                    }
                                     
-                                }
+                                    .padding(.trailing,10)
+                                    .padding(.top,10)
+                                    
+                                })
                                 
-                                .padding(.trailing,10)
-                                .padding(.top,10)
-                                    
-                            })
-                            
-                            .frame(width: UIScreen.main.bounds.width - 30)
+                                .frame(width: UIScreen.main.bounds.width - 30)
+                            }
                         }
-                    }
-                    
-                    .padding(.top,10)
-                    
-                })
+                        
+                        .padding(.top,10)
+                        
+                    })
+                }
             }
-            
-            // side menu
-            
-            HStack{
+                // side menu
                 
-                Menu(homeData: HomeModel)
-                // move Effect from left
-                    .offset(x: HomeModel.showMenu ? 0 : -UIScreen.main.bounds.width / 1.6)
-                
-                Spacer(minLength: 0)
-            }
-            .background(Color.black.opacity(HomeModel.showMenu ? 0.3 : 0).ignoresSafeArea())
+                HStack{
+                    
+                    Menu(homeData: HomeModel)
+                    // move effect from left
+                        .offset(x: HomeModel.showMenu ? 0 : -UIScreen.main.bounds.width / 1.6)
+                    
+                    Spacer(minLength: 0)
+                }
+                .background(Color.black.opacity(HomeModel.showMenu ? 0.3 : 0).ignoresSafeArea())
                 //closing when taps on outside
-            .onTapGesture(perform: {
-                withAnimation(.easeIn){HomeModel.showMenu.toggle()}
-            })
-            
-            // non closable alert if permission denied
-            
-                        if HomeModel.noLocation{
-            
-                            Text("Please Enable Location Access In Settings To Further Move On !!!")
-                                .foregroundColor(.black)
-                                .frame(width: UIScreen.main.bounds.width - 100, height: 120)
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .frame(maxWidth: .infinity,maxHeight: .infinity)
-                                .background(Color.black.opacity(0.3).ignoresSafeArea())
-            
-                        }
-            
-                    }
+                .onTapGesture(perform: {
+                    withAnimation(.easeIn){HomeModel.showMenu.toggle()}
+                })
+                
+                // non closable alert if permission denied
+                
+                if HomeModel.noLocation{
+                    
+                    Text("Please Enable Location Access In Settings To Further Move On !!!")
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.main.bounds.width - 100, height: 120)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .frame(maxWidth: .infinity,maxHeight: .infinity)
+                        .background(Color.black.opacity(0.3).ignoresSafeArea())
+                    
+                }
+                
+            }
             
             .onAppear(perform: {
                 
@@ -148,7 +163,7 @@ struct Home: View {
                 HomeModel.locationManager.delegate = HomeModel
                 
             })
-        
+            
             .onChange(of: HomeModel.search, perform: { value in
                 
                 // to avoid continues search request
@@ -169,7 +184,8 @@ struct Home: View {
                 }
                 
             })
-        
-        
+            
+            
         }
     }
+

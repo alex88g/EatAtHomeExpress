@@ -28,6 +28,8 @@
 		F0F7D4D129707A7C00778015 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4D029707A7C00778015 /* FirebaseStorage */; };
 		F0F7D4D429707BB500778015 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F0F7D4D329707BB500778015 /* SDWebImageSwiftUI */; };
 		F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4D529707C4A00778015 /* ItemView.swift */; };
+		F0F7D4D829718B8300778015 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4D729718B8200778015 /* Cart.swift */; };
+		F0F7D4DA2971980B00778015 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D4D92971980A00778015 /* CartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		F0F7D4BF2970786600778015 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F0F7D4C12970790B00778015 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0F7D4D529707C4A00778015 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		F0F7D4D729718B8200778015 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		F0F7D4D92971980A00778015 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				F0F7D4B72970781500778015 /* Home.swift */,
 				F0F7D4B92970782600778015 /* Menu.swift */,
 				F0F7D4D529707C4A00778015 /* ItemView.swift */,
+				F0F7D4D92971980A00778015 /* CartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				F0F7D4BD2970785100778015 /* Item.swift */,
+				F0F7D4D729718B8200778015 /* Cart.swift */,
 			);
 			name = Model;
 			path = "New Group1";
@@ -331,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F7D4DA2971980B00778015 /* CartView.swift in Sources */,
 				F0F7D4BE2970785100778015 /* Item.swift in Sources */,
 				F0F7D4C02970786600778015 /* HomeViewModel.swift in Sources */,
 				F0F7D48D297075E300778015 /* ContentView.swift in Sources */,
@@ -338,6 +345,7 @@
 				F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */,
 				F0F7D4BA2970782600778015 /* Menu.swift in Sources */,
 				F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */,
+				F0F7D4D829718B8300778015 /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
