@@ -37,7 +37,7 @@ struct Menu: View {
                 
                 Spacer()
                 
-                Text("Version 0.1")
+                Text("Version 0.1.6")
                     .fontWeight(.bold)
                     .foregroundColor(Color("red"))
             }

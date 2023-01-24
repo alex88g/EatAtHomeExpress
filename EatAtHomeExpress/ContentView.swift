@@ -12,7 +12,11 @@ struct ContentView: View {
         
         NavigationView{
             
+            //Login()
             Home()
+            
+         
+           
             
         }
     }
