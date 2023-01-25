@@ -9,76 +9,133 @@ import SwiftUI
 
 struct Login: View {
     
-    @State var username = ""
-    @State var password = ""
-    @State var wrongUsername = 0
-    @State var wrongPassword = 0
-    @State var showingLoginScreen = false
+    
+    @State var color = Color.black.opacity(0.7)
+    @State var email = ""
+    @State var pass = ""
+    @State var visible = false
+    @State var wrongEmail = 0
     
     var body: some View {
+        
         NavigationView{
-            ZStack{
-                Color.red
-                    .ignoresSafeArea()
-                Circle()
-                    .scale(1.7)
-                    .foregroundColor(.white.opacity(0.15))
-                Circle()
-                    .scale(1.35)
-                    .foregroundColor(.white)
-                VStack{
-                    Text("Login")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding()
-                    TextField("Username", text: $username)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black.opacity(0.05))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongUsername))
-                    
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black.opacity(0.05))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongPassword))
-                    
-                    Button("Login") {
-                        // Autheticate user
-                        autheticateUser(username: username, password: password)
-                    }
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
-                    .background(Color.red)
-                    .cornerRadius(10)
-                    .zIndex(1)
-                    
-                  //  NavigationLink(isActive: $showingLoginScreen, destination: {Home()}, label: {Text("hej")})
-                    
-                   
-                }.fullScreenCover(isPresented: $showingLoginScreen, content: {Home()})
-            }
-            .navigationBarHidden(true)
-        }
-    }
-        func autheticateUser(username: String, password: String) {
-            print("u: \(username), p: \(password)")
-            if username == "Alex2023" {
-                wrongUsername = 0
+            
+            ZStack(alignment: .topTrailing) {
                 
-                if password == "Alex123" {
-                    wrongPassword = 0
-                    showingLoginScreen = true
-                    print("login")
-                } else {
-                    wrongPassword = 2
+                GeometryReader{_ in
+                    
+                    VStack{
+                        
+                    }
+                    
+                    Color.red
+                        .ignoresSafeArea()
+                    Circle()
+                        .scale(1.6)
+                        .foregroundColor(.white.opacity(0.15))
+                    Circle()
+                        .scale(1.25)
+                        .foregroundColor(.white)
+                        .padding(.top, 220)
+                    
+                    GeometryReader{_ in
+                        
+                        
+                        VStack{
+                            
+                            Image("logo")
+                                .padding(.top, 35)
+
+                            
+                            Text("Log in to your account")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.top, 15)
+                            
+                            TextField("Email", text: self.$email)
+                                .padding()
+                                .background(RoundedRectangle(cornerRadius: 15).stroke(self.email != "" ? Color("red") : self.color,lineWidth: 2))
+                                .padding(.top, 25)
+                            HStack(spacing: 15){
+                                
+                                VStack {
+                                    
+                                    if self.visible{
+                                        
+                                        TextField("Password", text: self.$pass)
+                                    }
+                                    else{
+                                        
+                                        SecureField("Password", text: self.$pass)
+                                        
+                                    }
+                                }
+                                
+                                Button(action: {
+                                    
+                                }) {
+                                    
+                                    Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
+                                        .foregroundColor(self.color)
+                                }
+                            }
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 15).stroke(self.pass != "" ? Color("red") : self.color,lineWidth: 2))
+                            .padding(.top, 25)
+                            
+                            HStack{
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    
+                                }){
+                                    Text("Forget password")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color("red"))
+                                }
+                            }
+                            .padding(.top, 20)
+                            
+                            Button(action: {
+                                
+                            }){
+                                
+                                Text("Log in")
+                                    .foregroundColor(.white)
+                                    .padding(.vertical)
+                                    .frame(width: UIScreen.main.bounds.width - 50)
+                                
+                            }
+                            
+                            .background(Color("red"))
+                            .cornerRadius(15)
+                            .padding(.top, 25)
+                            
+                        }
+                        
+                        .padding(.horizontal, 25)
+                    }
+                    
+                    Button(action: {
+                        
+                    }){
+                        
+                        Text("Register")
+                            .fontWeight(.bold)
+                            .foregroundColor(self.color)
+                        
+                    }
+                    .padding(.top, 550)
+                    .padding(.horizontal, 30)
+                    
                 }
                 
-            } else {
-                wrongUsername = 2
             }
+            
         }
+        
     }
-
+    
+}
+                    
