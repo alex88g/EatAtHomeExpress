@@ -55,10 +55,10 @@ struct Login: View {
                     .cornerRadius(10)
                     .zIndex(1)
                     
-                    NavigationLink(destination: Text("You are logged in @\(username)"), isActive: $showingLoginScreen) {
-                        EmptyView()
-                    }
-                }
+                  //  NavigationLink(isActive: $showingLoginScreen, destination: {Home()}, label: {Text("hej")})
+                    
+                   
+                }.fullScreenCover(isPresented: $showingLoginScreen, content: {Home()})
             }
             .navigationBarHidden(true)
         }
