@@ -47,7 +47,7 @@ struct Home: View {
                         Spacer(minLength: 0)
                         
                     }
-                    //Logout
+                    //Logout with rectangle prtrait (exit) picture
                     Button(action: {
                         
                         try! Auth.auth().signOut()

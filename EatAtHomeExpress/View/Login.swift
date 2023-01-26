@@ -31,7 +31,7 @@ struct Login: View {
                     VStack{
                         
                     }
-                    
+                    // the background that is appropriate for the app
                     Color.red
                         .ignoresSafeArea()
                     Circle()
@@ -45,16 +45,16 @@ struct Login: View {
                     GeometryReader{_ in
                         
                         VStack{
-                            
+                            // App logo
                             Image("logo")
                                 .padding(.top, 35)
                             
-                            
+                            // Information about log in
                             Text("Log in to your account")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .padding(.top, 15)
-                            
+                            // TextField for entering email
                             TextField("Email", text: self.$email)
                                 .autocapitalization(.none)
                                 .padding()
@@ -67,7 +67,7 @@ struct Login: View {
                                     
                                     
                                     if self.visible{
-                                        
+                                        //TextField with entering a paswword
                                         TextField("Password", text: self.$pass)
                                             .autocapitalization(.none)
                                     }
@@ -79,7 +79,7 @@ struct Login: View {
                                     }
                                     
                                 }
-                                
+                                 // Button with hide and visible eye slash
                                 Button(action: {
                                     
                                     self.visible.toggle()
@@ -97,7 +97,7 @@ struct Login: View {
                             HStack{
                                 
                                 Spacer()
-                                
+                                // Forget password button
                                 Button(action: {
                                     
                                     self.reset()
@@ -115,7 +115,7 @@ struct Login: View {
                                 self.verify()
                                 
                             }){
-                                
+                                // Log in button
                                 Text("Log in")
                                     .foregroundColor(.white)
                                     .padding(.vertical)
@@ -150,10 +150,11 @@ struct Login: View {
                 }
                 
             }
-            
+            // Shows error alert
             if self.alert{
                 
-//                ErrorView(alert: self.$alert, error: self.$error)
+                    ErrorView(alert: self.$alert, error: self.$error)
+                
             }
             
         }
@@ -162,7 +163,7 @@ struct Login: View {
     func verify(){
         
         if self.email != "" && self.pass != ""{
-            
+            //here shows that you have successfully changed password with firebase
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res,
                                                                               err) in
                 
@@ -172,7 +173,7 @@ struct Login: View {
                     self.alert.toggle()
                     return
                 }
-                
+                //UserDefaults saves the log in when you exit the app
                 print("success")
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
@@ -181,7 +182,7 @@ struct Login: View {
             
         }
         else {
-            
+            // Must fill in all information correctly when logging with firebase
             self.error = "Please fill all the contents properly"
             self.alert.toggle()
             
@@ -193,7 +194,7 @@ struct Login: View {
     func reset(){
         
         if self.email != "" {
-            
+            //Here you confirm your email if you have forgotten your password
             Auth.auth().sendPasswordReset(withEmail: self.email) { (err) in
                 
                 if err != nil{
@@ -211,73 +212,14 @@ struct Login: View {
             
         }
         else{
-            
+            // Email must be filled in correctly
             self.error = "Email Id is empty"
             self.alert.toggle()
         }
+    }
+}
         
-        
-        struct ErrorView : View {
-            
-            @State var color = Color.black.opacity(0.7)
-            @Binding var alert : Bool
-            @Binding var error : String
-            
-            var body: some View{
-                
-                GeometryReader{_ in
-                    
-                    VStack{
-                        
-                        HStack{
-                            
-                            Text(self.error == "RESET" ? "Message" : "Error")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundColor(self.color)
-                            
-                            Spacer()
-                            
-                        }
-                        
-                        .padding(.horizontal, 25)
-                        
-                        Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
-                            .foregroundColor(self.color)
-                            .padding(.top)
-                            .padding(.horizontal, 25)
-                        
-                        Button(action: {
-                            
-                            self.alert.toggle()
-                            
-                            
-                        }){
-                            
-                            Text(self.error == "RESET" ? "Ok" : "Cancel")
-                                .foregroundColor(self.color)
-                                .padding(.vertical)
-                                .frame(width: UIScreen.main.bounds.width - 120)
-                        }
-                        
-                        .background(Color("red"))
-                        .cornerRadius(10)
-                        .padding(.top, 25)
-                        
-                    }
-                    .padding(.vertical, 25)
-                    .frame(width: UIScreen.main.bounds.width - 70)
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    
-                }
-                .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
-                
-            }
-            
-        }
-    }}
-
+     
 
     
     
