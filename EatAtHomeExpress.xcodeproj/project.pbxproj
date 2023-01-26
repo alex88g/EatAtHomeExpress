@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F0C03F2F297FE8970074AEEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F2E297FE8970074AEEA /* Login.swift */; };
 		F0C03F31298158760074AEEA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0C03F30298158760074AEEA /* logo.png */; };
+		F0C03F352982285F0074AEEA /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F342982285F0074AEEA /* SignUp.swift */; };
 		F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */; };
 		F0F7D48D297075E300778015 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48C297075E300778015 /* ContentView.swift */; };
 		F0F7D48F297075E400778015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D48E297075E400778015 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		F0C03F2E297FE8970074AEEA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F0C03F30298158760074AEEA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F0C03F342982285F0074AEEA /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F0F7D487297075E300778015 /* EatAtHomeExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAtHomeExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressApp.swift; sourceTree = "<group>"; };
 		F0F7D48C297075E300778015 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				F0F7D4D529707C4A00778015 /* ItemView.swift */,
 				F0F7D4D92971980A00778015 /* CartView.swift */,
 				F0C03F2E297FE8970074AEEA /* Login.swift */,
+				F0C03F342982285F0074AEEA /* SignUp.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				F0F7D4DA2971980B00778015 /* CartView.swift in Sources */,
 				F0C03F2F297FE8970074AEEA /* Login.swift in Sources */,
 				F0F7D4BE2970785100778015 /* Item.swift in Sources */,
+				F0C03F352982285F0074AEEA /* SignUp.swift in Sources */,
 				F0F7D4C02970786600778015 /* HomeViewModel.swift in Sources */,
 				F0F7D48D297075E300778015 /* ContentView.swift in Sources */,
 				F0F7D4B82970781500778015 /* Home.swift in Sources */,
