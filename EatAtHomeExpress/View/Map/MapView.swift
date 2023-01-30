@@ -13,7 +13,7 @@ struct MapView: View {
     //location manager är delegate
     var locationManager = LocationManager()
     
-    @State  var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.3323341, longitude: -122.0312186), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+    @State  var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.3323341, longitude: -122.0312186), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.02))
     
     @State var places = [
         Place(name: "nice place", latitude: 37.3323341, longitude: -122.0312186),

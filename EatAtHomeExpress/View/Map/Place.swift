@@ -19,3 +19,4 @@ struct Place : Identifiable {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
+   

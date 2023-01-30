@@ -9,9 +9,8 @@ import SwiftUI
 import Firebase
 
 struct Home: View {
-    
     @StateObject var HomeModel = HomeViewModel()
-    @State var color = Color.black.opacity(0.7)
+    @State var color = Color.black
     
     
     
@@ -21,8 +20,12 @@ struct Home: View {
         NavigationView{
             
             
+            
             ZStack{
+                
+                
                 VStack(spacing: 10){
+                    
                     
                     HStack(spacing: 15){
                         
@@ -43,30 +46,35 @@ struct Home: View {
                             .fontWeight(.heavy)
                             .foregroundColor(Color("red"))
                         Spacer(minLength: 0)
-                        //Logout button with rectangle prtrait (exit) picture
+                        //
+                        
                         Button(action: {
                             
-                            try! Auth.auth().signOut()
-                            UserDefaults.standard.set(false, forKey: "status")
-                            NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                             
                         }){
-                            
-                            Image(systemName: "rectangle.portrait.and.arrow.forward.fill")
-                                .foregroundColor(self.color)
-                                .background(.white)
-                                .padding(.top, 10)
-                                .padding(.horizontal, 20)
-                                .opacity(0.60)
-                        }
-                        
-                    }
+                            NavigationLink(destination: MapView()){
+                                Image(systemName: "mappin.and.ellipse")
+                                    .foregroundColor(.red)
+                                    .padding(.top, 10)
+                                    .padding(.horizontal, 35)
+                                
+                                
+                                
+                            }}}
                     
                     Divider()
                     
                     HStack(spacing: 15){
                         
                         TextField("Search", text: $HomeModel.search)
+                            .frame(height: 35)
+                            .padding(.horizontal)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .foregroundColor(.white)
+                            
+                            
+                            
+                            
                         
                         if HomeModel.search != ""{
                             
@@ -74,7 +82,9 @@ struct Home: View {
                                 
                                 Image(systemName:  "magnifyingglass")
                                     .font(.title2)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.white)
+                                
+                                
                                 
                             })
                             .animation(.easeIn)
@@ -141,7 +151,7 @@ struct Home: View {
                                 }
                             }
                             
-                            .padding(.top,10)
+                            .padding(.top, 10)
                             
                         })
                     }
@@ -153,11 +163,14 @@ struct Home: View {
                     
                     
                     Menu(homeData: HomeModel)
+                    
                     // move effect from left
                         .offset(x: HomeModel.showMenu ? 0 : -UIScreen.main.bounds.width / 1.6)
                     
+                    
                     Spacer(minLength: 0)
                 }
+                
                 .background(Color.black.opacity(HomeModel.showMenu ? 0.3 : 0).ignoresSafeArea())
                 //closing when taps on outside
                 .onTapGesture(perform: {
@@ -211,16 +224,15 @@ struct Home: View {
                 
             })
             
-            
+           
         }
-      
+       
     }
-    
-}
-                
-                
-            
-           
-           
-
-  
+                       
+        
+                    }
+        
+                    
+//                }
+//            }
+//

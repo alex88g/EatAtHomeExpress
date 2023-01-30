@@ -34,13 +34,15 @@ struct Login: View {
                     // the background that is appropriate for the app
                     Color.red
                         .ignoresSafeArea()
+                        .padding(.top, -20)
+                        
                     Circle()
                         .scale(1.6)
                         .foregroundColor(.white.opacity(0.15))
                     Circle()
                         .scale(1.25)
                         .foregroundColor(.white)
-                        .padding(.top, 220)
+                        .padding(.top, 250)
                     
                     GeometryReader{_ in
                         
@@ -61,7 +63,7 @@ struct Login: View {
                                 .background(RoundedRectangle(cornerRadius: 15).stroke(self.email != "" ? Color("red") : self.color,lineWidth: 2))
                                 .padding(.top, 25)
                             
-                            HStack(spacing: 15){
+                            HStack(spacing: 10){
                                 
                                 VStack {
                                     
@@ -155,6 +157,7 @@ struct Login: View {
                 
                     ErrorView(alert: self.$alert, error: self.$error)
                 
+                
             }
             
         }
@@ -215,8 +218,12 @@ struct Login: View {
             // Email must be filled in correctly
             self.error = "Email Id is empty"
             self.alert.toggle()
+            
+            
         }
+            
     }
+    
 }
         
      

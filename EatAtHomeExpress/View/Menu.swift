@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Menu: View {
     @ObservedObject var homeData : HomeViewModel
+    @State var color = Color.black
+    
+  
     var body: some View {
         
         VStack{
@@ -23,12 +27,14 @@ struct Menu: View {
                     
                     Text("cart")
                         .fontWeight(.bold)
-                        .foregroundColor(.black)
+                        .foregroundColor(.red)
+                    
                     
                     Spacer(minLength: 0)
                 }
                 
                 .padding()
+                
             }
             
             Spacer()
@@ -37,15 +43,34 @@ struct Menu: View {
                 
                 Spacer()
                 
-                Text("Version 0.1.6")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("red"))
+                //Logout button with rectangle prtrait (exit) picture
+                               Button(action: {
+                                   
+                                   try! Auth.auth().signOut()
+                                   UserDefaults.standard.set(false, forKey: "status")
+                                   NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                                   
+                               }){
+                                   
+                                   Text( "Log out")
+                                       .foregroundColor(.red)
+                                       .fontWeight(.heavy)
+                                   Image(systemName: "rectangle.portrait.and.arrow.right")
+            
+                                       .padding(.horizontal)
+                                       .fontWeight(.heavy)
+                               }
             }
             
             .padding(10)
         }
         .padding([.top,.trailing])
         .frame(width: UIScreen.main.bounds.width / 1.6)
-        .background(Color.white.ignoresSafeArea())
+        .background(Color.black.ignoresSafeArea())
+        .opacity(0.80)
+        
+        
     }
+  
+  
 }

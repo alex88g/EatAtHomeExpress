@@ -229,6 +229,7 @@ struct ErrorView : View {
                         .fontWeight(.bold)
                         .foregroundColor(self.color)
                     
+                    
                     Spacer()
                     
                 }
@@ -258,13 +259,19 @@ struct ErrorView : View {
                 .padding(.top, 25)
                 
             }
-            .padding(.vertical, 25)
+            
             .frame(width: UIScreen.main.bounds.width - 70)
             .background(Color.white)
             .cornerRadius(15)
             
         }
         .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
+        .cornerRadius(15)
+        .padding(.horizontal, 35)
+        .padding(.top, 100)
+       
+        
+        
         
     }
     

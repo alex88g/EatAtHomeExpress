@@ -12,6 +12,7 @@ import Firebase
 // Fetching User Location
 class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
     
+    
     @Published var locationManager = CLLocationManager()
     @Published var search = ""
     

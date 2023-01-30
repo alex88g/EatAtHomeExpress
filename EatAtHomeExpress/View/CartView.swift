@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct CartView: View {
     @ObservedObject var homeData: HomeViewModel
     @Environment(\.presentationMode) var present
+    
     var body: some View {
         VStack{
             
@@ -134,9 +135,9 @@ struct CartView: View {
                     
                     HStack{
                         
-                        Text("Total")
+                        Text("Total:")
                             .fontWeight(.heavy)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.black)
                         
                         Spacer()
                         
@@ -151,25 +152,29 @@ struct CartView: View {
                     Button(action: homeData.updateOrder) {
                         
                         Text(homeData.ordered ? "Cancel Order" : "Check out")
+                            
                             .font(.title2)
                             .fontWeight(.heavy)
                             .foregroundColor(.white)
                             .padding(.vertical)
+                            .padding(.bottom, 0)
                             .frame(width: UIScreen.main.bounds.width - 30)
-                            .background(
-                                
-                                Color("red")
-                                
-                            )
+                            .background(Color("red"))
                             .cornerRadius(15)
                     }
                 }
                 
                 .background(Color.white)
+                .cornerRadius(15)
+                
+            
+                
+                
+                
                 
             }
             
-            .background(Color("gray").ignoresSafeArea())
+            .background(Color("").ignoresSafeArea())
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
         }
