@@ -66,11 +66,16 @@ struct Home: View {
                     
                     HStack(spacing: 15){
                         
-                        TextField("Search", text: $HomeModel.search)
+                        TextField("Search for restaurants or dishes", text: $HomeModel.search)
+                            
                             .frame(height: 35)
+                            .foregroundColor(self.color)
                             .padding(.horizontal)
                             .background(RoundedRectangle(cornerRadius: 15))
-                            .foregroundColor(.white)
+                            
+
+                            
+                            
                             
                             
                             
@@ -82,7 +87,7 @@ struct Home: View {
                                 
                                 Image(systemName:  "magnifyingglass")
                                     .font(.title2)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.gray)
                                 
                                 
                                 

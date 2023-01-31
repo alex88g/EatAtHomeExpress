@@ -48,12 +48,14 @@ struct CartView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 130, height: 130)
                                 .cornerRadius(15)
+                               
+                            
                             
                             VStack(alignment: .leading, spacing: 10){
                                 
                                 Text(cart.item.item_name)
                                     .fontWeight(.semibold)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.red)
                                 
                                 Text(cart.item.item_details)
                                     .fontWeight(.semibold)
@@ -65,7 +67,7 @@ struct CartView: View {
                                     Text(homeData.getPrice(value: Float(truncating: cart.item.item_cost)))
                                         .font(.title2)
                                         .fontWeight(.heavy)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.gray)
                                     
                                     Spacer(minLength: 0)
                                     
@@ -81,16 +83,17 @@ struct CartView: View {
                                         
                                         Image(systemName: "minus")
                                             .font(.system(size: 16, weight: .heavy))
-                                            .foregroundColor(.black)
+                                            .foregroundColor(Color("red"))
+                                                                                        
                                         
                                     }
                                     
                                     Text("\(cart.quantity)")
                                         .fontWeight(.heavy)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.gray)
                                         .padding(.vertical,5)
                                         .padding(.horizontal,10)
-                                        .background(Color.black.opacity(0.06))
+                                        .background(Color.gray.opacity(0.06))
                                     
                                     Button(action: {
                                         
@@ -101,13 +104,16 @@ struct CartView: View {
                                         
                                         Image(systemName: "plus")
                                             .font(.system(size: 16, weight: .heavy))
-                                            .foregroundColor(.black)
+                                            .foregroundColor(Color("red"))
+                                            
                                     }
+                                    
                                 }
                                 
                             }
                             .padding()
-                            .contextMenu{
+                            
+                                                        .contextMenu{
                                 
                                 // for deleting
                                 Button(action: {
@@ -123,7 +129,8 @@ struct CartView: View {
                                 }){
                                     Text("Remove")
                                 }
-                                
+//                                .background(.white)
+//                                .opacity(0.35)
                             }
                         }
                     }
