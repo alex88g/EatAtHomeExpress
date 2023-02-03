@@ -12,6 +12,8 @@ import FirebaseAuth
 
 @main
 struct EatAtHomeApp: App {
+   
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {

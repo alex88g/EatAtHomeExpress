@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F02E3CDA298A6381003E6687 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3CD9298A6381003E6687 /* UserInfo.swift */; };
+		F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D13298CF4FA003E6687 /* HomeMap.swift */; };
+		F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D15298CF73D003E6687 /* MapViewModel.swift */; };
 		F0C03F2F297FE8970074AEEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F2E297FE8970074AEEA /* Login.swift */; };
 		F0C03F31298158760074AEEA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0C03F30298158760074AEEA /* logo.png */; };
 		F0C03F352982285F0074AEEA /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F342982285F0074AEEA /* SignUp.swift */; };
 		F0C03F372982B04B0074AEEA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F362982B04B0074AEEA /* MapView.swift */; };
-		F0C03F3B2982B1470074AEEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F3A2982B1470074AEEA /* LocationManager.swift */; };
 		F0C03F3F2982B2590074AEEA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F3E2982B2590074AEEA /* Place.swift */; };
 		F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */; };
 		F0F7D48D297075E300778015 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48C297075E300778015 /* ContentView.swift */; };
@@ -56,11 +58,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F01CB9ED298D6512000E4B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F02E3CD9298A6381003E6687 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		F02E3D13298CF4FA003E6687 /* HomeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMap.swift; sourceTree = "<group>"; };
+		F02E3D15298CF73D003E6687 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F0C03F2E297FE8970074AEEA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F0C03F30298158760074AEEA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F0C03F342982285F0074AEEA /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F0C03F362982B04B0074AEEA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		F0C03F3A2982B1470074AEEA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F0C03F3E2982B2590074AEEA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F0F7D487297075E300778015 /* EatAtHomeExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAtHomeExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressApp.swift; sourceTree = "<group>"; };
@@ -115,12 +120,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F0C03F382982B0DE0074AEEA /* Map */ = {
+		F02E3D17298D13A8003E6687 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				F0C03F3E2982B2590074AEEA /* Place.swift */,
 				F0C03F362982B04B0074AEEA /* MapView.swift */,
-				F0C03F3A2982B1470074AEEA /* LocationManager.swift */,
+				F02E3D13298CF4FA003E6687 /* HomeMap.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -157,6 +161,7 @@
 		F0F7D489297075E300778015 /* EatAtHomeExpress */ = {
 			isa = PBXGroup;
 			children = (
+				F01CB9ED298D6512000E4B8F /* Info.plist */,
 				F0F7D4C12970790B00778015 /* GoogleService-Info.plist */,
 				F0F7D4B6297077C100778015 /* ViewModel */,
 				F0F7D4B5297077AF00778015 /* Model */,
@@ -199,9 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				F0C03F392982B1060074AEEA /* Login */,
-				F0C03F382982B0DE0074AEEA /* Map */,
-				F0F7D4B72970781500778015 /* Home.swift */,
+				F02E3D17298D13A8003E6687 /* Map */,
 				F0F7D4B92970782600778015 /* Menu.swift */,
+				F0F7D4B72970781500778015 /* Home.swift */,
 				F0F7D4D529707C4A00778015 /* ItemView.swift */,
 				F0F7D4D92971980A00778015 /* CartView.swift */,
 			);
@@ -213,6 +218,8 @@
 			children = (
 				F0F7D4BD2970785100778015 /* Item.swift */,
 				F0F7D4D729718B8200778015 /* Cart.swift */,
+				F02E3CD9298A6381003E6687 /* UserInfo.swift */,
+				F0C03F3E2982B2590074AEEA /* Place.swift */,
 			);
 			name = Model;
 			path = "New Group1";
@@ -222,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				F0F7D4BF2970786600778015 /* HomeViewModel.swift */,
+				F02E3D15298CF73D003E6687 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -379,13 +387,15 @@
 				F0F7D4C02970786600778015 /* HomeViewModel.swift in Sources */,
 				F0C03F3F2982B2590074AEEA /* Place.swift in Sources */,
 				F0F7D48D297075E300778015 /* ContentView.swift in Sources */,
+				F02E3CDA298A6381003E6687 /* UserInfo.swift in Sources */,
 				F0F7D4B82970781500778015 /* Home.swift in Sources */,
 				F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */,
 				F0F7D4BA2970782600778015 /* Menu.swift in Sources */,
 				F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */,
 				F0C03F372982B04B0074AEEA /* MapView.swift in Sources */,
+				F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */,
 				F0F7D4D829718B8300778015 /* Cart.swift in Sources */,
-				F0C03F3B2982B1470074AEEA /* LocationManager.swift in Sources */,
+				F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +559,7 @@
 				DEVELOPMENT_TEAM = V4BLJ44247;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EatAtHomeExpress/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -581,6 +592,7 @@
 				DEVELOPMENT_TEAM = V4BLJ44247;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EatAtHomeExpress/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

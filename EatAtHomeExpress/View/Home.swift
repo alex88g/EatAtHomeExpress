@@ -52,7 +52,7 @@ struct Home: View {
                             
                             
                         }){
-                            NavigationLink(destination: MapView()){
+                            NavigationLink(destination: HomeMap()){
                                 Image(systemName: "mappin.and.ellipse")
                                     .foregroundColor(.red)
                                     .padding(.top, 10)
@@ -68,18 +68,28 @@ struct Home: View {
                         
                         TextField("Search for restaurants or dishes", text: $HomeModel.search)
                             
-                            .frame(height: 35)
-                            .foregroundColor(self.color)
+//                          .textFieldStyle(RoundedBorderTextFieldStyle())
+//
+                            .padding(.vertical, 8)
                             .padding(.horizontal)
-                            .background(RoundedRectangle(cornerRadius: 15))
-                            
-
-                            
-                            
+                            .background(Color.white.opacity(0.35)).cornerRadius(15)
+                            .foregroundColor(.white)
+                            .font(.headline)
                             
                             
+                           
                             
-                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         if HomeModel.search != ""{
                             
@@ -229,15 +239,9 @@ struct Home: View {
                 
             })
             
-           
+            
         }
-       
-    }
+        
+    }}
                        
         
-                    }
-        
-                    
-//                }
-//            }
-//

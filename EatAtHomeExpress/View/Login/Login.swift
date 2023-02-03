@@ -225,7 +225,6 @@ struct Login: View {
     }
     
 }
-        
      
 
     

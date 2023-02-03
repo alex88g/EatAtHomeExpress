@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
+  
     
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
@@ -15,11 +17,11 @@ struct ContentView: View {
     
     var body: some View {
         
-       
-           
+        
+        
         
         NavigationView{
-           
+            
             VStack{
                 
                 if self.status{
@@ -44,6 +46,7 @@ struct ContentView: View {
                     
                     Login(show: self.$show)
                     
+                    
                 }
                 
             }
@@ -64,7 +67,7 @@ struct ContentView: View {
     }
     
     
-    
+}
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
@@ -80,4 +83,4 @@ struct ContentView: View {
         
     }
         
-}
+
