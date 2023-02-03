@@ -270,7 +270,8 @@ struct SignUp: View {
             .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
             .cornerRadius(15)
             .padding(.horizontal, 35)
-            .padding(.top, 100)
+            .padding(.top, 25)
+            .padding(.bottom, 450)
             
             
             

@@ -43,7 +43,7 @@ struct Menu: View {
                 
                 Spacer()
                 
-                //Logout button with rectangle prtrait (exit) picture
+                //Logout button with rectangle portrait (exit) picture
                                Button(action: {
                                    
                                    try! Auth.auth().signOut()

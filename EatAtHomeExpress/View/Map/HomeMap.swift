@@ -10,14 +10,17 @@ import CoreLocation
 
 
 struct HomeMap: View {
- 
+
     @StateObject var mapData = MapViewModel()
     //location manager
     @State var locationManager = CLLocationManager()
     
     
     var body: some View{
+      
+     
         
+       
         ZStack{
             
             // MapView
@@ -53,7 +56,7 @@ struct HomeMap: View {
                                 ForEach(mapData.places){ place in
                                     
                                     Text(place.place.name ?? "")
-                                        
+                                    
                                         .foregroundColor(.black)
                                         .frame(maxWidth: .infinity,alignment: .leading)
                                         .padding(.leading)
@@ -62,7 +65,7 @@ struct HomeMap: View {
                                         }
                                     
                                     Divider()
-                                   
+                                    
                                 }
                                 
                             }
@@ -74,81 +77,83 @@ struct HomeMap: View {
                 }
                 .padding()
                 
-                
-                Spacer()
-                
                 VStack{
                     
-                    Button(action: mapData.focusLocation, label: {
+                    
+                    Spacer()
+                    
+                    VStack{
                         
-                        Image(systemName: "location.fill")
+                        Button(action: mapData.focusLocation, label: {
+                            
+                            Image(systemName: "location.fill")
+                                .font(.title2)
+                                .padding(10)
+                                .background(Color(.white).opacity(0.25))
+                                .clipShape(Circle())
+                            
+                        })
+                        
+                        Button(action: mapData.updateMapType, label: {
+                            
+                            Image(systemName: mapData.mapType ==
+                                .standard ? "map.fill" : "map")
                             .font(.title2)
                             .padding(10)
-                            .background(Color("grayTran"))
+                            .background(Color(.white).opacity(0.25))
                             .clipShape(Circle())
+                            
+                        })
                         
-                    })
-                    
-                    Button(action: mapData.updateMapType, label: {
-                        
-                        Image(systemName: mapData.mapType ==
-                            .standard ? "map.fill" : "map")
-                        .font(.title2)
-                        .padding(10)
-                        .background(Color("grayTran"))
-                        .clipShape(Circle())
-                        
-                    })
-                    
+                    }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding()
                 }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding()
+                
             }
+            .onAppear(perform: {
+                //settings delegate
+                locationManager.delegate = mapData
+                locationManager.requestWhenInUseAuthorization()
+                
+            })
+            //permission denied alert
+            .alert(isPresented: $mapData.permissionDenied, content: {
+                
+                Alert(title: Text("Permission Denied"), message: Text("Please Enable Permission In App Settings"), dismissButton: .default(Text("Go To Settings"), action: {
+                    
+                    //redigering user to settings
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    
+                }))
+            })
+            //        .preferredColorScheme(.dark)
             
+            .onChange(of: mapData.searchTxt, perform: { value in
+                
+                //searching places
+                
+                
+                //you can use your own delay time to avoid continous search request
+                
+                let delay = 0.3
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay)
+                {
+                    
+                    if value == mapData.searchTxt{
+                        
+                        //search
+                        self.mapData.searchQuery()
+                        
+                    }
+                }
+                
+                
+            })
         }
-        .onAppear(perform: {
-            //settings delegate
-            locationManager.delegate = mapData
-            locationManager.requestWhenInUseAuthorization()
-            
-        })
-        //permission denied alert
-        .alert(isPresented: $mapData.permissionDenied, content: {
-            
-            Alert(title: Text("Permission Denied"), message: Text("Please Enable Permission In App Settings"), dismissButton: .default(Text("Go To Settings"), action: {
-                
-                //redigering user to settings
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                
-            }))
-    })
-//        .preferredColorScheme(.dark)
-        
-        .onChange(of: mapData.searchTxt, perform: { value in
-            
-            //searching places
-            
-            
-            //you can use your own delay time to avoid continous search request
-            
-            let delay = 0.3
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + delay)
-            {
-                
-                if value == mapData.searchTxt{
-                    
-                    //search
-                    self.mapData.searchQuery()
-                    
-                }
-            }
-            
-            
-        })
-  }
+    }
 }
-        
 struct HomeMap_Previews: PreviewProvider {
     static var previews: some View {
         HomeMap()

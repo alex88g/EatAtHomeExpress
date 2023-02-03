@@ -33,13 +33,14 @@ struct MapView: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, MKMapViewDelegate{
-        
+        //custom pins
+
+        //excluding user blue circle
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) ->
         MKAnnotationView?{
             
             if annotation.isKind(of: MKUserLocation.self) {return nil }
-            //                annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            //                annotationView!.canShowCallout = true
+                    
             else{
                 let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "PIN_VIEW")
                 pinAnnotation.tintColor = .red
@@ -57,31 +58,4 @@ struct MapView: UIViewRepresentable {
     }
 }
 
-//custom pins
 
-//excluding user blue circle
-//class Coordinator: NSObject, MKMapViewDelegate{
-//
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) ->
-//    MKAnnotationView?{
-//
-//        guard annotation is MKPointAnnotation else {return nil}
-//
-//        let identifier = "Annotation"
-//
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//
-//        if annotationView == nil {
-//            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            annotationView!.canShowCallout = true
-//        }else{
-//            annotationView!.annotation = annotation
-//
-//        }
-//
-//        return annotationView
-//
-//    }
-//
-//}
-//}

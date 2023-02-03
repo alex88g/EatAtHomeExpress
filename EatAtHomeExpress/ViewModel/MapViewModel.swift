@@ -12,7 +12,7 @@ import CoreLocation
 
 //all map data goes here
 
-class MapViewModel: NSObject,ObservableObject, CLLocationManagerDelegate{
+class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
     
     @Published var mapView = MKMapView()
     
@@ -133,7 +133,7 @@ class MapViewModel: NSObject,ObservableObject, CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:
         [CLLocation]) {
             
-            guard let location = locations.last else {return}
+            guard let location = locations.last else{return}
             
         self.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
             
