@@ -171,7 +171,7 @@ struct CartView: View {
                     }
                 }
                 
-                .background(Color(.white).opacity(0.25))
+                .background(Color(.white).opacity(0.80))
                 .cornerRadius(15)
                 
             

@@ -94,7 +94,8 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
 
         //removing all old ones
 //        mapView.removeAnnotation(mapView.annotations as! MKAnnotation)
-        
+      
+        mapView.removeAnnotation(pointAnnotation)
         mapView.addAnnotation(pointAnnotation)
         
         //moving map to that location

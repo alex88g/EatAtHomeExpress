@@ -60,8 +60,10 @@ struct HomeMap: View {
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding()
-               Spacer()
+                .padding(.top, 55)
+                .padding(.horizontal, 3)
+              
+                Spacer()
              
                 
                 VStack{

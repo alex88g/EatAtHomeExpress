@@ -66,7 +66,7 @@ struct Menu: View {
         }
         .padding([.top,.trailing])
         .frame(width: UIScreen.main.bounds.width / 1.6)
-        .background(Color.black.ignoresSafeArea())
+        .background(Color.white.ignoresSafeArea())
         .opacity(0.80)
         
         
