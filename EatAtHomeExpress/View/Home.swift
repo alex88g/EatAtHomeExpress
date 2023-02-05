@@ -39,7 +39,7 @@ struct Home: View {
                         
                     })
                     Text(HomeModel.userLocation == nil ? "Localisering..." : "Leverera till")
-                        .foregroundColor(.black)
+                        .foregroundColor(.red)
                     
                     Text(HomeModel.userAdress)
                         .font(.caption)
@@ -67,29 +67,17 @@ struct Home: View {
                 HStack(spacing: 15){
                     
                     TextField("Sök för restauranger och rätter", text: $HomeModel.search)
+//                                  .colorScheme(.light)
                     
-                    //                          .textFieldStyle(RoundedBorderTextFieldStyle())
-                    //
+                    //              .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.vertical, 8)
                         .padding(.horizontal)
-                        .background(Color.white.opacity(0.25)).cornerRadius(15)
+                        .background(Color.white.opacity(0.20)).cornerRadius(15)
                         .foregroundColor(.white)
-                        .font(.headline)
+                    //  .font(.headline)
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                        Spacer()
+                   
                     
                     if HomeModel.search != ""{
                         
@@ -163,7 +151,9 @@ struct Home: View {
                                 })
                                 
                                 .frame(width: UIScreen.main.bounds.width - 30)
-                                .cornerRadius(25)
+                                .foregroundColor(.red)
+                                .cornerRadius(15)
+                                
                             }
                         }
                         
@@ -186,7 +176,7 @@ struct Home: View {
                         .fontWeight(.bold)
                         .padding(.leading)
                         .padding(.top)
-                     
+                        
                         
                         Spacer()
                             .frame(height: 10)
@@ -200,12 +190,16 @@ struct Home: View {
                             
                         }
                         
-                        .frame(height: 220)
-                        .cornerRadius(25)
+                        
+                        .frame(width: UIScreen.main.bounds.width - 30)
+                        .cornerRadius(15)
                         .padding(.top)
                         .tabViewStyle(PageTabViewStyle())
-                                                
-                     
+                        
+                        
+                        .overlay(Text("Nyhet").background(Color("yellow")).padding(.vertical,30)
+                            .padding(.trailing), alignment: .topLeading).foregroundColor(.black)
+                        
                         Spacer()
                         
                         
@@ -250,40 +244,41 @@ struct Home: View {
                     .frame(maxWidth: .infinity,maxHeight: .infinity)
                     .background(Color.black.opacity(0.3).ignoresSafeArea())
                 
+                
+                
             }
             
+        }
+            
+            
+            
+                .onAppear(perform: {
+                    // calling location delegate
+                    HomeModel.locationManager.delegate = HomeModel
+                    
+                })
+            
+                .onChange(of: HomeModel.search, perform: { value in
+                    
+                    // to avoid continues search request
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        
+                        if value == HomeModel.search && HomeModel.search != ""{
+                            
+                            // search data
+                            
+                            HomeModel.filterData()
+                            
+                        }
+                    }
+                    
+                    if HomeModel.search == ""{
+                        // reset all data
+                        withAnimation(.linear){HomeModel.filtered = HomeModel.items}
+                    }
+                    
+                })
             
         }
         
-        
-        .onAppear(perform: {
-            // calling location delegate
-            HomeModel.locationManager.delegate = HomeModel
-            
-        })
-        
-        .onChange(of: HomeModel.search, perform: { value in
-            
-            // to avoid continues search request
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                
-                if value == HomeModel.search && HomeModel.search != ""{
-                    
-                    // search data
-                    
-                    HomeModel.filterData()
-                    
-                }
-            }
-            
-            if HomeModel.search == ""{
-                // reset all data
-                withAnimation(.linear){HomeModel.filtered = HomeModel.items}
-            }
-            
-        })
-        
     }
-    
-}
-

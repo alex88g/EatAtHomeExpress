@@ -28,6 +28,7 @@ struct ContentView: View {
                     
                     Home()
                         .preferredColorScheme(.dark)
+
                     
                     
                 }
@@ -73,7 +74,7 @@ struct ContentView: View {
         static var previews: some View {
             ContentView()
             Home()
-               .preferredColorScheme(.dark)
+             
                
             
             
