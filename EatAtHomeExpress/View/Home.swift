@@ -67,17 +67,16 @@ struct Home: View {
                 HStack(spacing: 15){
                     
                     TextField("Sök för restauranger och rätter", text: $HomeModel.search)
-//                                  .colorScheme(.light)
-                    
-                    //              .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.vertical, 8)
+                        
+                        .colorScheme(.light)
+                        .padding(.vertical, 10)
                         .padding(.horizontal)
-                        .background(Color.white.opacity(0.20)).cornerRadius(15)
-                        .foregroundColor(.white)
-                    //  .font(.headline)
+                        .background(Color.white)
+                        .cornerRadius(15)
                     
-                        Spacer()
-                   
+                    
+                    Spacer()
+                    
                     
                     if HomeModel.search != ""{
                         
@@ -246,9 +245,11 @@ struct Home: View {
                 
                 
                 
+                
             }
             
         }
+            
             
             
             
@@ -282,3 +283,4 @@ struct Home: View {
         }
         
     }
+

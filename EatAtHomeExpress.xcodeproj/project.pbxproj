@@ -10,6 +10,7 @@
 		F02E3CDA298A6381003E6687 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3CD9298A6381003E6687 /* UserInfo.swift */; };
 		F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D13298CF4FA003E6687 /* HomeMap.swift */; };
 		F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D15298CF73D003E6687 /* MapViewModel.swift */; };
+		F0858B30298FE2A80097B27A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0858B2F298FE2A80097B27A /* Extensions.swift */; };
 		F0C03F2F297FE8970074AEEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F2E297FE8970074AEEA /* Login.swift */; };
 		F0C03F31298158760074AEEA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F0C03F30298158760074AEEA /* logo.png */; };
 		F0C03F352982285F0074AEEA /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F342982285F0074AEEA /* SignUp.swift */; };
@@ -62,6 +63,7 @@
 		F02E3CD9298A6381003E6687 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		F02E3D13298CF4FA003E6687 /* HomeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMap.swift; sourceTree = "<group>"; };
 		F02E3D15298CF73D003E6687 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		F0858B2F298FE2A80097B27A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F0C03F2E297FE8970074AEEA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F0C03F30298158760074AEEA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F0C03F342982285F0074AEEA /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				F0C03F362982B04B0074AEEA /* MapView.swift */,
 				F02E3D13298CF4FA003E6687 /* HomeMap.swift */,
+				F0858B2F298FE2A80097B27A /* Extensions.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */,
 				F0C03F372982B04B0074AEEA /* MapView.swift in Sources */,
 				F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */,
+				F0858B30298FE2A80097B27A /* Extensions.swift in Sources */,
 				F0F7D4D829718B8300778015 /* Cart.swift in Sources */,
 				F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */,
 			);

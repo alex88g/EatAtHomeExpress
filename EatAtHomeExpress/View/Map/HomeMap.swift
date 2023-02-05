@@ -28,89 +28,100 @@ struct HomeMap: View {
             //using it as evironment object so that it can be used ints subViews
                 .environmentObject(mapData)
                 .ignoresSafeArea(.all, edges: .all)
+           
             
             VStack{
-                VStack(spacing: 0){
-                    HStack{
-                        
-                        Image(systemName: "magnifynglass")
-                            .foregroundColor(.gray)
-                        
-                        TextField("Search", text: $mapData.searchTxt)
-                            .colorScheme(.light)
-                        
-                    }
-                    .padding(.vertical, 10)
-                    .padding(.horizontal)
-                    .background(Color.white)
-                    
-                    //displaying results
-                    
-                    if !mapData.places.isEmpty && mapData.searchTxt
-                        != ""{
-                        
-                        ScrollView{
-                            
-                            VStack(spacing: 15){
-                                
-                                ForEach(mapData.places){ place in
-                                    
-                                    Text(place.place.name ?? "")
-                                    
-                                        .foregroundColor(.black)
-                                        .frame(maxWidth: .infinity,alignment: .leading)
-                                        .padding(.leading)
-                                        .onTapGesture {
-                                            mapData.selectPlace(place: place)
-                                        }
-                                    
-                                    Divider()
-                                    
-                                }
-                                
-                            }
-                            .padding(.top)
-                        }
-                        .background(Color.white)
-                    }
-                    
-                }
-                .padding()
+                
+                
+               
                 
                 VStack{
                     
-                    
-                    Spacer()
-                    
-                    VStack{
+                    Button(action: mapData.focusLocation, label: {
                         
-                        Button(action: mapData.focusLocation, label: {
-                            
-                            Image(systemName: "location.fill")
-                                .font(.title2)
-                                .padding(10)
-                                .background(Color(.white).opacity(0.25))
-                                .clipShape(Circle())
-                            
-                        })
-                        
-                        Button(action: mapData.updateMapType, label: {
-                            
-                            Image(systemName: mapData.mapType ==
-                                .standard ? "map.fill" : "map")
+                        Image(systemName: "location.fill")
                             .font(.title2)
                             .padding(10)
                             .background(Color(.white).opacity(0.25))
                             .clipShape(Circle())
+                        
+                    })
+                    
+                    Button(action: mapData.updateMapType, label: {
+                        
+                        Image(systemName: mapData.mapType ==
+                            .standard ? "map.fill" : "map")
+                        .font(.title2)
+                        .padding(10)
+                        .background(Color(.white).opacity(0.25))
+                        .clipShape(Circle())
+                        
+                    })
+                    
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding()
+               Spacer()
+             
+                
+                VStack{
+                    
+                    VStack(spacing:0){
+                        HStack{
                             
-                        })
+                            Image(systemName: "magnifynglass")
+                                .foregroundColor(.gray)
+                            
+                            TextField("Sök i kartor", text: $mapData.searchTxt)
+                                .colorScheme(.light)
+                            
+                        }
+                        .padding(.vertical, 10)
+                        .padding(.horizontal)
+                        //                    .background(){
+                        //                        RoundedRectangle(cornerRadius: 10)
+                        //                            .fill(.ultraThickMaterial)
+                        .background(.white)
+                        .cornerRadius(10)
+                        
+                        
+                        //displaying results
+                        
+                        if !mapData.places.isEmpty && mapData.searchTxt
+                            != ""{
+                            
+                            ScrollView{
+                                
+                                VStack(spacing: 15){
+                                    
+                                    ForEach(mapData.places){ place in
+                                        
+                                        Text(place.place.name ?? "")
+                                        
+                                            .foregroundColor(.black)
+                                            .frame(maxWidth: .infinity,alignment: .leading)
+                                            .padding(.leading)
+                                            .onTapGesture {
+                                                mapData.selectPlace(place: place)
+                                            }
+                                        
+                                        Divider()
+                                        
+                                    }
+                                    
+                                }
+                                .padding(.top)
+                            }
+                            .background(Color.white)
+                        }
                         
                     }
-                    .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding()
+                    
                 }
                 
             }
+                
             .onAppear(perform: {
                 //settings delegate
                 locationManager.delegate = mapData
