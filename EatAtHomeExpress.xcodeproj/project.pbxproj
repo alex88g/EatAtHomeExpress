@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F02E3CDA298A6381003E6687 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3CD9298A6381003E6687 /* UserInfo.swift */; };
 		F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D13298CF4FA003E6687 /* HomeMap.swift */; };
 		F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D15298CF73D003E6687 /* MapViewModel.swift */; };
 		F0C03F2F297FE8970074AEEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F2E297FE8970074AEEA /* Login.swift */; };
@@ -59,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		F01CB9ED298D6512000E4B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F02E3CD9298A6381003E6687 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		F02E3D13298CF4FA003E6687 /* HomeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMap.swift; sourceTree = "<group>"; };
 		F02E3D15298CF73D003E6687 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F0C03F2E297FE8970074AEEA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 			children = (
 				F0F7D4BD2970785100778015 /* Item.swift */,
 				F0F7D4D729718B8200778015 /* Cart.swift */,
-				F02E3CD9298A6381003E6687 /* UserInfo.swift */,
 				F0C03F3E2982B2590074AEEA /* Place.swift */,
 			);
 			name = Model;
@@ -387,7 +384,6 @@
 				F0F7D4C02970786600778015 /* HomeViewModel.swift in Sources */,
 				F0C03F3F2982B2590074AEEA /* Place.swift in Sources */,
 				F0F7D48D297075E300778015 /* ContentView.swift in Sources */,
-				F02E3CDA298A6381003E6687 /* UserInfo.swift in Sources */,
 				F0F7D4B82970781500778015 /* Home.swift in Sources */,
 				F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */,
 				F0F7D4BA2970782600778015 /* Menu.swift in Sources */,
