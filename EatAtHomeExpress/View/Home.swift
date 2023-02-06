@@ -12,6 +12,9 @@ struct Home: View {
     @StateObject var HomeModel = HomeViewModel()
     @State var color = Color.black
     
+    //select category
+    @State var selectedCategory: Category = categories.first!
+    
     
     
     
@@ -67,7 +70,7 @@ struct Home: View {
                 HStack(spacing: 15){
                     
                     TextField("Sök för restauranger och rätter", text: $HomeModel.search)
-                        
+                    
                         .colorScheme(.light)
                         .padding(.vertical, 10)
                         .padding(.horizontal)
@@ -97,6 +100,70 @@ struct Home: View {
                 .padding(.top,10)
                 
                 Divider()
+                
+                
+                VStack{
+                    
+                    
+                    //categories view
+                    Text("Categories")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.leading)
+                        .padding(.horizontal)
+                    
+                    
+                    ScrollView(.horizontal, showsIndicators: false, content:{
+                        
+                        HStack(spacing:10){
+                            
+                            ForEach(categories){category in
+                                
+                                HStack(spacing: 10){
+                                    
+                                    Image(category.image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width:20, height: 20)
+                                        .padding(1)
+                                        .background(selectedCategory.id == category.id ? Color.white : Color.clear)
+                                        .clipShape(Circle())
+                                    
+                                    Text(category.title)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(selectedCategory.id == category.id ? .white : .white)
+                                    
+                                    
+                                }
+                                
+                                .padding(.vertical,12)
+                                .padding(.horizontal)
+                                .background(selectedCategory.id == category.id ? Color(.red) : Color.white.opacity(0.20))
+                                .clipShape(Capsule())
+                                //shadows
+                                .onTapGesture{withAnimation(.spring()){
+                                    selectedCategory = category
+                                }
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        .padding(.horizontal)
+                        
+                    })
+                }
+                .padding(.vertical)
+//                //light BG COlor
+//                .background(Color.white.opacity(0.3).ignoresSafeArea())
+                
+                
+                
+                
+                
                 
                 if HomeModel.items.isEmpty{
                     
@@ -171,7 +238,7 @@ struct Home: View {
                             
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.title)
+                        .font(.title2)
                         .fontWeight(.bold)
                         .padding(.leading)
                         .padding(.top)
@@ -182,7 +249,7 @@ struct Home: View {
                         
                         TabView{
                             
-                            Image("Pizza")
+                            Image("Pizzan")
                             Image("Carbonara")
                             Image("Vitlöksbröd")
                             
@@ -194,6 +261,7 @@ struct Home: View {
                         .cornerRadius(15)
                         .padding(.top)
                         .tabViewStyle(PageTabViewStyle())
+                        
                         
                         
                         .overlay(Text("Nyhet").background(Color("yellow")).padding(.vertical,30)
@@ -249,38 +317,36 @@ struct Home: View {
             }
             
         }
+        
+        
+        
+        .onAppear(perform: {
+            // calling location delegate
+            HomeModel.locationManager.delegate = HomeModel
             
+        })
+        
+        .onChange(of: HomeModel.search, perform: { value in
             
-            
-            
-                .onAppear(perform: {
-                    // calling location delegate
-                    HomeModel.locationManager.delegate = HomeModel
+            // to avoid continues search request
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                
+                if value == HomeModel.search && HomeModel.search != ""{
                     
-                })
+                    // search data
+                    
+                    HomeModel.filterData()
+                    
+                }
+            }
             
-                .onChange(of: HomeModel.search, perform: { value in
-                    
-                    // to avoid continues search request
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        
-                        if value == HomeModel.search && HomeModel.search != ""{
-                            
-                            // search data
-                            
-                            HomeModel.filterData()
-                            
-                        }
-                    }
-                    
-                    if HomeModel.search == ""{
-                        // reset all data
-                        withAnimation(.linear){HomeModel.filtered = HomeModel.items}
-                    }
-                    
-                })
+            if HomeModel.search == ""{
+                // reset all data
+                withAnimation(.linear){HomeModel.filtered = HomeModel.items}
+            }
             
-        }
+        })
         
     }
+}
 

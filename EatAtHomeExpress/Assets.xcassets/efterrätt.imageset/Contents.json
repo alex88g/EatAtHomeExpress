@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "pizza.png",
+      "filename" : "efterrätt.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -14,7 +14,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "pizza 1.png",
+      "filename" : "efterrätt 1.png",
       "idiom" : "iphone",
       "scale" : "1x"
     },
