@@ -48,7 +48,7 @@ struct CartView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 130, height: 130)
                                 .cornerRadius(15)
-                               
+                            
                             
                             
                             VStack(alignment: .leading, spacing: 10){
@@ -84,7 +84,7 @@ struct CartView: View {
                                         Image(systemName: "minus")
                                             .font(.system(size: 16, weight: .heavy))
                                             .foregroundColor(Color("red"))
-                                                                                        
+                                        
                                         
                                     }
                                     
@@ -105,7 +105,7 @@ struct CartView: View {
                                         Image(systemName: "plus")
                                             .font(.system(size: 16, weight: .heavy))
                                             .foregroundColor(Color("red"))
-                                            
+                                        
                                     }
                                     
                                 }
@@ -113,7 +113,7 @@ struct CartView: View {
                             }
                             .padding()
                             
-                                                        .contextMenu{
+                            .contextMenu{
                                 
                                 // for deleting
                                 Button(action: {
@@ -129,8 +129,8 @@ struct CartView: View {
                                 }){
                                     Text("Remove")
                                 }
-//                                .background(.white)
-//                                .opacity(0.35)
+                                //                                .background(.white)
+                                //                                .opacity(0.35)
                             }
                         }
                     }
@@ -156,7 +156,6 @@ struct CartView: View {
                     }
                     .padding([.top,.horizontal])
                     
-                    
                     Button(action: homeData.updateOrder) {
                         
                     }
@@ -181,17 +180,17 @@ struct CartView: View {
                         
                         
                     }){
-                        //NavigationLink(destination: onTap()){
-                        
-                        Text("Add payment before checking out")
-                        
-                            .foregroundColor(.black)
-                            .padding(.bottom, 5)
-                            .padding(.leading)
-                            .fontWeight(.bold)
-                        
-                        
-                        
+                        NavigationLink(destination: onTap()){
+                            
+                            Text("Add payment before checking out")
+                            
+                                .foregroundColor(.black)
+                                .padding(.bottom, 5)
+                                .padding(.leading)
+                                .fontWeight(.bold)
+                            
+                            
+                        }
                         
                         
                         Image(systemName: "creditcard.circle").resizable()
@@ -203,19 +202,23 @@ struct CartView: View {
                         
                     }
                     
-                    
                 }
-                              
-                              
-                              .background(Color(.white).opacity(0.80))
-                              .cornerRadius(15)
-                              Spacer()
-                          }
-                              
-                          }
-                          
-                          .background(Color("").ignoresSafeArea())
-                          .navigationBarHidden(true)
-                          .navigationBarBackButtonHidden(true)
-                      }
-                  }
+                
+                
+                
+                
+                
+                .background(Color(.white).opacity(0.80))
+                .cornerRadius(15)
+                Spacer()
+            }
+            
+            
+            
+            .background(Color("").ignoresSafeArea())
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+        }
+        
+    }
+}

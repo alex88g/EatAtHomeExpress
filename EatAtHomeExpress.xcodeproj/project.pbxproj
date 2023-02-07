@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0062620299288C9008300B7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006261F299288C9008300B7 /* CardView.swift */; };
 		F029790D299253BC001AE8D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029790C299253BC001AE8D5 /* ContentView.swift */; };
 		F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D13298CF4FA003E6687 /* HomeMap.swift */; };
 		F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D15298CF73D003E6687 /* MapViewModel.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F006261F299288C9008300B7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F01CB9ED298D6512000E4B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F029790C299253BC001AE8D5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = EatAtHomeExpress/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		F02E3D13298CF4FA003E6687 /* HomeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMap.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				F0F7D4B72970781500778015 /* Home.swift */,
 				F0F7D4D529707C4A00778015 /* ItemView.swift */,
 				F0F7D4D92971980A00778015 /* CartView.swift */,
+				F006261F299288C9008300B7 /* CardView.swift */,
 				F029790C299253BC001AE8D5 /* ContentView.swift */,
 			);
 			path = View;
@@ -395,6 +398,7 @@
 				F0C03F372982B04B0074AEEA /* MapView.swift in Sources */,
 				F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */,
 				F0F7D4D829718B8300778015 /* Cart.swift in Sources */,
+				F0062620299288C9008300B7 /* CardView.swift in Sources */,
 				F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
