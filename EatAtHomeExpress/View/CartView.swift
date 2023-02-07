@@ -156,35 +156,66 @@ struct CartView: View {
                     }
                     .padding([.top,.horizontal])
                     
+                    
                     Button(action: homeData.updateOrder) {
                         
-                        Text(homeData.ordered ? "Cancel Order" : "Check out")
-                            
-                            .font(.title2)
-                            .fontWeight(.heavy)
-                            .foregroundColor(.white)
-                            .padding(.vertical)
-                            .padding(.bottom, 0)
-                            .frame(width: UIScreen.main.bounds.width - 30)
-                            .background(Color("red"))
-                            .cornerRadius(15)
                     }
+                    
+                    
+                    
+                    
+                    Text(homeData.ordered ? "Cancel Order" : "Check out")
+                    
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                        .padding(.bottom, 0)
+                        .frame(width: UIScreen.main.bounds.width - 30)
+                        .background(Color("red"))
+                        .cornerRadius(15)
+                    
+                    
+                    
+                    Button(action: {
+                        
+                        
+                    }){
+                        //NavigationLink(destination: onTap()){
+                        
+                        Text("Add payment before checking out")
+                        
+                            .foregroundColor(.black)
+                            .padding(.bottom, 5)
+                            .padding(.leading)
+                            .fontWeight(.bold)
+                        
+                        
+                        
+                        
+                        
+                        Image(systemName: "creditcard.circle").resizable()
+                        
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.red)
+                            .padding(.bottom, 5)
+                            .padding(.leading, -320)
+                        
+                    }
+                    
+                    
                 }
-                
-                .background(Color(.white).opacity(0.80))
-                .cornerRadius(15)
-                
-            
-                
-                
-                
-                
-            }
-            
-            .background(Color("").ignoresSafeArea())
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
-        }
-    }
-}
-
+                              
+                              
+                              .background(Color(.white).opacity(0.80))
+                              .cornerRadius(15)
+                              Spacer()
+                          }
+                              
+                          }
+                          
+                          .background(Color("").ignoresSafeArea())
+                          .navigationBarHidden(true)
+                          .navigationBarBackButtonHidden(true)
+                      }
+                  }

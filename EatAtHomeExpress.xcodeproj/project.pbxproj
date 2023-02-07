@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F029790D299253BC001AE8D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029790C299253BC001AE8D5 /* ContentView.swift */; };
 		F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D13298CF4FA003E6687 /* HomeMap.swift */; };
 		F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D15298CF73D003E6687 /* MapViewModel.swift */; };
 		F0C03F2F297FE8970074AEEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F2E297FE8970074AEEA /* Login.swift */; };
@@ -16,7 +17,6 @@
 		F0C03F3F2982B2590074AEEA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F3E2982B2590074AEEA /* Place.swift */; };
 		F0EA085D2990743E00420613 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA085C2990743E00420613 /* Category.swift */; };
 		F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */; };
-		F0F7D48D297075E300778015 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48C297075E300778015 /* ContentView.swift */; };
 		F0F7D48F297075E400778015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D48E297075E400778015 /* Assets.xcassets */; };
 		F0F7D492297075E400778015 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D491297075E400778015 /* Preview Assets.xcassets */; };
 		F0F7D49C297075E500778015 /* EatAtHomeExpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D49B297075E500778015 /* EatAtHomeExpressTests.swift */; };
@@ -59,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		F01CB9ED298D6512000E4B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F029790C299253BC001AE8D5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = EatAtHomeExpress/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		F02E3D13298CF4FA003E6687 /* HomeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMap.swift; sourceTree = "<group>"; };
 		F02E3D15298CF73D003E6687 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F0C03F2E297FE8970074AEEA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		F0EA085C2990743E00420613 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F0F7D487297075E300778015 /* EatAtHomeExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAtHomeExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressApp.swift; sourceTree = "<group>"; };
-		F0F7D48C297075E300778015 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0F7D48E297075E400778015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0F7D491297075E400778015 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F0F7D497297075E500778015 /* EatAtHomeExpressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EatAtHomeExpressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +167,6 @@
 				F0F7D4B5297077AF00778015 /* Model */,
 				F0F7D4B4297077A100778015 /* View */,
 				F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */,
-				F0F7D48C297075E300778015 /* ContentView.swift */,
 				F0F7D48E297075E400778015 /* Assets.xcassets */,
 				F0C03F30298158760074AEEA /* logo.png */,
 				F0F7D490297075E400778015 /* Preview Content */,
@@ -209,6 +208,7 @@
 				F0F7D4B72970781500778015 /* Home.swift */,
 				F0F7D4D529707C4A00778015 /* ItemView.swift */,
 				F0F7D4D92971980A00778015 /* CartView.swift */,
+				F029790C299253BC001AE8D5 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,11 +382,11 @@
 			files = (
 				F0F7D4DA2971980B00778015 /* CartView.swift in Sources */,
 				F0C03F2F297FE8970074AEEA /* Login.swift in Sources */,
+				F029790D299253BC001AE8D5 /* ContentView.swift in Sources */,
 				F0F7D4BE2970785100778015 /* Item.swift in Sources */,
 				F0C03F352982285F0074AEEA /* SignUp.swift in Sources */,
 				F0F7D4C02970786600778015 /* HomeViewModel.swift in Sources */,
 				F0C03F3F2982B2590074AEEA /* Place.swift in Sources */,
-				F0F7D48D297075E300778015 /* ContentView.swift in Sources */,
 				F0EA085D2990743E00420613 /* Category.swift in Sources */,
 				F0F7D4B82970781500778015 /* Home.swift in Sources */,
 				F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */,

@@ -228,49 +228,49 @@ struct Home: View {
                         
                     })
                     
-                    VStack{
+//                    VStack{
+//
+//                        HStack(spacing: 0){
+//
+//
+//                            Text("Dagens favoriter")
+//
+//
+//                        }
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .font(.title2)
+//                        .fontWeight(.bold)
+//                        .padding(.leading)
+//                        .padding(.top)
+//
+//
+//                        Spacer()
+//                            .frame(height: 10)
+//
+//                        TabView{
+//
+//                            Image("Pizzan")
+//                            Image("Carbonara")
+//                            Image("Vitlöksbröd")
+//
+//
+//                        }
+//
+//
+//                        .frame(width: UIScreen.main.bounds.width - 30)
+//                        .cornerRadius(15)
+//                        .padding(.top)
+//                        .tabViewStyle(PageTabViewStyle())
+//
+//
+//
+//                        .overlay(Text("Nyhet").background(Color("yellow")).padding(.vertical,30)
+//                            .padding(.trailing), alignment: .topLeading).foregroundColor(.black)
+//
+//                        Spacer()
+//
                         
-                        HStack(spacing: 0){
-                            
-                            
-                            Text("Dagens favoriter")
-                            
-                            
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.leading)
-                        .padding(.top)
-                        
-                        
-                        Spacer()
-                            .frame(height: 10)
-                        
-                        TabView{
-                            
-                            Image("Pizzan")
-                            Image("Carbonara")
-                            Image("Vitlöksbröd")
-                            
-                            
-                        }
-                        
-                        
-                        .frame(width: UIScreen.main.bounds.width - 30)
-                        .cornerRadius(15)
-                        .padding(.top)
-                        .tabViewStyle(PageTabViewStyle())
-                        
-                        
-                        
-                        .overlay(Text("Nyhet").background(Color("yellow")).padding(.vertical,30)
-                            .padding(.trailing), alignment: .topLeading).foregroundColor(.black)
-                        
-                        Spacer()
-                        
-                        
-                    }
+//                    }
                 }
                 
             }
