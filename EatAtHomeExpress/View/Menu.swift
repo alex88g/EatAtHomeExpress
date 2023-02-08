@@ -40,12 +40,7 @@ struct Menu: View {
             
             Spacer()
             
-            
-            
-            HStack(spacing: 15){
-                
-                    
-                    Button(action: {
+              Button(action: {
                         
                     }){
                         NavigationLink(destination: SwitchView()){
@@ -55,13 +50,12 @@ struct Menu: View {
                             
                             Text( "Inställningar")
 //                                .foregroundColor(.red)
-                               
-                            Spacer(minLength: 0)
-                        }
-                        
+                            
+                            
                     }.padding()
+                    Spacer()
                 }
-                Spacer()
+                
                 
                 //Logout button with rectangle portrait (exit) picture
                 Button(action: {

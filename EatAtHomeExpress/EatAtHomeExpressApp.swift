@@ -21,7 +21,7 @@ struct EatAtHomeApp: App {
          
                   
                 .preferredColorScheme(isDarkMode ? .dark : .light)
-                .accentColor(.primary)
+                .accentColor(.red)
                 
         }
     }

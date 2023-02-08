@@ -20,13 +20,14 @@ struct SwitchView: View {
                      
                  }.pickerStyle(SegmentedPickerStyle())
                      .padding()
+                Spacer()
                  
-                 List(0..<5, id: \.self) { num in
-                     NavigationLink(destination: Text("\(num)")) {
-                         Text("\(num)")
-                         
-                     }
-                  }
+//                 List(0..<5, id: \.self) { num in
+//                     NavigationLink(destination: Text("\(num)")) {
+//                         Text("\(num)")
+//
+//                     }
+//                  }
 
                  }
              }

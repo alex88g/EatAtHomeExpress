@@ -120,6 +120,7 @@ struct HomeMap: View {
                                 .padding(.top)
                             }
                             .background(Color.white)
+                            .shadow(radius: 10)
                         }
                         
                     }
