@@ -105,7 +105,26 @@ struct Home: View {
                         .font(.title2)
                         .fontWeight(.bold)
                         .padding(.leading)
-                        .padding(.horizontal)
+                        
+                   
+                    Button(action: {
+                        
+                        
+                    }){
+                        NavigationLink(destination: Restaurants()){
+                            Image(systemName: "house.lodge.circle")
+                                .foregroundColor(.red)
+                                .padding(.top)
+                                .padding(.leading)
+                                
+                           Text("Hitta restauranger")
+                                .foregroundColor(Color.black)
+                               
+                                
+                            
+                            Spacer()
+                            
+                        }}
                     
                     
                     ScrollView(.horizontal, showsIndicators: false, content:{
@@ -144,8 +163,7 @@ struct Home: View {
                                     selectedCategory = category
                                     
                                 }
-                                    
-                                    
+                                 
                                 }
                                 
                             }
@@ -154,6 +172,8 @@ struct Home: View {
                         .padding(.horizontal)
                         
                     })
+                    
+                   
                 }
                 .padding(.vertical)
 //                //light BG COlor

@@ -11,6 +11,10 @@
 		F029790D299253BC001AE8D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029790C299253BC001AE8D5 /* ContentView.swift */; };
 		F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D13298CF4FA003E6687 /* HomeMap.swift */; };
 		F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E3D15298CF73D003E6687 /* MapViewModel.swift */; };
+		F05A98E82993EF18002ECD89 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A98E72993EF18002ECD89 /* Places.swift */; };
+		F05A98EA2993FA05002ECD89 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A98E92993FA05002ECD89 /* PlacesViewModel.swift */; };
+		F05A98EC2993FE73002ECD89 /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A98EB2993FE73002ECD89 /* PlacesView.swift */; };
+		F05A98EE2994063F002ECD89 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A98ED2994063F002ECD89 /* Restaurants.swift */; };
 		F09435542993A3E40062301F /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09435532993A3E40062301F /* SwitchView.swift */; };
 		F09435562993A68C0062301F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09435552993A68C0062301F /* Menu.swift */; };
 		F0C03F2F297FE8970074AEEA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F2E297FE8970074AEEA /* Login.swift */; };
@@ -65,6 +69,10 @@
 		F029790C299253BC001AE8D5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = EatAtHomeExpress/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		F02E3D13298CF4FA003E6687 /* HomeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMap.swift; sourceTree = "<group>"; };
 		F02E3D15298CF73D003E6687 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		F05A98E72993EF18002ECD89 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		F05A98E92993FA05002ECD89 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
+		F05A98EB2993FE73002ECD89 /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
+		F05A98ED2994063F002ECD89 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		F09435532993A3E40062301F /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
 		F09435552993A68C0062301F /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		F0C03F2E297FE8970074AEEA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -210,6 +218,8 @@
 				F02E3D17298D13A8003E6687 /* Map */,
 				F09435532993A3E40062301F /* SwitchView.swift */,
 				F09435552993A68C0062301F /* Menu.swift */,
+				F05A98EB2993FE73002ECD89 /* PlacesView.swift */,
+				F05A98ED2994063F002ECD89 /* Restaurants.swift */,
 				F0F7D4B72970781500778015 /* Home.swift */,
 				F0F7D4D529707C4A00778015 /* ItemView.swift */,
 				F0F7D4D92971980A00778015 /* CartView.swift */,
@@ -223,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				F0F7D4BD2970785100778015 /* Item.swift */,
+				F05A98E72993EF18002ECD89 /* Places.swift */,
 				F0F7D4D729718B8200778015 /* Cart.swift */,
 				F0C03F3E2982B2590074AEEA /* Place.swift */,
 				F0EA085C2990743E00420613 /* Category.swift */,
@@ -236,6 +247,7 @@
 			children = (
 				F0F7D4BF2970786600778015 /* HomeViewModel.swift */,
 				F02E3D15298CF73D003E6687 /* MapViewModel.swift */,
+				F05A98E92993FA05002ECD89 /* PlacesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -386,8 +398,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05A98EA2993FA05002ECD89 /* PlacesViewModel.swift in Sources */,
 				F0F7D4DA2971980B00778015 /* CartView.swift in Sources */,
 				F0C03F2F297FE8970074AEEA /* Login.swift in Sources */,
+				F05A98EC2993FE73002ECD89 /* PlacesView.swift in Sources */,
 				F029790D299253BC001AE8D5 /* ContentView.swift in Sources */,
 				F0F7D4BE2970785100778015 /* Item.swift in Sources */,
 				F0C03F352982285F0074AEEA /* SignUp.swift in Sources */,
@@ -396,7 +410,9 @@
 				F0C03F3F2982B2590074AEEA /* Place.swift in Sources */,
 				F0EA085D2990743E00420613 /* Category.swift in Sources */,
 				F09435542993A3E40062301F /* SwitchView.swift in Sources */,
+				F05A98E82993EF18002ECD89 /* Places.swift in Sources */,
 				F0F7D4B82970781500778015 /* Home.swift in Sources */,
+				F05A98EE2994063F002ECD89 /* Restaurants.swift in Sources */,
 				F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */,
 				F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */,
 				F0C03F372982B04B0074AEEA /* MapView.swift in Sources */,

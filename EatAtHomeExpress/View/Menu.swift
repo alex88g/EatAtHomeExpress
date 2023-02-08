@@ -26,7 +26,7 @@ struct Menu: View {
                         .font(.title)
                         .foregroundColor(Color("red"))
                     
-                    Text("cart")
+                    Text("Varukorg")
                         .fontWeight(.bold)
 //                        .foregroundColor(.red)
                     
@@ -73,7 +73,7 @@ struct Menu: View {
                         .fontWeight(.heavy)
                         .foregroundColor(.red)
                     
-                    Text( "Log out")
+                    Text( "Logga ut")
 //                        .foregroundColor(.red)
                         .fontWeight(.heavy)
                 }

@@ -16,7 +16,7 @@ struct Category: Identifiable {
 }
 
 var categories = [
-
+    
     Category(image: "pasta", title: "Pasta"),
     Category(image: "pizza", title: "Pizza"),
     Category(image: "dricka", title: "Dricka"),
