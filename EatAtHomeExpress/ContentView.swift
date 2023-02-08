@@ -14,11 +14,10 @@ struct ContentView: View {
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
-    
+    @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
         
-        
-        
+      
         
         NavigationView{
             
@@ -27,7 +26,7 @@ struct ContentView: View {
                 if self.status{
                     
                     Home()
-                        .preferredColorScheme(.dark)
+                       
 
                     
                     
@@ -73,7 +72,7 @@ struct ContentView: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
-            Home()
+           
              
                
             

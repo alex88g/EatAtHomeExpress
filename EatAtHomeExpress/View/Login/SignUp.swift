@@ -1,10 +1,3 @@
-//
-//  SignUp.swift
-//  EatAtHomeExpress
-//
-//  Created by Alexander Gallorini on 2023-01-26.
-//
-
 import SwiftUI
 import Firebase
 
@@ -55,12 +48,14 @@ struct SignUp: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.top, 5)
+                            .foregroundColor(Color.black)
                         
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 15).stroke(self.email != "" ? Color("red") : self.color,lineWidth: 2))
                             .padding(.top, 5)
+                            .foregroundColor(Color.black)
                          
                             
                             HStack(spacing: 15){
@@ -71,11 +66,13 @@ struct SignUp: View {
                                         
                                         TextField("Password", text: self.$pass)
                                             .autocapitalization(.none)
+                                            .foregroundColor(Color.black)
                                     }
                                     else{
                                         
                                         SecureField("Password", text: self.$pass)
                                             .autocapitalization(.none)
+                                            .foregroundColor(Color.black)
                                         
                                     }
                                 }
@@ -102,11 +99,13 @@ struct SignUp: View {
                                         
                                         TextField("Re-enter", text: self.$repass)
                                             .autocapitalization(.none)
+                                            .foregroundColor(Color.black)
                                     }
                                     else{
                                         
                                         SecureField("Re-enter", text: self.$repass)
                                             .autocapitalization(.none)
+                                            .foregroundColor(Color.black)
                                         
                                     }
                                 }
@@ -140,7 +139,7 @@ struct SignUp: View {
                                 
                             }
                             
-                            .background(Color("red"))
+                            .background(Color.red)
                             .cornerRadius(15)
                             .padding(.top, 25)
                             
@@ -256,7 +255,7 @@ struct SignUp: View {
                             .frame(width: UIScreen.main.bounds.width - 120)
                     }
                     
-                    .background(Color("red"))
+                    .background(Color.red)
                     .cornerRadius(10)
                     .padding(.top, 25)
                     
@@ -279,5 +278,3 @@ struct SignUp: View {
         }
         
     }
-    
-

@@ -12,13 +12,14 @@ struct Menu: View {
     @ObservedObject var homeData : HomeViewModel
     @State var color = Color.black
     
-  
+    
+    @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
         
         VStack{
             
             NavigationLink(destination: CartView(homeData: homeData)){
-               
+                
                 HStack(spacing: 15){
                     
                     Image(systemName: "cart")
@@ -27,7 +28,7 @@ struct Menu: View {
                     
                     Text("cart")
                         .fontWeight(.bold)
-                        .foregroundColor(.red)
+//                        .foregroundColor(.red)
                     
                     
                     Spacer(minLength: 0)
@@ -39,38 +40,61 @@ struct Menu: View {
             
             Spacer()
             
-            HStack{
+            
+            
+            HStack(spacing: 15){
                 
+                    
+                    Button(action: {
+                        
+                    }){
+                        NavigationLink(destination: SwitchView()){
+                            Image(systemName: "gearshape")
+                                .fontWeight(.heavy)
+                                .foregroundColor(.red)
+                            
+                            Text( "Inställningar")
+//                                .foregroundColor(.red)
+                               
+                            Spacer(minLength: 0)
+                        }
+                        
+                    }.padding()
+                }
                 Spacer()
                 
                 //Logout button with rectangle portrait (exit) picture
-                               Button(action: {
-                                   
-                                   try! Auth.auth().signOut()
-                                   UserDefaults.standard.set(false, forKey: "status")
-                                   NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                                   
-                               }){
-                                   
-                                   Text( "Log out")
-                                       .foregroundColor(.red)
-                                       .fontWeight(.heavy)
-                                   Image(systemName: "rectangle.portrait.and.arrow.right")
-            
-                                       .padding(.horizontal)
-                                       .fontWeight(.heavy)
-                               }
+                Button(action: {
+                    
+                    try! Auth.auth().signOut()
+                    UserDefaults.standard.set(false, forKey: "status")
+                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                    
+                }){
+                    
+                    
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                    
+                        .padding(.horizontal)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.red)
+                    
+                    Text( "Log out")
+//                        .foregroundColor(.red)
+                        .fontWeight(.heavy)
+                }
             }
             
             .padding(10)
-        }
+            
+        
+        
+        .accentColor(.primary)
         .padding([.top,.trailing])
         .frame(width: UIScreen.main.bounds.width / 1.6)
-        .background(Color.white.ignoresSafeArea())
-        .opacity(0.80)
+        .background((self.isDarkMode ? Color.black : Color.white).edgesIgnoringSafeArea(.all)).overlay(Rectangle().stroke(Color.primary, lineWidth: 2).shadow(radius: 3).edgesIgnoringSafeArea(.all))
         
+    }}
         
-    }
-  
-  
-}
+    
+    

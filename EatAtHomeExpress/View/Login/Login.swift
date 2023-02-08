@@ -1,10 +1,3 @@
-//
-//  Login.swift
-//  EatAtHomeExpress
-//
-//  Created by Alexander Gallorini on 2023-01-24.
-//
-
 import SwiftUI
 import Firebase
 
@@ -56,12 +49,14 @@ struct Login: View {
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .padding(.top, 15)
+                                .foregroundColor(Color.black)
                             // TextField for entering email
                             TextField("Email", text: self.$email)
                                 .autocapitalization(.none)
                                 .padding()
                                 .background(RoundedRectangle(cornerRadius: 15).stroke(self.email != "" ? Color("red") : self.color,lineWidth: 2))
                                 .padding(.top, 25)
+                                .foregroundColor(Color.black)
                             
                             HStack(spacing: 10){
                                 
@@ -72,11 +67,13 @@ struct Login: View {
                                         //TextField with entering a paswword
                                         TextField("Password", text: self.$pass)
                                             .autocapitalization(.none)
+                                            .foregroundColor(Color.black)
                                     }
                                     else{
                                         
                                         SecureField("Password", text: self.$pass)
                                             .autocapitalization(.none)
+                                            .foregroundColor(Color.black)
                                         
                                     }
                                     
@@ -107,7 +104,7 @@ struct Login: View {
                                 }){
                                     Text("Forget password")
                                         .fontWeight(.bold)
-                                        .foregroundColor(Color("red"))
+                                        .foregroundColor(Color.red)
                                 }
                             }
                             .padding(.top, 20)
@@ -125,7 +122,7 @@ struct Login: View {
                                 
                             }
                             
-                            .background(Color("red"))
+                            .background(Color.red)
                             .cornerRadius(15)
                             .padding(.top, 25)
                             
@@ -221,17 +218,7 @@ struct Login: View {
             
             
         }
-            
+          
     }
-    
+      
 }
-     
-
-    
-    
-
-                    
-
-    
-
-                    

@@ -1,10 +1,3 @@
-//
-//  CartView.swift
-//  EatAtHomeExpress
-//
-//  Created by Alexander Gallorini on 2023-01-13.
-//
-
 import SwiftUI
 import SDWebImageSwiftUI
 
@@ -21,13 +14,13 @@ struct CartView: View {
                     
                     Image(systemName: "chevron.left")
                         .font(.system(size: 26, weight: .heavy))
-                        .foregroundColor(Color("red"))
+//                        .foregroundColor(Color(.red))
                 }
                 
                 Text("My cart")
                     .font(.title)
                     .fontWeight(.heavy)
-                    .foregroundColor(.black)
+//                    .foregroundColor(.black)
                 Spacer()
                 
             }
@@ -48,26 +41,32 @@ struct CartView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 130, height: 130)
                                 .cornerRadius(15)
-                            
+                                .shadow(radius: 10)
+                                
+                                .background(Color(UIColor.secondarySystemBackground).cornerRadius(15))
                             
                             
                             VStack(alignment: .leading, spacing: 10){
                                 
                                 Text(cart.item.item_name)
                                     .fontWeight(.semibold)
-                                    .foregroundColor(.red)
+//                                    .foregroundColor(.gray)
+                                    .shadow(radius: 10)
                                 
                                 Text(cart.item.item_details)
                                     .fontWeight(.semibold)
                                     .foregroundColor(.gray)
                                     .lineLimit(2)
+                                    .shadow(radius: 10)
                                 
                                 HStack(spacing: 15){
                                     
                                     Text(homeData.getPrice(value: Float(truncating: cart.item.item_cost)))
                                         .font(.title2)
                                         .fontWeight(.heavy)
-                                        .foregroundColor(.gray)
+//                                        .foregroundColor(.gray)
+                                        .shadow(radius: 10)
+                    
                                     
                                     Spacer(minLength: 0)
                                     
@@ -83,7 +82,8 @@ struct CartView: View {
                                         
                                         Image(systemName: "minus")
                                             .font(.system(size: 16, weight: .heavy))
-                                            .foregroundColor(Color("red"))
+//                                            .foregroundColor(Color(.gray))
+                                            .shadow(radius: 10)
                                         
                                         
                                     }
@@ -93,7 +93,8 @@ struct CartView: View {
                                         .foregroundColor(.gray)
                                         .padding(.vertical,5)
                                         .padding(.horizontal,10)
-                                        .background(Color.gray.opacity(0.06))
+//                                        .background(Color.gray.opacity(0.06))
+                                        .shadow(radius: 10)
                                     
                                     Button(action: {
                                         
@@ -104,7 +105,8 @@ struct CartView: View {
                                         
                                         Image(systemName: "plus")
                                             .font(.system(size: 16, weight: .heavy))
-                                            .foregroundColor(Color("red"))
+//                                            .foregroundColor(Color(.gray))
+                                            .shadow(radius: 10)
                                         
                                     }
                                     
@@ -129,8 +131,7 @@ struct CartView: View {
                                 }){
                                     Text("Remove")
                                 }
-                                //                                .background(.white)
-                                //                                .opacity(0.35)
+                   
                             }
                         }
                     }
@@ -144,7 +145,7 @@ struct CartView: View {
                         
                         Text("Total:")
                             .fontWeight(.heavy)
-                            .foregroundColor(.black)
+//                            .foregroundColor(.gray)
                         
                         Spacer()
                         
@@ -152,7 +153,7 @@ struct CartView: View {
                         Text(homeData.calculateTotalPrice())
                             .font(.title)
                             .fontWeight(.heavy)
-                            .foregroundColor(.black)
+//                            .foregroundColor(.black)
                     }
                     .padding([.top,.horizontal])
                     
@@ -171,7 +172,7 @@ struct CartView: View {
                         .padding(.vertical)
                         .padding(.bottom, 0)
                         .frame(width: UIScreen.main.bounds.width - 30)
-                        .background(Color("red"))
+                        .background(Color(.red))
                         .cornerRadius(15)
                     
                     
@@ -184,7 +185,7 @@ struct CartView: View {
                             
                             Text("Add payment before checking out")
                             
-                                .foregroundColor(.black)
+//                                .foregroundColor(.gray)
                                 .padding(.bottom, 5)
                                 .padding(.leading)
                                 .fontWeight(.bold)
@@ -208,7 +209,8 @@ struct CartView: View {
                 
                 
                 
-                .background(Color(.white).opacity(0.80))
+                .background(Color(UIColor.secondarySystemBackground))
+                 .shadow(radius: 10)
                 .cornerRadius(15)
                 Spacer()
             }
@@ -216,6 +218,9 @@ struct CartView: View {
             
             
             .background(Color("").ignoresSafeArea())
+            
+            .shadow(radius: 10)
+            .cornerRadius(15)
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
         }

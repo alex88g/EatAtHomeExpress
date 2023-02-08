@@ -1,10 +1,3 @@
-//
-//  ItemView.swift
-//  EatAtHomeExpress
-//
-//  Created by Alexander Gallorini on 2023-01-12.
-//
-
 import SwiftUI
 import FirebaseStorage
 import SDWebImageSwiftUI
@@ -37,7 +30,7 @@ struct ItemView: View {
                     
                     Image(systemName: "star.fill")
                         .foregroundColor(index <= Int(item.item_ratings) ?? 0 ?
-                            Color("red") : .gray)
+                                         Color(.red) : .gray)
                 }
                 
             }

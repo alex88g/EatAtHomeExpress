@@ -1,10 +1,3 @@
-//
-//  Home.swift
-//  EatAtHomeExpress
-//
-//  Created by Alexander Gallorini on 2023-01-12.
-//
-
 import SwiftUI
 import Firebase
 
@@ -38,16 +31,16 @@ struct Home: View {
                         
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
-                            .foregroundColor(Color("red"))
+//                            .foregroundColor(Color(.red))
                         
                     })
                     Text(HomeModel.userLocation == nil ? "Localisering..." : "Leverera till")
-                        .foregroundColor(.red)
+//                        .foregroundColor(.red)
                     
                     Text(HomeModel.userAdress)
                         .font(.caption)
                         .fontWeight(.heavy)
-                        .foregroundColor(Color("red"))
+//                        .foregroundColor(Color(.red)
                     Spacer(minLength: 0)
                     //
                     
@@ -76,6 +69,7 @@ struct Home: View {
                         .padding(.horizontal)
                         .background(Color.white)
                         .cornerRadius(15)
+                        .shadow(radius: 10)
                     
                     
                     Spacer()
@@ -129,21 +123,26 @@ struct Home: View {
                                         .padding(1)
                                         .background(selectedCategory.id == category.id ? Color.white : Color.clear)
                                         .clipShape(Circle())
+                                        .shadow(radius: 10)
+                                    
                                     
                                     Text(category.title)
                                         .fontWeight(.bold)
-                                        .foregroundColor(selectedCategory.id == category.id ? .white : .white)
+                                        .foregroundColor(selectedCategory.id == category.id ? .white : .red)
+                                        .shadow(radius: 10)
                                     
                                     
                                 }
                                 
                                 .padding(.vertical,12)
                                 .padding(.horizontal)
-                                .background(selectedCategory.id == category.id ? Color(.red) : Color.white.opacity(0.20))
+                                .background(selectedCategory.id == category.id ? Color(.red) : Color(UIColor.secondarySystemBackground))
+                                 .shadow(radius: 10)
                                 .clipShape(Capsule())
                                 //shadows
                                 .onTapGesture{withAnimation(.spring()){
                                     selectedCategory = category
+                                    
                                 }
                                     
                                     
@@ -219,6 +218,7 @@ struct Home: View {
                                 .frame(width: UIScreen.main.bounds.width - 30)
                                 .foregroundColor(.red)
                                 .cornerRadius(15)
+                                .shadow(radius: 10)
                                 
                             }
                         }
@@ -349,4 +349,3 @@ struct Home: View {
         
     }
 }
-

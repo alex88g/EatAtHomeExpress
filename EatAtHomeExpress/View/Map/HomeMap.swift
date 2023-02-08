@@ -44,6 +44,8 @@ struct HomeMap: View {
                             .padding(10)
                             .background(Color(.white).opacity(0.25))
                             .clipShape(Circle())
+                            .foregroundColor(.red)
+                            .shadow(radius: 10)
                         
                     })
                     
@@ -55,6 +57,8 @@ struct HomeMap: View {
                         .padding(10)
                         .background(Color(.white).opacity(0.25))
                         .clipShape(Circle())
+                        .foregroundColor(.red)
+                        .shadow(radius: 10)
                         
                     })
                     
@@ -85,6 +89,7 @@ struct HomeMap: View {
                         //                            .fill(.ultraThickMaterial)
                         .background(.white)
                         .cornerRadius(10)
+                        .shadow(radius: 10)
                         
                         
                         //displaying results
