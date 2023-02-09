@@ -11,7 +11,7 @@ import Firebase
 
 // Fetching User Location
 class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
-    
+    @Published var selectedCategory: Category = categories.first!
     
     @Published var locationManager = CLLocationManager()
     @Published var search = ""
@@ -27,6 +27,8 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
     // itemData
     @Published var items: [Item] = []
     @Published var filtered: [Item] = []
+    
+//    @Published var category: [Category] = []
     
     // Cart data
     
@@ -119,7 +121,11 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
         
         let db = Firestore.firestore()
         
-        db.collection("Items").getDocuments{ (snap, err)in
+        let category = selectedCategory.title
+//        print("\(category)")
+        
+  
+        db.collection("Items") .whereField("Category", isEqualTo: category).getDocuments{ (snap, err)in
             
             guard let itemData = snap else{return}
             
@@ -132,6 +138,8 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
                 let image = doc.get("item_image") as! String
                 let details = doc.get("item_details") as! String
                 
+               
+          
                 return Item(id: id, item_name: name, item_cost: cost, item_details: details, item_image: image, item_ratings: ratings)
                 
             })

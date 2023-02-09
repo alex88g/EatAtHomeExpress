@@ -121,8 +121,9 @@ class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
                     let ratings = doc.get("ratings") as! String
                     let image = doc.get("image") as! String
                     let details = doc.get("details") as! String
+                    let url = doc.get("url") as! String
                     
-                    return Places(id: id,name: name, longitude: longitude, latitude: latitude, ratings: ratings, image: image, details: details)
+                    return Places(id: id,name: name, longitude: longitude, latitude: latitude, ratings: ratings, image: image, details: details, url: url)
                     
                 })
                 

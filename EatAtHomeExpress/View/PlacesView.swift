@@ -15,7 +15,7 @@ struct PlacesView: View {
     
     @StateObject var PlacesModel = PlacesViewModel()
     var body: some View {
-       
+        
         VStack{
             
             // Downloading image from web
@@ -52,9 +52,49 @@ struct PlacesView: View {
                     .foregroundColor(.gray)
                     .lineLimit(2)
             }
-            
-        }
-    
-    }
-}
+                     HStack{
+                         
+                         Link(destination: URL(string: place.url)!) {
+                             Text("Sök sidan")
+                                 .font(.caption)
+                                 .foregroundColor(.gray)
+                                 .lineLimit(2)
+                         }
+                         
+                     }
+//                     HStack{
+//
+//                         Link(destination: URL(string: "https://www.olja-oliv.se/")!) {
+//                             Text("Sök sidan")
+//                                 .font(.caption)
+//                                 .foregroundColor(.gray)
+//                                 .lineLimit(2)
+//                         }
+                         
+//                     }
+//                     HStack{
+//
+//                         Link(destination: URL(string: "https://www.opizzicato.se/")!) {
+//                             Text("Sök sidan")
+//                                 .font(.caption)
+//                                 .foregroundColor(.gray)
+//                                 .lineLimit(2)
+//                         }
+//
+//                     }
+//                     HStack{
+//
+//                         Link(destination: URL(string: "https://www.laperla-ingrosso.com/meny-sodermalm")!) {
+//                             Text("Sök sidan")
+//                                 .font(.caption)
+//                                 .foregroundColor(.gray)
+//                                 .lineLimit(2)
+//                         }
+//
+//                     }
+                     
+                 }
+             }
+             
+         }
 

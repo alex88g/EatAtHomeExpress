@@ -7,10 +7,8 @@ struct Home: View {
     
     //select category
     @State var selectedCategory: Category = categories.first!
-    
-    
-    
-    
+
+   
     var body: some View {
         
         
@@ -114,11 +112,10 @@ struct Home: View {
                         NavigationLink(destination: Restaurants()){
                             Image(systemName: "house.lodge.circle")
                                 .foregroundColor(.red)
-                                .padding(.top)
                                 .padding(.leading)
                                 
                            Text("Hitta restauranger")
-                                .foregroundColor(Color.black)
+//                                .foregroundColor(Color.black)
                                
                                 
                             
@@ -161,7 +158,35 @@ struct Home: View {
                                 //shadows
                                 .onTapGesture{withAnimation(.spring()){
                                     selectedCategory = category
+//                                  print("\(category)")
+                                    HomeModel.fetchData()
                                     
+                                    
+                                
+                                    
+                                    //fetch data
+//                                    func fetchData(){
+//                                        
+//                                        let db = Firestore.firestore()
+//                                        
+//                                        db.collection("Category").getDocuments{ (snap, err)in
+//                                            
+//                                            guard let itemData = snap else{return}
+//                                            
+//                                            self.category = itemData.documents.compactMap({(doc) -> Category? in
+//                                                
+//                                                let id = doc.documentID
+//                                                let image = doc.get("image") as! String
+//                                                let title = doc.get("title") as! String
+//                                                
+//                                                
+//                                                
+//                                                return Category(id: id, image: image, title: title)
+//                                                
+//                                            })
+//                                        }
+//                                    }
+
                                 }
                                  
                                 }
