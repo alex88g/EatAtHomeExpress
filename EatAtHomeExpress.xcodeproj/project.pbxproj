@@ -23,6 +23,7 @@
 		F0C03F372982B04B0074AEEA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F362982B04B0074AEEA /* MapView.swift */; };
 		F0C03F3F2982B2590074AEEA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F3E2982B2590074AEEA /* Place.swift */; };
 		F0C1654D2996F98800256C7A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1654C2996F98700256C7A /* CameraView.swift */; };
+		F0C1655B29983D2900256C7A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1655A29983D2900256C7A /* PickerView.swift */; };
 		F0EA085D2990743E00420613 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA085C2990743E00420613 /* Category.swift */; };
 		F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */; };
 		F0F7D48F297075E400778015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D48E297075E400778015 /* Assets.xcassets */; };
@@ -66,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		F006261F299288C9008300B7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		F01CB9ED298D6512000E4B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F029790C299253BC001AE8D5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = EatAtHomeExpress/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		F02E3D13298CF4FA003E6687 /* HomeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMap.swift; sourceTree = "<group>"; };
 		F02E3D15298CF73D003E6687 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 		F0C03F362982B04B0074AEEA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F0C03F3E2982B2590074AEEA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F0C1654C2996F98700256C7A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		F0C1655A29983D2900256C7A /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		F0EA085C2990743E00420613 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F0F7D487297075E300778015 /* EatAtHomeExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAtHomeExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressApp.swift; sourceTree = "<group>"; };
@@ -175,7 +176,6 @@
 		F0F7D489297075E300778015 /* EatAtHomeExpress */ = {
 			isa = PBXGroup;
 			children = (
-				F01CB9ED298D6512000E4B8F /* Info.plist */,
 				F0F7D4C12970790B00778015 /* GoogleService-Info.plist */,
 				F0F7D4B6297077C100778015 /* ViewModel */,
 				F0F7D4B5297077AF00778015 /* Model */,
@@ -227,6 +227,7 @@
 				F006261F299288C9008300B7 /* CardView.swift */,
 				F09435532993A3E40062301F /* SwitchView.swift */,
 				F0C1654C2996F98700256C7A /* CameraView.swift */,
+				F0C1655A29983D2900256C7A /* PickerView.swift */,
 				F029790C299253BC001AE8D5 /* ContentView.swift */,
 			);
 			path = View;
@@ -423,6 +424,7 @@
 				F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */,
 				F0F7D4D829718B8300778015 /* Cart.swift in Sources */,
 				F0062620299288C9008300B7 /* CardView.swift in Sources */,
+				F0C1655B29983D2900256C7A /* PickerView.swift in Sources */,
 				F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,8 +590,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EatAtHomeExpress/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -621,8 +626,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EatAtHomeExpress/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

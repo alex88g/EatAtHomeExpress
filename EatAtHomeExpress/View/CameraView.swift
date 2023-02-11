@@ -6,152 +6,287 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct CameraView: View {
     
-    @State var imageData : Data = .init(capacity: 0)
-    @State var show = false
-    @State var imagepicker = false
-    @State var source : UIImagePickerController.SourceType = .photoLibrary
-    @Environment(\.presentationMode) var present
+        @State var beskrivning = ""
     
-    @State var beskrivning = ""
-    
+    @StateObject var camera = CameraModel()
     
     var body: some View {
         
-    
-        HStack(spacing: 20){
-            
-            
-            Button(action:{present.wrappedValue.dismiss()}) {
-                
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 26, weight: .heavy))
-                    .foregroundColor(Color(.red))
-                
-          
-            Spacer()
-                    
-                
-            }
-            .padding()
-        }
-            NavigationView{
-                
-                ZStack{
-                    
-                    NavigationLink(destination: Imagepicker(show: $imagepicker, image: $imageData, source: source), isActive: $imagepicker) {
-                        
-                        Text("")
-                    }
-                    
-                    VStack{
-                        if imageData.count != 0{
-                            
-                            Image(uiImage: UIImage(data: self.imageData)!).resizable().frame(width: 250, height: 250).cornerRadius(15)
-                        }
-                        Button(action: {
-                            
-                            self.show.toggle()
-                            
-                        }){
-                            Image(systemName: "camera.fill")
-                                .font(.system(size: 30, weight: .bold))
-                        }
+        
                        
-                        Text("Beskriv kort din händelse, så tar vi hand om ditt ärende")
-                            .fontWeight(.bold)
+                            Button(action: {
+  
+                            }){
+                                NavigationLink(destination: CameraView()){
+                                    Image(systemName: "camera.fill")
+                                        .font(.system(size: 30, weight: .bold))
+                                }}
+                    
+  
+                          Text("Beskriv kort din händelse, så tar vi hand om ditt ärende")
+                              .fontWeight(.bold)
+  
+                          TextField("", text: self.$beskrivning)
+                                              .textFieldStyle(RoundedBorderTextFieldStyle())
+                                              .padding(.horizontal)
+                          Spacer()
+        
+     
+        ZStack{
+            
+            //going to be camera preview
+            CameraPreview(camera: camera)
+                .ignoresSafeArea(.all, edges: .all)
+            
+            VStack{
+                
+                if camera.isTaken{
+                    
+                    HStack{
                         
-                        TextField("", text: self.$beskrivning)
-                                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                                            .padding(.horizontal)
                         Spacer()
+                    
+                        Button(action: camera.reTake, label:{
                         
+                        Image(systemName:"arrow.triangle.2.circlepath.camera")
                         
-                            
-                            
-                        }.navigationBarTitle("",displayMode: .inline)
-                            .navigationBarHidden(true)
-                    }.actionSheet(isPresented: $show) {
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(Color.white)
+                            .clipShape(Capsule())
                         
-                        ActionSheet(title: Text("Select A Type"), message: Text(""), buttons: [.default(Text("Upload"), action: {
-                            
-                            self.source = .photoLibrary
-                            self.imagepicker.toggle()
-                            
-                            
-                        }),.default(Text("Take a Picture"), action: {
-                            
-                            self.source = .camera
-                            self.imagepicker.toggle()
-                            
-                            
-                        })])
+                    })
+                    .padding(.trailing,10)
+                }
+                    
+                }
+                
+                Spacer()
+                
+                HStack{
+                    
+              //if camera is taken showing save and again take button
+                    
+                    if camera.isTaken{
                         
+                        Button(action: {if !camera.isSaved{camera.savePic()}}, label:{
+                            Text(camera.isSaved ? "Saved" : "Save")
+                                .foregroundColor(.black)
+                                .fontWeight(.semibold)
+                                .padding(.vertical,10)
+                                .padding(.horizontal,20)
+                                .background(Color.white)
+                                .clipShape(Capsule())
+                        })
+                        .padding(.leading)
+                        
+                        Spacer()
+                    }
+                    else{
+                        
+                        Button(action: camera.takePic, label:{
+                            
+                            ZStack{
+                                
+                                Circle()
+                                    .fill(Color.white)
+                                    .frame(width: 65, height: 65)
+                                
+                                Circle()
+                                    .stroke(Color.white,lineWidth: 2)
+                                    .frame(width: 75, height: 75)
+                            }
+                        })
+                            
                     }
                     
+                }
+                .frame(height: 75)
+            }
+            
+        }
+        .onAppear(perform:{
+            
+            camera.Check()
+            
+        })
+      }
+}
+
+//camera model
+
+class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
+    
+    @Published var isTaken = false
+   
+    @Published var session = AVCaptureSession()
+   
+    @Published var alert = false
+    
+    //since were going to read pic data
+    
+    @Published var output = AVCapturePhotoOutput()
+    
+    //preview
+    
+    @Published var preview : AVCaptureVideoPreviewLayer!
+    
+    //pic data
+    @Published var isSaved = false
+    
+    @Published var picData = Data(count: 0)
+    
+    func Check(){
+        
+        //first checking camera has got permission
+        switch AVCaptureDevice.authorizationStatus(for: .video){
+        case .authorized:
+            setUp()
+            return
+            //settings up session
+        case .notDetermined:
+            //retusing for permission
+            AVCaptureDevice.requestAccess(for: .video) { (status) in
                 
-            }.navigationBarBackButtonHidden(true)
-            
-            
+                if status{
+                    
+                    self.setUp()
+                    
+                }
+            }
+        case .denied:
+            self.alert.toggle()
+            return
+        default:
+            return
         }
     }
+    func setUp(){
+        
+        //setting up camera
+        
+        do{
+            
+            //setting configs
+            
+            self.session.beginConfiguration()
+            
+            //change for your own
+            let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back)
+            
+            let input = try AVCaptureDeviceInput(device: device!)
+            
+            //checking and adding to session
+            
+            if self.session.canAddInput(input){
+                self.session.addInput(input)
+                
+                //same for output
+                
+                if self.session.canAddOutput(self.output){
+                    self.session.addOutput(self.output)
+                }
+                self.session.commitConfiguration()
+            }
+            
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+        
+    }
     
-    struct Imagepicker : UIViewControllerRepresentable {
-        func makeCoordinator() -> Coordinator {
-            
-            return Imagepicker.Coordinator(parent1: self)
-        }
+    //take and retake functions
+    
+    func takePic(){
         
-        @Binding var show : Bool
-        @Binding var image : Data
-        var source : UIImagePickerController.SourceType
-        
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<Imagepicker>) -> Imagepicker.UIViewControllerType {
+        DispatchQueue.global(qos: .background).async {
+           
+            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+            self.session.startRunning()
             
-            
-            let controller = UIImagePickerController()
-            controller.sourceType = source
-            controller.delegate = context.coordinator
-            return controller
-            
-        }
-        
-        func updateUIViewController(_ uiViewController: UIImagePickerController, context:
-                                    UIViewControllerRepresentableContext<Imagepicker>) {
-            
-        }
-        
-        class Coordinator : NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-            
-            var parent : Imagepicker
-            
-            init(parent1 : Imagepicker) {
-                
-                parent = parent1
-                
-                func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-                    
-                    self.parent.show.toggle()
-                    
-                }
-                
-                func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
-                                           [UIImagePickerController.InfoKey : Any]) {
-                    
-                    let image = info[.originalImage] as! UIImage
-                    let data = image.pngData()
-                    self.parent.image = data!
-                    self.parent.show.toggle()
-                    
-                }
-                
-                
+            DispatchQueue.main.async {
+                withAnimation{self.isTaken.toggle()}
             }
         }
     }
+    
+    func reTake(){
+        
+        DispatchQueue.global(qos: .background).async {
+            self.session.startRunning()
+            
+            DispatchQueue.main.async {
+                withAnimation{self.isTaken.toggle()}
+                //clearing
+                self.isSaved = false
+            }
+        }
+        
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if error != nil{
+            return
+        }
+        
+        print("pic taken")
+        
+        guard let imageData = photo.fileDataRepresentation() else{return}
+        
+        self.picData = imageData
+      }
+    
+    func savePic(){
+        
+        let image = UIImage(data: self.picData)!
+        
+        //saving data
+        
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        self.isSaved = true
+        
+        print("saved Successfully")
+    }
+    
+}
+
+
+
+//settings view for preview
+
+struct CameraPreview: UIViewRepresentable {
+    
+    @ObservedObject var camera : CameraModel
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: UIScreen.main.bounds)
+        
+        camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
+        camera.preview.frame = view.frame
+        
+        //your own properties
+        camera.preview.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(camera.preview)
+        
+        //starting session
+        camera.session.startRunning()
+        
+        return view
+        
+    }
+    func updateUIView(_ uiView: UIView, context: Context) {
+        
+       
+        
+    }
+    
+}
 
 //struct CameraView_Previews: PreviewProvider {
 //    static var previews: some View {

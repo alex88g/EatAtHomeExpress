@@ -65,7 +65,7 @@ struct Menu: View {
                     
                     
                 }){
-                    NavigationLink(destination: CameraView()){
+                    NavigationLink(destination: PickerView()){
                         Image(systemName: "list.clipboard")
                             .fontWeight(.heavy)
                             .foregroundColor(.red)
