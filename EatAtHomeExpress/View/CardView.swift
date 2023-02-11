@@ -23,6 +23,8 @@ struct CardView<Content>: View where Content: View {
 
 
 struct CreditCardFront: View{
+    @Environment(\.presentationMode) var present
+    
     
     let name: String
     let expires: String
@@ -30,6 +32,19 @@ struct CreditCardFront: View{
     
     var body: some View{
         
+      
+      
+        HStack(spacing: 20){
+            
+            
+            Button(action:{present.wrappedValue.dismiss()}) {
+                
+                Image(systemName: "x.circle.fill")
+                    .font(.system(size: 26, weight: .heavy))
+                    .foregroundColor(Color(.red))
+                Spacer()
+            }.padding()
+        }
 
         VStack(alignment: .leading){
             
@@ -235,6 +250,6 @@ struct onTap: View{
             
         } .background(Color("").ignoresSafeArea())
             .navigationBarHidden(false)
-            .navigationBarBackButtonHidden(false)
+            .navigationBarBackButtonHidden(true)
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 import Firebase
 
 struct Restaurants: View {
+    @Environment(\.presentationMode) var present
+
     
     @StateObject var PlacesModel = PlacesViewModel()
     
@@ -16,9 +18,26 @@ struct Restaurants: View {
     
     var body: some View {
         
+        HStack(spacing: 20){
+            
+            
+            Button(action:{present.wrappedValue.dismiss()}) {
+                
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 26, weight: .heavy))
+                    .foregroundColor(Color(.red))
+                
+          
+            Spacer()
+                    
+                
+            }
+            .padding()
+        }
+        
         
         ZStack{
-            
+         
             
             VStack(){
 
@@ -114,7 +133,7 @@ struct Restaurants: View {
                 
             }
             
-        }
+        }.navigationBarBackButtonHidden(true)
         .onAppear(perform: {
             // calling location delegate
             PlacesModel.locationManager.delegate = PlacesModel

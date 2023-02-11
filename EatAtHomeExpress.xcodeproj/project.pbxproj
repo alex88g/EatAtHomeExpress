@@ -22,6 +22,7 @@
 		F0C03F352982285F0074AEEA /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F342982285F0074AEEA /* SignUp.swift */; };
 		F0C03F372982B04B0074AEEA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F362982B04B0074AEEA /* MapView.swift */; };
 		F0C03F3F2982B2590074AEEA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F3E2982B2590074AEEA /* Place.swift */; };
+		F0C1654D2996F98800256C7A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1654C2996F98700256C7A /* CameraView.swift */; };
 		F0EA085D2990743E00420613 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA085C2990743E00420613 /* Category.swift */; };
 		F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */; };
 		F0F7D48F297075E400778015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D48E297075E400778015 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		F0C03F342982285F0074AEEA /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F0C03F362982B04B0074AEEA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F0C03F3E2982B2590074AEEA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		F0C1654C2996F98700256C7A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		F0EA085C2990743E00420613 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F0F7D487297075E300778015 /* EatAtHomeExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAtHomeExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressApp.swift; sourceTree = "<group>"; };
@@ -216,14 +218,15 @@
 			children = (
 				F0C03F392982B1060074AEEA /* Login */,
 				F02E3D17298D13A8003E6687 /* Map */,
-				F09435532993A3E40062301F /* SwitchView.swift */,
-				F09435552993A68C0062301F /* Menu.swift */,
-				F05A98EB2993FE73002ECD89 /* PlacesView.swift */,
-				F05A98ED2994063F002ECD89 /* Restaurants.swift */,
 				F0F7D4B72970781500778015 /* Home.swift */,
-				F0F7D4D529707C4A00778015 /* ItemView.swift */,
+				F05A98ED2994063F002ECD89 /* Restaurants.swift */,
+				F05A98EB2993FE73002ECD89 /* PlacesView.swift */,
+				F09435552993A68C0062301F /* Menu.swift */,
 				F0F7D4D92971980A00778015 /* CartView.swift */,
+				F0F7D4D529707C4A00778015 /* ItemView.swift */,
 				F006261F299288C9008300B7 /* CardView.swift */,
+				F09435532993A3E40062301F /* SwitchView.swift */,
+				F0C1654C2996F98700256C7A /* CameraView.swift */,
 				F029790C299253BC001AE8D5 /* ContentView.swift */,
 			);
 			path = View;
@@ -416,6 +419,7 @@
 				F0F7D4D629707C4A00778015 /* ItemView.swift in Sources */,
 				F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */,
 				F0C03F372982B04B0074AEEA /* MapView.swift in Sources */,
+				F0C1654D2996F98800256C7A /* CameraView.swift in Sources */,
 				F02E3D16298CF73D003E6687 /* MapViewModel.swift in Sources */,
 				F0F7D4D829718B8300778015 /* Cart.swift in Sources */,
 				F0062620299288C9008300B7 /* CardView.swift in Sources */,

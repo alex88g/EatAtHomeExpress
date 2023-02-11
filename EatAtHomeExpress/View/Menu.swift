@@ -16,43 +16,67 @@ struct Menu: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
         
-        VStack{
+       
             
-            NavigationLink(destination: CartView(homeData: homeData)){
+            VStack{
                 
-                HStack(spacing: 15){
+                NavigationLink(destination: CartView(homeData: homeData)){
                     
-                    Image(systemName: "cart")
-                        .font(.title)
-                        .foregroundColor(Color("red"))
+                    HStack(spacing: 15){
+                        
+                        Image(systemName: "cart")
+                            .font(.title)
+                            .foregroundColor(Color("red"))
+                        
+                        Text("Varukorg")
+                            .fontWeight(.bold)
+                        //                        .foregroundColor(.red)
+                        
+                        
+                        Spacer(minLength: 0)
+                    }
                     
-                    Text("Varukorg")
-                        .fontWeight(.bold)
-//                        .foregroundColor(.red)
+                    .padding()
                     
-                    
-                    Spacer(minLength: 0)
                 }
                 
-                .padding()
+                Spacer()
                 
-            }
-            
-            Spacer()
-            
-              Button(action: {
+                Button(action: {
+                    
+                }){
+                    NavigationLink(destination: SwitchView()){
+                        Image(systemName: "gearshape")
+                            .fontWeight(.heavy)
+                            .foregroundColor(.red)
                         
-                    }){
-                        NavigationLink(destination: SwitchView()){
-                            Image(systemName: "gearshape")
-                                .fontWeight(.heavy)
-                                .foregroundColor(.red)
-                            
-                            Text( "Inställningar")
-//                                .foregroundColor(.red)
-                            
-                            
-                    }.padding()
+                        Text( "Inställningar")
+                        //                                .foregroundColor(.red)
+                        
+                        
+                    }  .padding()
+                    Spacer()
+                }
+                
+              
+               
+                    Button(action: {
+                    
+                    
+                    
+                }){
+                    NavigationLink(destination: CameraView()){
+                        Image(systemName: "list.clipboard")
+                            .fontWeight(.heavy)
+                            .foregroundColor(.red)
+                        
+                        Text( "Reklamation")
+                        //                                .foregroundColor(.red)
+                        
+                        
+                    }
+                    
+                    .padding()
                     Spacer()
                 }
                 
@@ -74,21 +98,21 @@ struct Menu: View {
                         .foregroundColor(.red)
                     
                     Text( "Logga ut")
-//                        .foregroundColor(.red)
+                    //                        .foregroundColor(.red)
                         .fontWeight(.heavy)
                 }
             }
             
             .padding(10)
             
-        
-        
-        .accentColor(.primary)
-        .padding([.top,.trailing])
-        .frame(width: UIScreen.main.bounds.width / 1.6)
-        .background((self.isDarkMode ? Color.black : Color.white).edgesIgnoringSafeArea(.all)).overlay(Rectangle().stroke(Color.primary, lineWidth: 2).shadow(radius: 3).edgesIgnoringSafeArea(.all))
-        
-    }}
-        
+            
+            
+            .accentColor(.primary)
+            .padding([.top,.trailing])
+            .frame(width: UIScreen.main.bounds.width / 1.6)
+            .background((self.isDarkMode ? Color.black : Color.white).edgesIgnoringSafeArea(.all)).overlay(Rectangle().stroke(Color.primary, lineWidth: 2).shadow(radius: 3).edgesIgnoringSafeArea(.all))
+            
+        }}
     
+
     

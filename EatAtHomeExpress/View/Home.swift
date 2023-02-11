@@ -29,16 +29,16 @@ struct Home: View {
                         
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
-//                            .foregroundColor(Color(.red))
+                        //                            .foregroundColor(Color(.red))
                         
                     })
                     Text(HomeModel.userLocation == nil ? "Localisering..." : "Leverera till")
-//                        .foregroundColor(.red)
+                    //                        .foregroundColor(.red)
                     
                     Text(HomeModel.userAdress)
                         .font(.caption)
                         .fontWeight(.heavy)
-//                        .foregroundColor(Color(.red)
+                    //                        .foregroundColor(Color(.red)
                     Spacer(minLength: 0)
                     //
                     
@@ -103,26 +103,24 @@ struct Home: View {
                         .font(.title2)
                         .fontWeight(.bold)
                         .padding(.leading)
-                        
-                   
+                    
+                    
                     Button(action: {
                         
                         
                     }){
                         NavigationLink(destination: Restaurants()){
                             Image(systemName: "house.lodge.circle")
-                                .foregroundColor(.red)
+                                
                                 .padding(.leading)
-                                
-                           Text("Hitta restauranger")
-//                                .foregroundColor(Color.black)
-                               
-                                
+                            
+                            Text("Hitta restauranger")
+                                .foregroundColor(Color.gray)
                             
                             Spacer()
                             
-                        }}
-                    
+                        }
+                    }
                     
                     ScrollView(.horizontal, showsIndicators: false, content:{
                         
@@ -166,23 +164,23 @@ struct Home: View {
                                     
                                     //fetch data
 //                                    func fetchData(){
-//                                        
+//
 //                                        let db = Firestore.firestore()
-//                                        
+//
 //                                        db.collection("Category").getDocuments{ (snap, err)in
-//                                            
+//
 //                                            guard let itemData = snap else{return}
-//                                            
+//
 //                                            self.category = itemData.documents.compactMap({(doc) -> Category? in
-//                                                
+//
 //                                                let id = doc.documentID
 //                                                let image = doc.get("image") as! String
 //                                                let title = doc.get("title") as! String
-//                                                
-//                                                
-//                                                
+//
+//
+//
 //                                                return Category(id: id, image: image, title: title)
-//                                                
+//
 //                                            })
 //                                        }
 //                                    }
