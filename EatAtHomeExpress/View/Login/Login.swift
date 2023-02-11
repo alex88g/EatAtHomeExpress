@@ -49,7 +49,7 @@ struct Login: View {
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .padding(.top, 15)
-                                .foregroundColor(Color.black)
+//                                .foregroundColor(Color.black)
                             // TextField for entering email
                             TextField("Email", text: self.$email)
                                 .autocapitalization(.none)

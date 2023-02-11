@@ -15,10 +15,12 @@ struct CameraView: View {
     @State var source : UIImagePickerController.SourceType = .photoLibrary
     @Environment(\.presentationMode) var present
     
+    @State var beskrivning = ""
+    
+    
     var body: some View {
         
     
-        
         HStack(spacing: 20){
             
             
@@ -54,8 +56,19 @@ struct CameraView: View {
                             self.show.toggle()
                             
                         }){
-                            Text("Pic")
-                            
+                            Image(systemName: "camera.fill")
+                                .font(.system(size: 30, weight: .bold))
+                        }
+                       
+                        Text("Beskriv kort din händelse, så tar vi hand om ditt ärende")
+                            .fontWeight(.bold)
+                        
+                        TextField("", text: self.$beskrivning)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .padding(.horizontal)
+                        Spacer()
+                        
+                        
                             
                             
                         }.navigationBarTitle("",displayMode: .inline)
@@ -78,7 +91,7 @@ struct CameraView: View {
                         
                     }
                     
-                }
+                
             }.navigationBarBackButtonHidden(true)
             
             
@@ -135,12 +148,13 @@ struct CameraView: View {
                     
                 }
                 
+                
             }
         }
     }
 
-struct CameraView_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraView()
-    }
-}
+//struct CameraView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CameraView()
+//    }
+//}
