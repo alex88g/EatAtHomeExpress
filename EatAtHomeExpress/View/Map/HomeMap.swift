@@ -82,8 +82,8 @@ struct HomeMap: View {
                         
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.top, 55)
-                    .padding(.horizontal, 3)
+                    .padding(.top)
+                    .padding()
                     
                     Spacer()
                     
