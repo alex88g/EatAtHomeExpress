@@ -93,7 +93,7 @@ struct HomeMap: View {
                         VStack(spacing:0){
                             HStack{
                                 
-                                Image(systemName: "magnifynglass")
+                                Image(systemName: "magnifyingglass")
                                     .foregroundColor(.gray)
                                 
                                 TextField("Sök i kartor", text: $mapData.searchTxt)

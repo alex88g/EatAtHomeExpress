@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Firebase
 
 struct CameraView: View {
     
@@ -17,23 +18,7 @@ struct CameraView: View {
     var body: some View {
         
         
-                       
-                            Button(action: {
-  
-                            }){
-                                NavigationLink(destination: CameraView()){
-                                    Image(systemName: "camera.fill")
-                                        .font(.system(size: 30, weight: .bold))
-                                }}
-                    
-  
-                          Text("Beskriv kort din händelse, så tar vi hand om ditt ärende")
-                              .fontWeight(.bold)
-  
-                          TextField("", text: self.$beskrivning)
-                                              .textFieldStyle(RoundedBorderTextFieldStyle())
-                                              .padding(.horizontal)
-                          Spacer()
+            Spacer()
         
      
         ZStack{

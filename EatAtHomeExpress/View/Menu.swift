@@ -66,11 +66,11 @@ struct Menu: View {
                     
                 }){
                     NavigationLink(destination: PickerView()){
-                        Image(systemName: "list.clipboard")
+                        Image(systemName: "questionmark.circle")
                             .fontWeight(.heavy)
                             .foregroundColor(.red)
                         
-                        Text( "Reklamation")
+                        Text( "Hjälpcenter")
                         //                                .foregroundColor(.red)
                         
                         

@@ -7,10 +7,14 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 //
 struct MapView: UIViewRepresentable {
     @EnvironmentObject var mapData: MapViewModel
+    
+    let map = MKMapView()
+    let manager = CLLocationManager()
     
     func makeCoordinator() -> Coordinator {
         return MapView.Coordinator()
@@ -20,6 +24,7 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         
         let view = mapData.mapView
+        
         
         view.showsUserLocation = true
         view.delegate = context.coordinator

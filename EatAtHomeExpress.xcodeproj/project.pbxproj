@@ -24,6 +24,7 @@
 		F0C03F3F2982B2590074AEEA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03F3E2982B2590074AEEA /* Place.swift */; };
 		F0C1654D2996F98800256C7A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1654C2996F98700256C7A /* CameraView.swift */; };
 		F0C1655B29983D2900256C7A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1655A29983D2900256C7A /* PickerView.swift */; };
+		F0C1655D2998EB0400256C7A /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C1655C2998EB0400256C7A /* MapPlace.swift */; };
 		F0EA085D2990743E00420613 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA085C2990743E00420613 /* Category.swift */; };
 		F0F7D48B297075E300778015 /* EatAtHomeExpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */; };
 		F0F7D48F297075E400778015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F7D48E297075E400778015 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		F0C03F3E2982B2590074AEEA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F0C1654C2996F98700256C7A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		F0C1655A29983D2900256C7A /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		F0C1655C2998EB0400256C7A /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
 		F0EA085C2990743E00420613 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F0F7D487297075E300778015 /* EatAtHomeExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatAtHomeExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F7D48A297075E300778015 /* EatAtHomeExpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatAtHomeExpressApp.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				F0F7D4D729718B8200778015 /* Cart.swift */,
 				F0C03F3E2982B2590074AEEA /* Place.swift */,
 				F0EA085C2990743E00420613 /* Category.swift */,
+				F0C1655C2998EB0400256C7A /* MapPlace.swift */,
 			);
 			name = Model;
 			path = "New Group1";
@@ -426,6 +429,7 @@
 				F0062620299288C9008300B7 /* CardView.swift in Sources */,
 				F0C1655B29983D2900256C7A /* PickerView.swift in Sources */,
 				F02E3D14298CF4FA003E6687 /* HomeMap.swift in Sources */,
+				F0C1655D2998EB0400256C7A /* MapPlace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

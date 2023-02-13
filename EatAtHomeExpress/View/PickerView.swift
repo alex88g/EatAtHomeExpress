@@ -7,7 +7,7 @@
 
 import SwiftUI
 import FirebaseStorage
-import SDWebImageSwiftUI
+import Firebase
 
 struct PickerView: View {
     
@@ -19,47 +19,63 @@ struct PickerView: View {
         
         VStack(){
             
+            Button(action:{present.wrappedValue.dismiss()}) {
                 
-                Button(action:{present.wrappedValue.dismiss()}) {
-                    
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 26, weight: .bold))
-                    
-                    Spacer()
-                }
-                .padding()
-                Button(action: {
-                    
-                }){
-                    NavigationLink(destination: CameraView()){
-                        Image(systemName: "camera.fill")
-                            .font(.system(size: 30, weight: .bold))
-                    }}
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 26, weight: .bold))
                 
-                
-                
-                Text("Beskriv kort din händelse, så tar vi hand om ditt ärende")
-                    .fontWeight(.bold)
-                
-                TextField("", text: self.$beskrivning)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
                 Spacer()
+            }
+            
+            .padding()
+            
+            Button(action: {
                 
-                Button(action: {
-                    
-                    self.shown.toggle()
-                    
-                }){
-                    Text("Upload Image")
-                    
-                }.sheet(isPresented: $shown) {
-                    
-                    imagePicker(shown: self.$shown)
-                    
-                }
-            }.navigationBarBackButtonHidden(true)
-        }}
+            }){
+                NavigationLink(destination: CameraView()){
+                    Image(systemName: "camera.fill")
+                        .font(.system(size: 30, weight: .bold))
+                }}
+            
+            Text("Beskriv kort din händelse, så tar vi hand om ditt ärende")
+                .fontWeight(.bold)
+            
+            TextField("", text: self.$beskrivning)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
+            
+            Button(action: {
+                
+            }){
+                
+                Text("Skicka")
+                
+            }
+            
+            Spacer()
+            
+            
+            Button(action: {
+                
+                self.shown.toggle()
+                
+                
+                
+            }){
+                Text("Upload Image")
+                
+                
+                
+                
+            }.sheet(isPresented: $shown) {
+                
+                imagePicker(shown: self.$shown)
+                
+            }
+            .navigationBarBackButtonHidden(true)
+        }
+    }
+}
 struct PickerView_Previews: PreviewProvider {
     static var previews: some View {
         PickerView()
@@ -121,7 +137,7 @@ struct imagePicker : UIViewControllerRepresentable {
                     }
                     print("success")
                 }
-                parent.shown.toggle()
+                
                 
             }
         }

@@ -14,6 +14,12 @@ import CoreLocation
 
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
     
+    @State var MapPlaces = [
+      MapPlace(name: "Deli Di Luca", latitude:18.08394, longitude: 59.31604),
+      MapPlace(name: "Primo Ciao Ciao Nytorget", latitude: 18.08248, longitude: 59.31367),
+      MapPlace(name: "Olja&Oliv Deli, Kök & Bar", latitude: 18.09082, longitude: 59.31489),
+  ]
+    
     @Published var mapView = MKMapView()
     
     //region
@@ -91,7 +97,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
         let pointAnnotation = MKPointAnnotation()
         pointAnnotation.coordinate = coordinate
         pointAnnotation.title = place.place.name ?? "No Name"
-
+        
         //removing all old ones
 //        mapView.removeAnnotation(mapView.annotations as! MKAnnotation)
       
@@ -100,7 +106,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
         
         //moving map to that location
         
-        let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         
         mapView.setRegion(coordinateRegion, animated: true)
         mapView.setVisibleMapRect(mapView.visibleMapRect, animated: true)
@@ -136,13 +142,17 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
             
             guard let location = locations.last else{return}
             
-        self.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        self.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
             
             //updating map
             self.mapView.setRegion(self.region, animated: true)
             
             //smooth animations
             self.mapView.setVisibleMapRect(self.mapView.visibleMapRect, animated: true)
+        
+       
+
+            
         
     }
     
