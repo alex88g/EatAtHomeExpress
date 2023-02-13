@@ -10,12 +10,13 @@ import MapKit
 import CoreLocation
 
 //
+    
 struct MapView: UIViewRepresentable {
+    
+    
     @EnvironmentObject var mapData: MapViewModel
     
-    let map = MKMapView()
-    let manager = CLLocationManager()
-    
+
     func makeCoordinator() -> Coordinator {
         return MapView.Coordinator()
         
@@ -58,6 +59,8 @@ struct MapView: UIViewRepresentable {
             }
             
         }
+        
+        
         
     }
 }

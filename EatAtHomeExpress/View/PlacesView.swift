@@ -62,36 +62,7 @@ struct PlacesView: View {
                          }
                          
                      }
-//                     HStack{
-//
-//                         Link(destination: URL(string: "https://www.olja-oliv.se/")!) {
-//                             Text("Sök sidan")
-//                                 .font(.caption)
-//                                 .foregroundColor(.gray)
-//                                 .lineLimit(2)
-//                         }
-                         
-//                     }
-//                     HStack{
-//
-//                         Link(destination: URL(string: "https://www.opizzicato.se/")!) {
-//                             Text("Sök sidan")
-//                                 .font(.caption)
-//                                 .foregroundColor(.gray)
-//                                 .lineLimit(2)
-//                         }
-//
-//                     }
-//                     HStack{
-//
-//                         Link(destination: URL(string: "https://www.laperla-ingrosso.com/meny-sodermalm")!) {
-//                             Text("Sök sidan")
-//                                 .font(.caption)
-//                                 .foregroundColor(.gray)
-//                                 .lineLimit(2)
-//                         }
-//
-//                     }
+
                      
                  }
              }

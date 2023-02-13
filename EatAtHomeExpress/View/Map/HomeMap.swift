@@ -15,8 +15,18 @@ struct HomeMap: View {
     //location manager
     @State var locationManager = CLLocationManager()
     
+    @State var MapPlaces = [
+        MapPlace(name: "Deli Di Luca", latitude:18.08394, longitude: 59.31604),
+        MapPlace(name: "Primo Ciao Ciao Nytorget", latitude: 18.08248, longitude: 59.31367),
+        MapPlace(name: "Olja&Oliv Deli, Kök & Bar", latitude: 18.09082, longitude: 59.31489),
+        MapPlace(name: "O'PIZZICATO", latitude: 18.06515, longitude: 59.31411),
+        MapPlace(name: "La Perla", latitude: 18.06973, longitude: 59.31364),
+    ]
+    
     
     var body: some View{
+        
+        
         
         
         ZStack{
@@ -86,6 +96,7 @@ struct HomeMap: View {
                     .padding()
                     
                     Spacer()
+    
                     
                     
                     VStack{
