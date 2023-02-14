@@ -245,15 +245,8 @@ struct Home: View {
                                                 .foregroundColor(.black)
                                                 .background(Color(.white))
                                                 .cornerRadius(15)
-                                                .padding(.vertical, 230)
                                                 .position(x:55, y:240)
-                                                
-                                                
-                                            
-                                           
-                                                Spacer()
-                                            
-                                      
+                                          
                                 })
                                
                            
