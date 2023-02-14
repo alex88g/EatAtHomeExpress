@@ -245,7 +245,7 @@ struct Home: View {
                                                 .foregroundColor(.black)
                                                 .background(Color(.white))
                                                 .cornerRadius(15)
-                                                .position(x:55, y:240)
+                                                .position(x:55, y:235)
                                           
                                 })
                                
