@@ -155,35 +155,11 @@ struct Home: View {
                                 .clipShape(Capsule())
                                 //shadows
                                 .onTapGesture{withAnimation(.spring()){
-                                    selectedCategory = category
-//                                  print("\(category)")
+                                   // selectedCategory = category
+                                    HomeModel.selectedCategory = category
+//                                    print("\(category)")
                                     HomeModel.fetchData()
                                     
-                                    
-                                
-                                    
-                                    //fetch data
-//                                    func fetchData(){
-//
-//                                        let db = Firestore.firestore()
-//
-//                                        db.collection("Category").getDocuments{ (snap, err)in
-//
-//                                            guard let itemData = snap else{return}
-//
-//                                            self.category = itemData.documents.compactMap({(doc) -> Category? in
-//
-//                                                let id = doc.documentID
-//                                                let image = doc.get("image") as! String
-//                                                let title = doc.get("title") as! String
-//
-//
-//
-//                                                return Category(id: id, image: image, title: title)
-//
-//                                            })
-//                                        }
-//                                    }
 
                                 }
                                  
@@ -256,7 +232,31 @@ struct Home: View {
                                     .padding(.trailing,10)
                                     .padding(.top,10)
                                     
+                                    Spacer()
+                                    
+                                
+                                    
+                                    HStack{
+                                        
+                                        
+                                        Image(systemName: "clock")
+                                        Text("25-30min")
+                                    }
+                                                .foregroundColor(.black)
+                                                .background(Color(.white))
+                                                .cornerRadius(15)
+                                                .padding(.vertical, 230)
+                                                .position(x:55, y:240)
+                                                
+                                                
+                                            
+                                           
+                                                Spacer()
+                                            
+                                      
                                 })
+                               
+                           
                                 
                                 .frame(width: UIScreen.main.bounds.width - 30)
                                 .foregroundColor(.red)
@@ -269,7 +269,10 @@ struct Home: View {
                         .padding(.top, 10)
                         
                         
+                        
                     })
+                    
+              
                     
 //                    VStack{
 //

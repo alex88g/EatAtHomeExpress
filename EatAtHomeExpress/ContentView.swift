@@ -10,7 +10,7 @@ import Firebase
 
 struct ContentView: View {
   
-    
+//    @ObservedObject var homeData : HomeViewModel
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
@@ -72,6 +72,7 @@ struct ContentView: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
+//                .environmentObject(HomeModel())
            Home()
              
                

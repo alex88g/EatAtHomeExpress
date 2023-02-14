@@ -7,12 +7,17 @@
 
 import SwiftUI
 import FirebaseStorage
+import FirebaseFirestore
 import Firebase
+
 
 struct PickerView: View {
     
     @State var shown = false
     @State var beskrivning = ""
+    
+    
+    
     @Environment(\.presentationMode) var present
     
     var body: some View {
@@ -43,9 +48,13 @@ struct PickerView: View {
             TextField("", text: self.$beskrivning)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal)
+                .colorScheme(.light)
+            
+            
+            
             
             Button(action: {
-                
+                saveToFirestore(itemName: beskrivning)
             }){
                 
                 Text("Skicka")
@@ -57,15 +66,29 @@ struct PickerView: View {
             
             Button(action: {
                 
+            }){
+                NavigationLink(destination: PickerData()){
+                    Image(systemName: "list.bullet.clipboard")
+                        .fontWeight(.heavy)
+                        .foregroundColor(.red)
+                }
+                    Text( "Pågående ärende")
+                        .foregroundColor(.gray)
+                    
+                    
+                }  .padding()
+                Spacer()
+            }
+            
+            
+            Button(action: {
+                
                 self.shown.toggle()
                 
                 
                 
             }){
                 Text("Upload Image")
-                
-                
-                
                 
             }.sheet(isPresented: $shown) {
                 
@@ -75,13 +98,27 @@ struct PickerView: View {
             .navigationBarBackButtonHidden(true)
         }
     }
-}
-struct PickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        PickerView()
+//}
+//struct PickerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PickerView()
+//    }
+//}
+func saveToFirestore(itemName: String) {
+    
+    let db = Firestore.firestore()
+    
+    let item = Itemm(name: itemName)
+    guard let user = Auth.auth().currentUser else {return}
+    
+    do {
+        _ = try db.collection("users").document(user.uid).collection("Case").addDocument(from: item)
+    } catch {
+        print("Error saving to DB")
     }
 }
-        
+
+
 struct imagePicker : UIViewControllerRepresentable {
     
     func makeCoordinator() -> imagePicker.Coordinator {
@@ -90,6 +127,7 @@ struct imagePicker : UIViewControllerRepresentable {
     }
     
     @Binding var shown : Bool
+//    @Binding var data : Data
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<imagePicker>) -> UIImagePickerController {
         
@@ -113,10 +151,6 @@ struct imagePicker : UIViewControllerRepresentable {
         init(parent1 : imagePicker) {
             
             parent = parent1
-            
-            func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-                
-                parent.shown.toggle()
                 
             }
             
@@ -127,20 +161,24 @@ struct imagePicker : UIViewControllerRepresentable {
                 
                 
                 let storage = Storage.storage()
-                storage.reference().child("temp").putData(image.jpegData(compressionQuality: 0.35)!, metadata:
+                storage.reference().child("Case").putData(image.jpegData(compressionQuality: 0.35)!, metadata:
                 nil){ (_, err) in
                     
                     if err != nil{
                         
                         print((err?.localizedDescription)!)
                         return
+                        
                     }
                     print("success")
+                    
                 }
                 
+                parent.shown.toggle()
+
                 
             }
         }
     }
     
-}
+//}

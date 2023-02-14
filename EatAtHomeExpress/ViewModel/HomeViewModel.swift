@@ -122,10 +122,10 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
         let db = Firestore.firestore()
         
         let category = selectedCategory.title
-//        print("\(category)")
+        print("\(category)")
         
   
-        db.collection("Items") .whereField("Category", isEqualTo: category).getDocuments{ (snap, err)in
+        db.collection("Items").whereField("Category", isEqualTo: category).getDocuments{ (snap, err)in
             
             guard let itemData = snap else{return}
             

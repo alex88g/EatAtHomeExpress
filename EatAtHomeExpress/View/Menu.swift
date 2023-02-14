@@ -57,8 +57,6 @@ struct Menu: View {
                     }  .padding()
                     Spacer()
                 }
-                
-              
                
                     Button(action: {
                     
