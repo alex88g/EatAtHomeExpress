@@ -111,6 +111,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
             mapView.setRegion(coordinateRegion, animated: true)
             mapView.setVisibleMapRect(mapView.visibleMapRect, animated: true)
         }
+
         
         
         func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -143,6 +144,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
             guard let location = locations.last else{return}
             
             self.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+
             
             //updating map
             self.mapView.setRegion(self.region, animated: true)

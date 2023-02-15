@@ -8,9 +8,9 @@
 import Foundation
 import CoreLocation
 
-struct MapPlace : Identifiable {
+struct MapPlaces : Identifiable {
     var id = UUID()
-    
+    var image : String
     var name : String
     var latitude : Double
     var longitude : Double

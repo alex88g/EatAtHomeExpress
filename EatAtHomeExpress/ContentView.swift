@@ -8,7 +8,10 @@
 import SwiftUI
 import Firebase
 
+
 struct ContentView: View {
+    
+    @StateObject private var vm = LocationsViewModel()
   
 //    @ObservedObject var homeData : HomeViewModel
     @State var show = false
@@ -16,9 +19,9 @@ struct ContentView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
-        
-      
-        
+        LocationsView()
+            .environmentObject(vm)
+       
         NavigationView{
             
             VStack{
