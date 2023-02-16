@@ -13,11 +13,14 @@ import FirebaseAuth
 @main
 struct EatAtHomeApp: App {
     
+    
     @AppStorage("isDarkMode") private var isDarkMode = false
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
+        
+            
            ContentView()
          
                   

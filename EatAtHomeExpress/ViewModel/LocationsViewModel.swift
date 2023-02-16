@@ -4,8 +4,11 @@
 //
 //  Created by Alexander Gallorini on 2023-02-15.
 //
+
+import Foundation
 import SwiftUI
 import MapKit
+
 
 class LocationsViewModel: ObservableObject {
     // All loaded locations
@@ -26,16 +29,15 @@ class LocationsViewModel: ObservableObject {
     
     
     init(){
-        
+        //initialize data
         let locations = LocationsDataService.locations
         self.locations = locations
         self.mapLocation = locations.first!
-        
+        //then we call class mapRegion from blank to current location 
         self.updateMapRegion(location: locations.first!)
     }
     private func updateMapRegion(location: Location){
-        mapRegion = MKCoordinateRegion(
-            center: location.coordinates, span: mapSpan)
+        mapRegion = MKCoordinateRegion(center: location.coordinates, span: mapSpan)
 
     }
     

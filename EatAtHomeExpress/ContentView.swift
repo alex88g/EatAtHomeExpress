@@ -10,18 +10,19 @@ import Firebase
 
 
 struct ContentView: View {
-    
+
     @StateObject private var vm = LocationsViewModel()
-  
-//    @ObservedObject var homeData : HomeViewModel
+
+//  @ObservedObject var homeData : HomeViewModel
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
-        LocationsView()
-            .environmentObject(vm)
-       
+        
+//        LocationsView()
+//                   .environmentObject(vm)
+//        
         NavigationView{
             
             VStack{
@@ -73,10 +74,13 @@ struct ContentView: View {
 }
     
     struct ContentView_Previews: PreviewProvider {
+        
         static var previews: some View {
             ContentView()
 //                .environmentObject(HomeModel())
            Home()
+            
+           
              
                
             

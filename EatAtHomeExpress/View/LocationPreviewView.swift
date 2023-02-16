@@ -4,14 +4,16 @@
 //
 //  Created by Alexander Gallorini on 2023-02-15.
 //
-
+import Foundation
 import SwiftUI
+import MapKit
 
 //cousins of LocationView
 
 struct LocationPreviewView: View {
     
     @EnvironmentObject private var vm: LocationsViewModel
+    
     let location: Location
     
     var body: some View {
@@ -65,8 +67,8 @@ extension LocationPreviewView{
             }
         }
                 .padding(6)
-                .cornerRadius(10)
                 .background(Color.white)
+                .cornerRadius(10)
     }
     
     private var titleSection: some View{
@@ -88,6 +90,7 @@ extension LocationPreviewView{
         } label: {
             Text("Show more")
                 .font(.headline)
+                .frame(width: 125, height: 35)
         }
         .buttonStyle(.borderedProminent)
         

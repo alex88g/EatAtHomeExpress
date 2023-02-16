@@ -2,7 +2,11 @@ import SwiftUI
 import Firebase
 
 struct Home: View {
-    @StateObject var HomeModel = HomeViewModel()
+    @StateObject var homeModel = HomeViewModel()
+    
+    @StateObject private var vm = LocationsViewModel()
+
+    
     @State var color = Color.black
     
     //select category
@@ -24,7 +28,7 @@ struct Home: View {
                 HStack(spacing: 15){
                     
                     Button(action: {
-                        withAnimation(.easeIn){HomeModel.showMenu.toggle()}
+                        withAnimation(.easeIn){homeModel.showMenu.toggle()}
                     }, label: {
                         
                         Image(systemName: "line.horizontal.3")
@@ -32,10 +36,10 @@ struct Home: View {
                         //                            .foregroundColor(Color(.red))
                         
                     })
-                    Text(HomeModel.userLocation == nil ? "Localisering..." : "Leverera till")
+                    Text(homeModel.userLocation == nil ? "Localisering..." : "Leverera till")
                     //                        .foregroundColor(.red)
                     
-                    Text(HomeModel.userAdress)
+                    Text(homeModel.userAdress)
                         .font(.caption)
                         .fontWeight(.heavy)
                     //                        .foregroundColor(Color(.red)
@@ -60,7 +64,7 @@ struct Home: View {
                 
                 HStack(spacing: 15){
                     
-                    TextField("Sök för restauranger och rätter", text: $HomeModel.search)
+                    TextField("Sök för restauranger och rätter", text: $homeModel.search)
                     
                         .colorScheme(.light)
                         .padding(.vertical, 10)
@@ -73,7 +77,7 @@ struct Home: View {
                     Spacer()
                     
                     
-                    if HomeModel.search != ""{
+                    if homeModel.search != ""{
                         
                         Button(action: {}, label: {
                             
@@ -116,8 +120,24 @@ struct Home: View {
                             
                             Text("Hitta restauranger")
                                 .foregroundColor(Color.gray)
+                                
+                                Button(action: {
+                                    
+                                    
+                                }){
+                                    NavigationLink(destination: LocationsView().environmentObject(vm)){
+                                        Image(systemName: "map")
+                                            .foregroundColor(.red)
+                                            .padding(.top, 10)
+                                            .padding(.horizontal, 35)
+                                        
+                                        
+                                        
+                                    }}
+                                
+                                
+                                Spacer()
                             
-                            Spacer()
                             
                         }
                     }
@@ -156,9 +176,9 @@ struct Home: View {
                                 //shadows
                                 .onTapGesture{withAnimation(.spring()){
                                    // selectedCategory = category
-                                    HomeModel.selectedCategory = category
+                                    homeModel.selectedCategory = category
 //                                    print("\(category)")
-                                    HomeModel.fetchData()
+                                    homeModel.fetchData()
                                     
 
                                 }
@@ -183,7 +203,7 @@ struct Home: View {
                 
                 
                 
-                if HomeModel.items.isEmpty{
+                if homeModel.items.isEmpty{
                     
                     Spacer()
                     
@@ -197,7 +217,7 @@ struct Home: View {
                         
                         VStack(spacing: 25){
                             
-                            ForEach(HomeModel.filtered){ item in
+                            ForEach(homeModel.filtered){ item in
                                 
                                 // item view
                                 
@@ -216,7 +236,7 @@ struct Home: View {
                                         Spacer(minLength: 0)
                                         
                                         Button(action: {
-                                            HomeModel.addToCart(item: item)
+                                            homeModel.addToCart(item: item)
                                             
                                         }, label: {
                                             
@@ -321,26 +341,26 @@ struct Home: View {
                 
                 
                 
-                Menu(homeData: HomeModel)
+                Menu(homeData: homeModel)
                 
                 // move effect from left
-                    .offset(x: HomeModel.showMenu ? 0 : -UIScreen.main.bounds.width / 1.6)
+                    .offset(x: homeModel.showMenu ? 0 : -UIScreen.main.bounds.width / 1.6)
                 
                 
                 Spacer(minLength: 0)
             }
             
-            .background(Color.black.opacity(HomeModel.showMenu ? 0.3 : 0).ignoresSafeArea())
+            .background(Color.black.opacity(homeModel.showMenu ? 0.3 : 0).ignoresSafeArea())
             //closing when taps on outside
             .onTapGesture(perform: {
-                withAnimation(.easeIn){HomeModel.showMenu.toggle()}
+                withAnimation(.easeIn){homeModel.showMenu.toggle()}
             })
             
             
             
             // non closable alert if permission denied
             
-            if HomeModel.noLocation{
+            if homeModel.noLocation{
                 
                 Text("Please Enable Location Access In Settings To Further Move On !!!")
                     .foregroundColor(.black)
@@ -361,27 +381,27 @@ struct Home: View {
         
         .onAppear(perform: {
             // calling location delegate
-            HomeModel.locationManager.delegate = HomeModel
+            homeModel.locationManager.delegate = homeModel
             
         })
         
-        .onChange(of: HomeModel.search, perform: { value in
+        .onChange(of: homeModel.search, perform: { value in
             
             // to avoid continues search request
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 
-                if value == HomeModel.search && HomeModel.search != ""{
+                if value == homeModel.search && homeModel.search != ""{
                     
                     // search data
                     
-                    HomeModel.filterData()
+                    homeModel.filterData()
                     
                 }
             }
             
-            if HomeModel.search == ""{
+            if homeModel.search == ""{
                 // reset all data
-                withAnimation(.linear){HomeModel.filtered = HomeModel.items}
+                withAnimation(.linear){homeModel.filtered = homeModel.items}
             }
             
         })

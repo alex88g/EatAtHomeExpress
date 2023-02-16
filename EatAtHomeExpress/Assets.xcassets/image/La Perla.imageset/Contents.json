@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Deli Di Luca.jpeg",
+      "filename" : "La Perla.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,6 +11,19 @@
     },
     {
       "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "La Perla 1.jpeg",
+      "idiom" : "iphone",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],

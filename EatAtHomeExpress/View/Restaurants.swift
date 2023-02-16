@@ -12,7 +12,7 @@ struct Restaurants: View {
     @Environment(\.presentationMode) var present
 
     
-    @StateObject var PlacesModel = PlacesViewModel()
+    @StateObject var placesModel = PlacesViewModel()
     
     
     
@@ -43,7 +43,7 @@ struct Restaurants: View {
 
                 HStack(){
                     
-                    TextField("Sök för restauranger och rätter", text: $PlacesModel.search)
+                    TextField("Sök för restauranger och rätter", text: $placesModel.search)
                     
                         .colorScheme(.light)
                         .padding(.vertical, 10)
@@ -56,7 +56,7 @@ struct Restaurants: View {
                     Spacer()
                     
                     
-                    if PlacesModel.search != ""{
+                    if placesModel.search != ""{
                         
                         Button(action: {}, label: {
                             
@@ -76,7 +76,7 @@ struct Restaurants: View {
                 
                 Divider()
                 
-                if PlacesModel.place.isEmpty{
+                if placesModel.place.isEmpty{
                     
                     Spacer()
                     
@@ -90,7 +90,7 @@ struct Restaurants: View {
                         
                         VStack(spacing: 25){
                             
-                            ForEach(PlacesModel.filtered){ place in
+                            ForEach(placesModel.filtered){ place in
                                 
                                 // places view
                                 
@@ -136,27 +136,27 @@ struct Restaurants: View {
         }.navigationBarBackButtonHidden(true)
         .onAppear(perform: {
             // calling location delegate
-            PlacesModel.locationManager.delegate = PlacesModel
+            placesModel.locationManager.delegate = placesModel
             
         })
         
-        .onChange(of: PlacesModel.search, perform: { value in
+        .onChange(of: placesModel.search, perform: { value in
             
             // to avoid continues search request
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 
-                if value == PlacesModel.search && PlacesModel.search != ""{
+                if value == placesModel.search && placesModel.search != ""{
                     
                     // search data
                     
-                    PlacesModel.filterData()
+                    placesModel.filterData()
                     
                 }
             }
             
-            if PlacesModel.search == ""{
+            if placesModel.search == ""{
                 // reset all data
-                withAnimation(.linear){PlacesModel.filtered = PlacesModel.place}
+                withAnimation(.linear){placesModel.filtered = placesModel.place}
             }
             
         })
