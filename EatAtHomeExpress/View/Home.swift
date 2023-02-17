@@ -175,7 +175,7 @@ struct Home: View {
                                 .clipShape(Capsule())
                                 //shadows
                                 .onTapGesture{withAnimation(.spring()){
-                                   // selectedCategory = category
+                                    selectedCategory = category
                                     homeModel.selectedCategory = category
 //                                    print("\(category)")
                                     homeModel.fetchData()
@@ -254,18 +254,27 @@ struct Home: View {
                                     
                                     Spacer()
                                     
-                                
+                                    
                                     
                                     HStack{
                                         
                                         
                                         Image(systemName: "clock")
+                                
+                                    
                                         Text("25-30min")
+                                            .offset(x: -5)
                                     }
-                                                .foregroundColor(.black)
-                                                .background(Color(.white))
-                                                .cornerRadius(15)
-                                                .position(x:55, y:235)
+                                    .foregroundColor(.black)
+                                    .background(Color(.white))
+                                    .cornerRadius(15)
+                                    .position(x:55, y:235)
+                                    .fontWeight(.bold)
+                                    .padding(.horizontal)
+                                    .shadow(radius:10)
+                                    
+                                    
+                                       
                                           
                                 })
                                

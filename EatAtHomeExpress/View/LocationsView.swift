@@ -1,6 +1,6 @@
 //
 //  LocationView.swift
-//  EatAtHomeExpress
+//  EatAtHomeExpressd
 //
 //  Created by Alexander Gallorini on 2023-02-15.
 //
@@ -14,39 +14,44 @@ import MapKit
 
 struct LocationsView: View {
     
-    
+    //The whole code is nice and readable
     
     @EnvironmentObject private var vm: LocationsViewModel
-    
+    @Environment(\.presentationMode) var present
    
     var body: some View{
-       
+        
+        
+        VStack{
+         
+            Button(action:{present.wrappedValue.dismiss()}) {
+                
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 26, weight: .heavy))
+                    .foregroundColor(Color(.red))
+                
+                Spacer()
+                    .padding()
+                }
+            }
+           
         ZStack{
             
-            Map(coordinateRegion: $vm.mapRegion)
-                .ignoresSafeArea()
-            
-            VStack(spacing:0){
+                mapLayer
+         
+                VStack(spacing:0){
              
                 header
                     .padding()
-                
                 Spacer()
+                    locationsPreviewStack
                 
-                ZStack{
-                    ForEach(vm.locations) { location in
-                        if vm.mapLocation == location {
-                            LocationPreviewView(location: location)
-                                .shadow(color: Color.black.opacity(0.3), radius: 20)
-                                .padding()
-                                .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading)))
-                            
-                        }
-                    }
-                }
             }
         
         }
+        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea(.all)
+
     }
 }
 
@@ -88,6 +93,33 @@ extension LocationsView{
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0,y:15)
         
+    }
+    
+    private var mapLayer: some View {
+        Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.locations, annotationContent: { location in
+            MapAnnotation(coordinate: location.coordinates){
+                LocationMapAnnotationView()
+                    .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
+                    .shadow(radius:10)
+                    .onTapGesture {
+                        vm.showNextLocation(location: location)
+                    }
+            }
+        })
+    }
+    
+    private var locationsPreviewStack: some View{
+        ZStack{
+            ForEach(vm.locations) { location in
+                if vm.mapLocation == location {
+                    LocationPreviewView(location: location)
+                        .shadow(color: Color.black.opacity(0.3), radius: 20)
+                        .padding()
+                        .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .leading)))
+                    
+                }
+            }
+        }
     }
     
 }

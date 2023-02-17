@@ -47,7 +47,7 @@ struct MapView: UIViewRepresentable {
     class Coordinator: NSObject, MKMapViewDelegate{
         //custom pins
 
-        //excluding user blue circle
+        //excluding user circle
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) ->
         MKAnnotationView?{
             

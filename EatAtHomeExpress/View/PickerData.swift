@@ -9,10 +9,6 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
-// 1. förbättra strukturen genom att lägga över shoppinglistan ( items)
-// i ett observable object
-// 2. användaren kan välja att skapa ett konto i en instälnings sida.
-// konvetera det anonyma kontot till ett nytt konto
 struct PickerData: View {
     
     @State var signedIn = false
