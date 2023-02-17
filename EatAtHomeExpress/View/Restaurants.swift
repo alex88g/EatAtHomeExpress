@@ -43,7 +43,7 @@ struct Restaurants: View {
 
                 HStack(){
                     
-                    TextField("Sök för restauranger och rätter", text: $placesModel.search)
+                    TextField("Sök restauranger för bokningar", text: $placesModel.search)
                     
                         .colorScheme(.light)
                         .padding(.vertical, 10)
