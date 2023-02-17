@@ -49,10 +49,16 @@ struct LocationsView: View {
             }
         
         }
+        // the sheet binding tro sheetLocation
+        .sheet(item: $vm.sheetLocation, onDismiss: nil) { location in
+            LocationDetailView(location: location)
+            
+        }
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all)
 
     }
+    
 }
 
 struct LocationsView_Previews: PreviewProvider {
@@ -60,6 +66,7 @@ struct LocationsView_Previews: PreviewProvider {
         LocationsView()
             .environmentObject(LocationsViewModel())
     }
+    
 }
 
 extension LocationsView{
