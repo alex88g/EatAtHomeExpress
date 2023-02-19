@@ -45,7 +45,7 @@ struct Menu: View {
                             Image(systemName: "house.lodge.circle")
                                 .foregroundColor(.red)
                             
-                            Text("Boka restauranger")
+                            Text("Bokningar")
                         }
                         .padding()
                         Spacer()
@@ -57,7 +57,7 @@ struct Menu: View {
                                 Image(systemName: "map")
                                     .foregroundColor(.red)
                                 
-                                Text("Hitta restauranger")
+                                Text("Restauranger")
                             }
                             .padding()
                             Spacer()
@@ -90,8 +90,9 @@ struct Menu: View {
                     .padding()
                     Spacer()
                 }
-                
-                //Logout button with rectangle portrait (exit) picture
+                Spacer()
+               
+            //Logout button
                 Button(action: {
                     
                     try! Auth.auth().signOut()
