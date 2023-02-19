@@ -79,9 +79,7 @@ struct Home: View {
                         .animation(.easeIn)
                     }
                 }
-                
                 .padding(.horizontal)
-                .padding(.top,10)
                 
                 Divider()
                 

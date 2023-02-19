@@ -59,7 +59,6 @@ struct Restaurants: View {
                 }
                 
                 .padding(.horizontal)
-                .padding(.top,10)
                 
                 Divider()
                 
