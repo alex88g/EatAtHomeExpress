@@ -12,7 +12,6 @@ struct Category: Identifiable {
     var id: String = UUID().uuidString
     var image: String
     var title: String
-    
 }
 
 var categories = [
@@ -22,6 +21,4 @@ var categories = [
     Category(image: "dricka", title: "Dricka"),
     Category(image: "förrätt", title: "Förrätt"),
     Category(image: "efterrätt", title: "Efterrätt"),
-
-
 ]

@@ -12,16 +12,12 @@ import Firebase
 
 
 struct PickerView: View {
-    
     @State var shown = false
     @State var beskrivning = ""
-    
-    
     
     @Environment(\.presentationMode) var present
     
     var body: some View {
-        
         VStack(){
             
             Button(action:{present.wrappedValue.dismiss()}) {
@@ -31,7 +27,6 @@ struct PickerView: View {
                 
                 Spacer()
             }
-            
             .padding()
             
             Button(action: {
@@ -50,19 +45,14 @@ struct PickerView: View {
                 .padding(.horizontal)
                 .colorScheme(.light)
             
-            
-            
-            
             Button(action: {
                 saveToFirestore(itemName: beskrivning)
             }){
                 
                 Text("Skicka")
-                
             }
             
             Spacer()
-            
             
             Button(action: {
                 
@@ -79,31 +69,18 @@ struct PickerView: View {
                 }  .padding()
                 Spacer()
             }
-            
-            
             Button(action: {
-                
                 self.shown.toggle()
-                
-                
-                
             }){
                 Text("Upload Image")
                 
             }.sheet(isPresented: $shown) {
                 
                 imagePicker(shown: self.$shown)
-                
             }
             .navigationBarBackButtonHidden(true)
         }
     }
-//}
-//struct PickerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PickerView()
-//    }
-//}
 func saveToFirestore(itemName: String) {
     
     let db = Firestore.firestore()
@@ -117,17 +94,13 @@ func saveToFirestore(itemName: String) {
         print("Error saving to DB")
     }
 }
-
-
 struct imagePicker : UIViewControllerRepresentable {
     
     func makeCoordinator() -> imagePicker.Coordinator {
         
         return imagePicker.Coordinator(parent1: self)
     }
-    
     @Binding var shown : Bool
-//    @Binding var data : Data
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<imagePicker>) -> UIImagePickerController {
         
@@ -136,14 +109,10 @@ struct imagePicker : UIViewControllerRepresentable {
         imagepic.sourceType = .photoLibrary
         imagepic.delegate = context.coordinator
         return imagepic
-        
     }
-    
     func updateUIViewController(_ uiViewController: UIImagePickerController, context:
                                 UIViewControllerRepresentableContext<imagePicker>) {
-        
     }
-    
     class Coordinator : NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         
         var parent : imagePicker!
@@ -151,15 +120,11 @@ struct imagePicker : UIViewControllerRepresentable {
         init(parent1 : imagePicker) {
             
             parent = parent1
-                
-            }
-            
-            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
+           }
+           func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
                                        [UIImagePickerController.InfoKey : Any]) {
                 
                 let image = info[.originalImage] as! UIImage
-                
-                
                 let storage = Storage.storage()
                 storage.reference().child("Case").putData(image.jpegData(compressionQuality: 0.35)!, metadata:
                 nil){ (_, err) in
@@ -168,17 +133,11 @@ struct imagePicker : UIViewControllerRepresentable {
                         
                         print((err?.localizedDescription)!)
                         return
-                        
                     }
                     print("success")
-                    
                 }
-                
                 parent.shown.toggle()
-
-                
-            }
+               
+           }
         }
     }
-    
-//}

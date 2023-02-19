@@ -21,8 +21,5 @@ class LocationsDataService{
         Location(name: "Restaurant", restaurant: "O'PIZZICATO", coordinates: CLLocationCoordinate2D(latitude: 59.31411, longitude: 18.06515), description: "Välkommen till O’Pizzicato, en familjeägd italiensk restaurang sedan 15 år tillbaka.Till oss kommer du för att avnjuta en god middag med familj, vänner eller arbetskollegorna. Vi serverar klassiska italienska maträtter så som Osso Buco, Porchetta och Risotto för att nämna några. Du hittar alltid flertalet hängmörade kötträtter och glöm inte att fråga efter våra populära färska pastafavoriter. Goda charkuterier som trancheras med vår exklusiva berkelmaskin, specialtillverkad just för parmaskinka.", image: ["O'PIZZICATO", "O'PIZZICATO 2", "O'PIZZICATO 3"], link: "https://www.opizzicato.se/"),
         
         Location(name: "Restaurant", restaurant: "La Perla", coordinates: CLLocationCoordinate2D(latitude: 59.31364, longitude: 18.06973), description: "It all started at Il Conte, located in Grevgatan, Stockholm, in the winter of 1994. Since then, much has happened, a lot of good food has been enjoyed, wines have been savoured, and menus created. La Perla in Italians means “The Pearl” In La Perla’s menu, I have chosen dishes that have a special place in the hearts of myself and my family. Some of the dishes are a “blast from the past”, but there are also many new and exciting dishes and flavours from the country I love so much!", image: ["La Perla", "La Perla 2", "La Perla 3"], link: "https://www.laperla-ingrosso.com/s-dermalm"),
-   
-    ]
-    
-    
+   ]
 }

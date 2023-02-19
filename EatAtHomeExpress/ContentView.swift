@@ -10,30 +10,17 @@ import Firebase
 
 
 struct ContentView: View {
-
-    @StateObject private var vm = LocationsViewModel()
-
-//  @ObservedObject var homeData : HomeViewModel
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
-        
-//        LocationsView()
-//                   .environmentObject(vm)
-//        
         NavigationView{
             
             VStack{
                 
                 if self.status{
-                    
                     Home()
-                       
-
-                    
-                    
                 }
                 else{
                     
@@ -42,22 +29,13 @@ struct ContentView: View {
                         NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
                             
                             Text("")
-                            
                         }
-                        
                         .hidden()
                     }
-                    
                     Login(show: self.$show)
-                    
-                    
                 }
-                
             }
-            
-            
         }
-        
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
@@ -65,15 +43,11 @@ struct ContentView: View {
             
             NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main){
                 (_) in self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
-                
             }
         }
     }
-    
-    
 }
-    
-    struct ContentView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
         
         static var previews: some View {
             ContentView()

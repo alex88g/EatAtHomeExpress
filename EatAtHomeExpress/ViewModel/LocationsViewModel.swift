@@ -18,7 +18,6 @@ class LocationsViewModel: ObservableObject {
         didSet{
             updateMapRegion(location: mapLocation)
         }
-        
     }
     //current region on map
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
@@ -28,9 +27,7 @@ class LocationsViewModel: ObservableObject {
     @Published var showLocationsList: Bool = false
     
     // show location detail via sheet
-    
     @Published var sheetLocation: Location? = nil
-    
     
     init(){
         //initialize data
@@ -42,7 +39,6 @@ class LocationsViewModel: ObservableObject {
     }
     private func updateMapRegion(location: Location){
         mapRegion = MKCoordinateRegion(center: location.coordinates, span: mapSpan)
-
     }
     
     func toggleLocationsList() {
@@ -55,7 +51,6 @@ class LocationsViewModel: ObservableObject {
             mapLocation = location
             showLocationsList = false 
         }
-        
     }
     func nextButtonPressed(){
         //get current index

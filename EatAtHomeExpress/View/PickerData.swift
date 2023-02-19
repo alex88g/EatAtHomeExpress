@@ -10,7 +10,6 @@ import Firebase
 import FirebaseAuth
 
 struct PickerData: View {
-    
     @State var signedIn = false
     
     var body: some View {
@@ -21,11 +20,11 @@ struct PickerData: View {
         }
     }
 }
-
 struct SigningInView: View {
     @Binding var signedIn : Bool
     
     var body: some View {
+        
         Text("Not working signing in")
             .onAppear(){
                 Auth.auth().signInAnonymously { authResult, error in
@@ -35,12 +34,11 @@ struct SigningInView: View {
                     } else {
                         print("Signed in \(Auth.auth().currentUser?.uid)")
                         signedIn = true
-                    }
                 }
             }
+        }
     }
 }
-
 struct ShoppinListView: View {
     let db = Firestore.firestore()
     
@@ -68,7 +66,6 @@ struct ShoppinListView: View {
         }
         .padding()
     }
-    
     func saveToFirestore(itemName: String) {
         let item = Itemm(name: itemName)
         guard let user = Auth.auth().currentUser else {return}
@@ -106,10 +103,7 @@ struct ShoppinListView: View {
             }
         }
     }
-    
-    
 }
-
 struct ItemRowView: View {
     let db = Firestore.firestore()
     

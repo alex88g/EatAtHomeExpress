@@ -12,5 +12,4 @@ struct Cart: Identifiable {
     var id = UUID().uuidString
     var item: Item
     var quantity: Int
-    
 }

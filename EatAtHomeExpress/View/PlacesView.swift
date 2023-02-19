@@ -15,11 +15,9 @@ struct PlacesView: View {
     
     @StateObject var PlacesModel = PlacesViewModel()
     var body: some View {
-        
         VStack{
             
             // Downloading image from web
-            
             WebImage(url: URL(string: place.image))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -35,16 +33,13 @@ struct PlacesView: View {
                 Spacer(minLength: 0)
                 
                 // ratings view
-                
                 ForEach(1...5,id: \.self){index in
                     
                     Image(systemName: "star.fill")
                         .foregroundColor(index <= Int(place.ratings) ?? 0 ?
                                          Color(.red) : .gray)
                 }
-                
             }
-            
             HStack{
                 
                 Text(place.details)
@@ -59,13 +54,9 @@ struct PlacesView: View {
                                  .font(.caption)
                                  .foregroundColor(.gray)
                                  .lineLimit(2)
-                         }
-                         
-                     }
-
-                     
-                 }
-             }
-             
-         }
+                }
+            }
+        }
+    }
+}
 

@@ -37,14 +37,12 @@ struct LocationDetailView: View {
         .overlay(backButton, alignment: .topLeading)
     }
 }
-
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         LocationDetailView(location: LocationsDataService.locations.first!)
             .environmentObject(LocationsViewModel())
     }
 }
-
 extension LocationDetailView{
     
     private var imageSection: some View {
@@ -98,7 +96,6 @@ extension LocationDetailView{
         .aspectRatio(1, contentMode: .fit)
         .cornerRadius(30)
     }
-    
     private var backButton: some View{
         Button{
             vm.sheetLocation = nil
@@ -111,7 +108,6 @@ extension LocationDetailView{
                 .cornerRadius(10)
                 .shadow(radius: 4)
                 .padding()
-            
         }
     }
 }

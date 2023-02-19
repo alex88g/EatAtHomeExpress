@@ -16,13 +16,7 @@ struct CameraView: View {
     @StateObject var camera = CameraModel()
     
     var body: some View {
-        
-        
-            Spacer()
-        
-     
         ZStack{
-            
             //going to be camera preview
             CameraPreview(camera: camera)
                 .ignoresSafeArea(.all, edges: .all)
@@ -47,15 +41,13 @@ struct CameraView: View {
                     })
                     .padding(.trailing,10)
                 }
-                    
-                }
+              }
                 
                 Spacer()
                 
                 HStack{
                     
-              //if camera is taken showing save and again take button
-                    
+                    //if camera is taken showing save and again take button
                     if camera.isTaken{
                         
                         Button(action: {if !camera.isSaved{camera.savePic()}}, label:{
@@ -86,24 +78,17 @@ struct CameraView: View {
                                     .frame(width: 75, height: 75)
                             }
                         })
-                            
                     }
-                    
                 }
                 .frame(height: 75)
             }
-            
         }
         .onAppear(perform:{
-            
-            camera.Check()
-            
+           camera.Check()
         })
       }
 }
-
 //camera model
-
 class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
     
     @Published var isTaken = false
@@ -140,7 +125,6 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
                 if status{
                     
                     self.setUp()
-                    
                 }
             }
         case .denied:
@@ -153,11 +137,8 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
     func setUp(){
         
         //setting up camera
-        
-        do{
-            
+       do{
             //setting configs
-            
             self.session.beginConfiguration()
             
             //change for your own
@@ -171,22 +152,17 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
                 self.session.addInput(input)
                 
                 //same for output
-                
                 if self.session.canAddOutput(self.output){
                     self.session.addOutput(self.output)
                 }
                 self.session.commitConfiguration()
             }
-            
         }
         catch{
             print(error.localizedDescription)
         }
-        
-    }
-    
+     }
     //take and retake functions
-    
     func takePic(){
         
         DispatchQueue.global(qos: .background).async {
@@ -211,15 +187,12 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
                 self.isSaved = false
             }
         }
-        
     }
-    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if error != nil{
             return
         }
-        
-        print("pic taken")
+         print("pic taken")
         
         guard let imageData = photo.fileDataRepresentation() else{return}
         
@@ -231,22 +204,15 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate{
         let image = UIImage(data: self.picData)!
         
         //saving data
-        
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
         self.isSaved = true
         
         print("saved Successfully")
     }
-    
 }
-
-
-
 //settings view for preview
-
 struct CameraPreview: UIViewRepresentable {
-    
     @ObservedObject var camera : CameraModel
     
     func makeUIView(context: Context) -> UIView {
@@ -263,18 +229,10 @@ struct CameraPreview: UIViewRepresentable {
         camera.session.startRunning()
         
         return view
-        
-    }
+}
     func updateUIView(_ uiView: UIView, context: Context) {
-        
-       
         
     }
     
 }
 
-//struct CameraView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CameraView()
-//    }
-//}

@@ -11,34 +11,24 @@ import Firebase
 struct Restaurants: View {
     @Environment(\.presentationMode) var present
 
-    
     @StateObject var placesModel = PlacesViewModel()
-    
-    
     
     var body: some View {
         
         HStack(spacing: 20){
-            
             
             Button(action:{present.wrappedValue.dismiss()}) {
                 
                 Image(systemName: "chevron.left")
                     .font(.system(size: 26, weight: .heavy))
                     .foregroundColor(Color(.red))
-                
-          
-            Spacer()
-                    
-                
+             
+                Spacer()
             }
             .padding()
         }
-        
-        
         ZStack{
          
-            
             VStack(){
 
                 HStack(){
@@ -63,9 +53,6 @@ struct Restaurants: View {
                             Image(systemName:  "magnifyingglass")
                                 .font(.title2)
                                 .foregroundColor(.gray)
-                            
-                            
-                            
                         })
                         .animation(.easeIn)
                     }
@@ -84,7 +71,6 @@ struct Restaurants: View {
                     
                     Spacer()
                 }
-                
                 else{
                     ScrollView(.vertical, showsIndicators: false, content: {
                         
@@ -110,7 +96,6 @@ struct Restaurants: View {
                                         
 
                                     }
-                                    
                                     .padding(.trailing,10)
                                     .padding(.top,10)
                                     
@@ -120,14 +105,10 @@ struct Restaurants: View {
                                 .foregroundColor(.red)
                                 .cornerRadius(15)
                                 .shadow(radius: 10)
-                                
                             }
                         }
-                        
                         .padding(.top, 10)
-                        
-                        
-                    })
+                     })
                     
                 }
                 
@@ -137,9 +118,7 @@ struct Restaurants: View {
         .onAppear(perform: {
             // calling location delegate
             placesModel.locationManager.delegate = placesModel
-            
         })
-        
         .onChange(of: placesModel.search, perform: { value in
             
             // to avoid continues search request
@@ -150,17 +129,13 @@ struct Restaurants: View {
                     // search data
                     
                     placesModel.filterData()
-                    
                 }
             }
-            
             if placesModel.search == ""{
                 // reset all data
                 withAnimation(.linear){placesModel.filtered = placesModel.place}
             }
-            
         })
-        
     }
 }
 

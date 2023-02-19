@@ -10,37 +10,59 @@ import Firebase
 
 struct Menu: View {
     @ObservedObject var homeData : HomeViewModel
-    @State var color = Color.black
     
+    @StateObject private var vm = LocationsViewModel()
+    
+    @State var color = Color.black
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
-        
-       
-            
-            VStack{
+        VStack{
+            NavigationLink(destination: CartView(homeData: homeData)){
                 
-                NavigationLink(destination: CartView(homeData: homeData)){
+                HStack(spacing: 15){
                     
-                    HStack(spacing: 15){
+                    Image(systemName: "cart")
+                        .font(.title)
+                        .foregroundColor(Color("red"))
+                    
+                    Text("Varukorg")
+                        .fontWeight(.bold)
+                    Spacer(minLength: 0)
+                    
                         
-                        Image(systemName: "cart")
-                            .font(.title)
-                            .foregroundColor(Color("red"))
-                        
-                        Text("Varukorg")
-                            .fontWeight(.bold)
-                        //                        .foregroundColor(.red)
-                        
-                        
-                        Spacer(minLength: 0)
                     }
-                    
                     .padding()
-                    
                 }
-                
                 Spacer()
+                
+            
+                    Button(action: {
+                        
+                        
+                    }){
+                        NavigationLink(destination: Restaurants()){
+                            Image(systemName: "house.lodge.circle")
+                                .foregroundColor(.red)
+                            
+                            Text("Boka restauranger")
+                        }
+                        .padding()
+                        Spacer()
+                    }
+                        Button(action: {
+                            
+                        }){
+                            NavigationLink(destination: LocationsView().environmentObject(vm)){
+                                Image(systemName: "map")
+                                    .foregroundColor(.red)
+                                
+                                Text("Hitta restauranger")
+                            }
+                            .padding()
+                            Spacer()
+                        }
+                            
                 
                 Button(action: {
                     
@@ -51,17 +73,12 @@ struct Menu: View {
                             .foregroundColor(.red)
                         
                         Text( "Inställningar")
-                        //                                .foregroundColor(.red)
                         
-                        
-                    }  .padding()
+                    }
+                    .padding()
                     Spacer()
                 }
-               
-                    Button(action: {
-                    
-                    
-                    
+                Button(action: {
                 }){
                     NavigationLink(destination: PickerView()){
                         Image(systemName: "questionmark.circle")
@@ -69,15 +86,10 @@ struct Menu: View {
                             .foregroundColor(.red)
                         
                         Text( "Hjälpcenter")
-                        //                                .foregroundColor(.red)
-                        
-                        
                     }
-                    
                     .padding()
                     Spacer()
                 }
-                
                 
                 //Logout button with rectangle portrait (exit) picture
                 Button(action: {
@@ -88,7 +100,6 @@ struct Menu: View {
                     
                 }){
                     
-                    
                     Image(systemName: "rectangle.portrait.and.arrow.right")
                     
                         .padding(.horizontal)
@@ -96,21 +107,17 @@ struct Menu: View {
                         .foregroundColor(.red)
                     
                     Text( "Logga ut")
-                    //                        .foregroundColor(.red)
                         .fontWeight(.heavy)
                 }
             }
             
             .padding(10)
-            
-            
-            
             .accentColor(.primary)
             .padding([.top,.trailing])
             .frame(width: UIScreen.main.bounds.width / 1.6)
             .background((self.isDarkMode ? Color.black : Color.white).edgesIgnoringSafeArea(.all)).overlay(Rectangle().stroke(Color.primary, lineWidth: 2).shadow(radius: 3).edgesIgnoringSafeArea(.all))
             
         }}
-    
+
 
     

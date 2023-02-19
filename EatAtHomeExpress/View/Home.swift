@@ -4,7 +4,7 @@ import Firebase
 struct Home: View {
     @StateObject var homeModel = HomeViewModel()
     
-    @StateObject private var vm = LocationsViewModel()
+   
 
     
     @State var color = Color.black
@@ -14,13 +14,7 @@ struct Home: View {
 
    
     var body: some View {
-        
-        
-        
-        
-        
         ZStack{
-            
             
             VStack(spacing: 10){
                 
@@ -33,22 +27,18 @@ struct Home: View {
                         
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
-                        //                            .foregroundColor(Color(.red))
                         
                     })
                     Text(homeModel.userLocation == nil ? "Localisering..." : "Leverera till")
-                    //                        .foregroundColor(.red)
                     
                     Text(homeModel.userAdress)
                         .font(.caption)
                         .fontWeight(.heavy)
-                    //                        .foregroundColor(Color(.red)
+                    
                     Spacer(minLength: 0)
-                    //
                     
                     Button(action: {
-                        
-                        
+                   
                     }){
                         NavigationLink(destination: HomeMap()){
                             Image(systemName: "mappin.and.ellipse")
@@ -85,8 +75,6 @@ struct Home: View {
                                 .font(.title2)
                                 .foregroundColor(.gray)
                             
-                            
-                            
                         })
                         .animation(.easeIn)
                     }
@@ -97,51 +85,16 @@ struct Home: View {
                 
                 Divider()
                 
-                
-                VStack{
+               VStack{
                     
-                    
-                    //categories view
+                   //categories view
                     Text("Categories")
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
                         .font(.title2)
                         .fontWeight(.bold)
-                        .padding(.leading)
-                    
-                    
-                    Button(action: {
                         
-                        
-                    }){
-                        NavigationLink(destination: Restaurants()){
-                            Image(systemName: "house.lodge.circle")
-                                
-                                .padding(.leading)
-                            
-                            Text("Hitta restauranger")
-                                .foregroundColor(Color.gray)
-                                
-                                Button(action: {
-                                    
-                                    
-                                }){
-                                    NavigationLink(destination: LocationsView().environmentObject(vm)){
-                                        Image(systemName: "map")
-                                            .foregroundColor(.red)
-                                            .padding(.top, 10)
-                                            .padding(.horizontal, 35)
-                                        
-                                        
-                                        
-                                    }}
-                                
-                                
-                                Spacer()
-                            
-                            
-                        }
-                    }
-                    
+                   
                     ScrollView(.horizontal, showsIndicators: false, content:{
                         
                         HStack(spacing:10){
@@ -164,8 +117,6 @@ struct Home: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(selectedCategory.id == category.id ? .white : .red)
                                         .shadow(radius: 10)
-                                    
-                                    
                                 }
                                 
                                 .padding(.vertical,12)
@@ -181,7 +132,7 @@ struct Home: View {
                                     homeModel.fetchData()
                                     
 
-                                }
+                                  }
                                  
                                 }
                                 
@@ -191,18 +142,9 @@ struct Home: View {
                         .padding(.horizontal)
                         
                     })
-                    
-                   
                 }
                 .padding(.vertical)
-//                //light BG COlor
-//                .background(Color.white.opacity(0.3).ignoresSafeArea())
-                
-                
-                
-                
-                
-                
+ 
                 if homeModel.items.isEmpty{
                     
                     Spacer()
@@ -211,7 +153,6 @@ struct Home: View {
                     
                     Spacer()
                 }
-                
                 else{
                     ScrollView(.vertical, showsIndicators: false, content: {
                         
@@ -248,125 +189,55 @@ struct Home: View {
                                         })
                                         
                                     }
-                                    
                                     .padding(.trailing,10)
                                     .padding(.top,10)
                                     
                                     Spacer()
-                                    
-                                    
-                                    
+                                   
                                     HStack{
                                         
                                         
                                         Image(systemName: "clock")
-                                
-                                    
+                                        
                                         Text("25-30min")
                                             .offset(x: -5)
                                     }
                                     .foregroundColor(.black)
                                     .background(Color(.white))
+                                    .shadow(radius:10)
                                     .cornerRadius(15)
-                                    .position(x:55, y:235)
+                                    .position(x:44, y:235)
                                     .fontWeight(.bold)
                                     .padding(.horizontal)
-                                    .shadow(radius:10)
-                                    
-                                    
-                                       
-                                          
                                 })
-                               
-                           
-                                
                                 .frame(width: UIScreen.main.bounds.width - 30)
                                 .foregroundColor(.red)
                                 .cornerRadius(15)
                                 .shadow(radius: 10)
-                                
                             }
                         }
                         
                         .padding(.top, 10)
-                        
-                        
-                        
                     })
-                    
-              
-                    
-//                    VStack{
-//
-//                        HStack(spacing: 0){
-//
-//
-//                            Text("Dagens favoriter")
-//
-//
-//                        }
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-//                        .font(.title2)
-//                        .fontWeight(.bold)
-//                        .padding(.leading)
-//                        .padding(.top)
-//
-//
-//                        Spacer()
-//                            .frame(height: 10)
-//
-//                        TabView{
-//
-//                            Image("Pizzan")
-//                            Image("Carbonara")
-//                            Image("Vitlöksbröd")
-//
-//
-//                        }
-//
-//
-//                        .frame(width: UIScreen.main.bounds.width - 30)
-//                        .cornerRadius(15)
-//                        .padding(.top)
-//                        .tabViewStyle(PageTabViewStyle())
-//
-//
-//
-//                        .overlay(Text("Nyhet").background(Color("yellow")).padding(.vertical,30)
-//                            .padding(.trailing), alignment: .topLeading).foregroundColor(.black)
-//
-//                        Spacer()
-//
-                        
-//                    }
                 }
                 
             }
-            
-            
             // side menu
             
             HStack{
-                
-                
-                
-                Menu(homeData: homeModel)
+               Menu(homeData: homeModel)
                 
                 // move effect from left
                     .offset(x: homeModel.showMenu ? 0 : -UIScreen.main.bounds.width / 1.6)
                 
-                
                 Spacer(minLength: 0)
             }
-            
             .background(Color.black.opacity(homeModel.showMenu ? 0.3 : 0).ignoresSafeArea())
+            
             //closing when taps on outside
             .onTapGesture(perform: {
                 withAnimation(.easeIn){homeModel.showMenu.toggle()}
             })
-            
-            
-            
             // non closable alert if permission denied
             
             if homeModel.noLocation{
@@ -378,22 +249,13 @@ struct Home: View {
                     .cornerRadius(10)
                     .frame(maxWidth: .infinity,maxHeight: .infinity)
                     .background(Color.black.opacity(0.3).ignoresSafeArea())
-                
-                
-                
-                
             }
-            
         }
-        
-        
-        
         .onAppear(perform: {
             // calling location delegate
             homeModel.locationManager.delegate = homeModel
             
         })
-        
         .onChange(of: homeModel.search, perform: { value in
             
             // to avoid continues search request
@@ -404,16 +266,13 @@ struct Home: View {
                     // search data
                     
                     homeModel.filterData()
-                    
                 }
             }
-            
             if homeModel.search == ""{
                 // reset all data
                 withAnimation(.linear){homeModel.filtered = homeModel.items}
             }
             
         })
-        
-    }
+     }
 }

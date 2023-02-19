@@ -19,7 +19,5 @@ struct Places: Identifiable {
     var details: String
     var url: String
     
-  
     var isAdded: Bool = false
-    
-  }
+}

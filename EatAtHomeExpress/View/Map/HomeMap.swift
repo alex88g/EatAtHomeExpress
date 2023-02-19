@@ -17,12 +17,8 @@ struct HomeMap: View {
     //location manager
     @State var locationManager = CLLocationManager()
 
-   
-    var body: some View{
-        
-                ZStack{
-                    
-                    // MapView
+   var body: some View{
+            ZStack{
                     MapView()
                     //using it as evironment object so that it can be used ints subViews
                         .environmentObject(mapData)
@@ -30,31 +26,21 @@ struct HomeMap: View {
                     
                     VStack{
                         
-                        
                         HStack(spacing: 20){
                             
-                            
                             Button(action:{present.wrappedValue.dismiss()}) {
-                                
+                               
                                 Image(systemName: "chevron.left")
                                     .font(.system(size: 26, weight: .heavy))
                                     .foregroundColor(Color(.red))
                                 
-                                
                                 Spacer()
-                                
-                                
-                            }
+                              }
                             .padding()
                         }
-                        
-                        
-                        VStack{
+                      VStack{
                             
-                            
-                            
-                            
-                            VStack{
+                          VStack{
                                 
                                 Button(action: mapData.focusLocation, label: {
                                     
@@ -65,7 +51,6 @@ struct HomeMap: View {
                                         .clipShape(Circle())
                                         .foregroundColor(.red)
                                         .shadow(radius: 10)
-                                    
                                 })
                                 
                                 Button(action: mapData.updateMapType, label: {
@@ -80,19 +65,17 @@ struct HomeMap: View {
                                     .shadow(radius: 10)
                                     
                                 })
-                                
                             }
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .padding(.top)
                             .padding()
                             
                             Spacer()
-                            
-                            
-                            
-                            VStack{
+                        
+                          VStack{
                                 
                                 VStack(spacing:0){
+                                    
                                     HStack{
                                         
                                         Image(systemName: "magnifyingglass")
@@ -104,13 +87,9 @@ struct HomeMap: View {
                                     }
                                     .padding(.vertical, 10)
                                     .padding(.horizontal)
-                                    //                    .background(){
-                                    //                        RoundedRectangle(cornerRadius: 10)
-                                    //                            .fill(.ultraThickMaterial)
                                     .background(.white)
                                     .cornerRadius(10)
                                     .shadow(radius: 10)
-                                    
                                     
                                     //displaying results
                                     
@@ -166,12 +145,10 @@ struct HomeMap: View {
                                 
                             }))
                         })
-                        //        .preferredColorScheme(.dark)
                         
                         .onChange(of: mapData.searchTxt, perform: { value in
                             
                             //searching places
-                            
                             
                             //you can use your own delay time to avoid continous search request
                             
@@ -194,9 +171,3 @@ struct HomeMap: View {
                 }
             }
         }
-
-//struct HomeMap_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeMap()
-//    }
-//}

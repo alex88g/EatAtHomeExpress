@@ -14,40 +14,29 @@ import MapKit
 
 struct LocationsView: View {
     
-    //The whole code is nice and readable
-    
     @EnvironmentObject private var vm: LocationsViewModel
     @Environment(\.presentationMode) var present
    
     var body: some View{
-        
-        
         VStack{
-         
-            Button(action:{present.wrappedValue.dismiss()}) {
+            
+          ZStack{
+              
+                    mapLayer
                 
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 26, weight: .heavy))
-                    .foregroundColor(Color(.red))
-                
-                Spacer()
-                    .padding()
+                VStack(spacing:0){
+                    
+                    backButton
+                        .padding(.top)
+                    
+                    header
+                        .padding()
+                    Spacer()
+                    locationsPreviewStack
+                    
+                   
                 }
             }
-           
-        ZStack{
-            
-                mapLayer
-         
-                VStack(spacing:0){
-             
-                header
-                    .padding()
-                Spacer()
-                    locationsPreviewStack
-                
-            }
-        
         }
         // the sheet binding tro sheetLocation
         .sheet(item: $vm.sheetLocation, onDismiss: nil) { location in
@@ -56,9 +45,8 @@ struct LocationsView: View {
         }
         .navigationBarBackButtonHidden(true)
         .ignoresSafeArea(.all)
-
+        
     }
-    
 }
 
 struct LocationsView_Previews: PreviewProvider {
@@ -66,7 +54,6 @@ struct LocationsView_Previews: PreviewProvider {
         LocationsView()
             .environmentObject(LocationsViewModel())
     }
-    
 }
 
 extension LocationsView{
@@ -74,6 +61,7 @@ extension LocationsView{
     private var header: some View {
         
         VStack{
+            
             Button(action: vm.toggleLocationsList) {
                 Text(vm.mapLocation.name + "," +
                      vm.mapLocation.restaurant)
@@ -99,9 +87,7 @@ extension LocationsView{
         .background(.thickMaterial)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0,y:15)
-        
     }
-    
     private var mapLayer: some View {
         Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.locations, annotationContent: { location in
             MapAnnotation(coordinate: location.coordinates){
@@ -129,6 +115,22 @@ extension LocationsView{
         }
     }
     
-}
-
+    private var backButton: some View{
+        
+        VStack{
+            
+                Button(action:{present.wrappedValue.dismiss()}) {
+                    
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 26, weight: .heavy))
+                        .foregroundColor(Color(.red))
+                    
+                    Spacer()
+                }
+                .padding()
+            }
+        }
+        
+    }
+    
 

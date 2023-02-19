@@ -13,28 +13,20 @@ struct SwitchView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some View {
-        
-
-            
-            VStack{
+        VStack{
                 
-                HStack(spacing: 20){
+           HStack(spacing: 20){
                     
-                    
-                    Button(action:{present.wrappedValue.dismiss()}) {
+               Button(action:{present.wrappedValue.dismiss()}) {
                         
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 26, weight: .heavy))
-                            .foregroundColor(Color(.red))
-                        
+                  Image(systemName: "chevron.left")
+                        .font(.system(size: 26, weight: .heavy))
+                        .foregroundColor(Color(.red))
                         
                         Spacer()
-                        
-                        
                     }
                     .padding()
                 }
-                
                 Picker("Mode", selection: $isDarkMode){
                     Text("Light")
                         .tag(false)
@@ -43,18 +35,10 @@ struct SwitchView: View {
                     
                 }.pickerStyle(SegmentedPickerStyle())
                     .padding()
-                Spacer()
                 
-                //                 List(0..<5, id: \.self) { num in
-                //                     NavigationLink(destination: Text("\(num)")) {
-                //                         Text("\(num)")
-                //
-                //                     }
-                //                  }
-                
-            }.navigationBarBackButtonHidden(true)
-        
-    
+            Spacer()
+            
+        }.navigationBarBackButtonHidden(true)
     }
 }
 struct SwitchView_Previews: PreviewProvider {

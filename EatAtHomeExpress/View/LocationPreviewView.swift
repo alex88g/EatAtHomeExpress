@@ -11,7 +11,6 @@ import MapKit
 //cousins of LocationView
 
 struct LocationPreviewView: View {
-    
     @EnvironmentObject private var vm: LocationsViewModel
     
     let location: Location
@@ -22,13 +21,10 @@ struct LocationPreviewView: View {
             VStack(alignment: .leading, spacing: 16){
                 imageSection
                 titleSection
-                
             }
-            
             VStack(spacing: 8){
                 showMoreButton
                 nextButton
-            
             }
         }
         .padding(20)
@@ -41,7 +37,6 @@ struct LocationPreviewView: View {
     }
             
 }
-
 struct LocationPreviewView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
@@ -93,9 +88,7 @@ extension LocationPreviewView{
                 .frame(width: 125, height: 35)
         }
         .buttonStyle(.borderedProminent)
-        
     }
-    
     private var nextButton: some View{
         Button {
             vm.nextButtonPressed()
@@ -105,7 +98,5 @@ extension LocationPreviewView{
                 .frame(width: 125, height: 35)
         }
         .buttonStyle(.bordered)
-    
-        
     }
 }

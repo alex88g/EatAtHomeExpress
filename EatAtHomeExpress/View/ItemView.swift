@@ -5,11 +5,9 @@ import SDWebImageSwiftUI
 struct ItemView: View {
     var item: Item
     var body: some View {
-        
         VStack{
             
             // Downloading image from web
-            
             WebImage(url: URL(string: item.item_image))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -25,16 +23,13 @@ struct ItemView: View {
                 Spacer(minLength: 0)
                 
                 // ratings view
-                
                 ForEach(1...5,id: \.self){index in
                     
                     Image(systemName: "star.fill")
                         .foregroundColor(index <= Int(item.item_ratings) ?? 0 ?
                                          Color(.red) : .gray)
                 }
-                
             }
-            
             HStack{
                 
                 Text(item.item_details)
@@ -42,8 +37,6 @@ struct ItemView: View {
                     .foregroundColor(.gray)
                     .lineLimit(2)
             }
-            
         }
-    
     }
 }

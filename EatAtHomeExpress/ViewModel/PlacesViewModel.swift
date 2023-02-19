@@ -11,8 +11,6 @@ import Firebase
 
 // Fetching User Location
 class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
-    
-    
     @Published var locationManager = CLLocationManager()
     @Published var search = ""
     
@@ -30,7 +28,6 @@ class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         // checking location Access
-        
         switch manager.authorizationStatus{
         case.authorizedWhenInUse:
             print("authorized")
@@ -46,26 +43,20 @@ class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             // direct call
             locationManager.requestWhenInUseAuthorization()
             // modifying info.plist
-            
         }
-        
-        
     }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // reading user Location and extracting details
-        
         self.userLocation = locations.last
         self.extractLocation()
+       
         // after extracting location logging in
         self.login()
     }
-    
     func extractLocation(){
         
         CLGeocoder().reverseGeocodeLocation(self.userLocation) { (res, err) in
@@ -75,18 +66,14 @@ class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             var address = ""
             
             // getting area and locality name
-            
             address += safeData.first?.name ?? ""
             address += ", "
             address += safeData.first?.locality ?? ""
             
             self.userAdress = address
-            
         }
     }
-    
     // anynomus login for reading database
-    
     func login(){
         
         Auth.auth().signInAnonymously{ (res, err) in
@@ -98,11 +85,9 @@ class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             print("Success = \(res!.user.uid)")
             
             // after logging in fetching data
-            
             self.fetchData()
         }
     }
-    
     // fetching itemsData
         func fetchData(){
             
@@ -124,16 +109,11 @@ class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
                     let url = doc.get("url") as! String
                     
                     return Places(id: id,name: name, longitude: longitude, latitude: latitude, ratings: ratings, image: image, details: details, url: url)
-                    
-                })
-                
-                self.filtered = self.place
-                
+                 })
+                 self.filtered = self.place
             }
-            
         }
     // search or filter
-    
     func filterData(){
         
         withAnimation(.linear){
@@ -141,11 +121,7 @@ class PlacesViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             self.filtered = self.place.filter{
                 return $0.name.lowercased().contains(self.search.lowercased())
             }
-            
-            
         }
-        
-        
     }
-    }
+}
 

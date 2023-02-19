@@ -28,17 +28,13 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
     @Published var items: [Item] = []
     @Published var filtered: [Item] = []
     
-//    @Published var category: [Category] = []
-    
     // Cart data
-    
     @Published var cartItems: [Cart] = []
     @Published var  ordered = false
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         // checking location Access
-        
         switch manager.authorizationStatus{
         case.authorizedWhenInUse:
             print("authorized")
@@ -54,26 +50,19 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             // direct call
             locationManager.requestWhenInUseAuthorization()
             // modifying info.plist
-            
         }
-        
-        
     }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // reading user Location and extracting details
-        
         self.userLocation = locations.last
         self.extractLocation()
         // after extracting location logging in
         self.login()
     }
-    
     func extractLocation(){
         
         CLGeocoder().reverseGeocodeLocation(self.userLocation) { (res, err) in
@@ -83,7 +72,6 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             var address = ""
             
             // getting area and locality name
-            
             address += safeData.first?.name ?? ""
             address += ", "
             address += safeData.first?.locality ?? ""
@@ -92,12 +80,7 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             
         }
     }
-    
-    //NSLocationWhenInUseUsageDescription
-    //NSLocationAlwaysAndWhenInUseUsageDescription
-    
     // anynomus login for reading database
-    
     func login(){
         
         Auth.auth().signInAnonymously{ (res, err) in
@@ -112,11 +95,8 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             
             self.fetchData()
         }
-        
     }
-    
     // fetching itemsData
-    
     func fetchData(){
         
         let db = Firestore.firestore()
@@ -124,8 +104,7 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
         let category = selectedCategory.title
         print("\(category)")
         
-  
-        db.collection("Items").whereField("Category", isEqualTo: category).getDocuments{ (snap, err)in
+            db.collection("Items").whereField("Category", isEqualTo: category).getDocuments{ (snap, err)in
             
             guard let itemData = snap else{return}
             
@@ -138,20 +117,12 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
                 let image = doc.get("item_image") as! String
                 let details = doc.get("item_details") as! String
                 
-               
-          
                 return Item(id: id, item_name: name, item_cost: cost, item_details: details, item_image: image, item_ratings: ratings)
-                
             })
-            
             self.filtered = self.items
-            
         }
-        
     }
-    
     // search or filter
-    
     func filterData(){
         
         withAnimation(.linear){
@@ -159,15 +130,9 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             self.filtered = self.items.filter{
                 return $0.item_name.lowercased().contains(self.search.lowercased())
             }
-            
-            
         }
-        
-        
     }
-    
     // add to cart funktion
-    
     func addToCart(item: Item){
         
         // checking it is added
@@ -185,16 +150,12 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
         if item.isAdded{
             
             // removing from list
-            
             self.cartItems.remove(at: getIndex(item: item, isCartIndex: true))
             return
         }
-        
         //else adding
-        
         self.cartItems.append(Cart(item: item, quantity: 1))
     }
-    
     func getIndex(item: Item,isCartIndex: Bool)-> Int{
         
         let index = self.items.firstIndex{(item1) -> Bool in
@@ -210,10 +171,7 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
         }  ?? 0
         
         return isCartIndex ? cartIndex: index
-        
     }
-    
-    
     func calculateTotalPrice()->String{
         var price : Float = 0
         
@@ -222,7 +180,6 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
         }
         
         return getPrice(value: price)
-        
     }
     func    getPrice(value: Float)->String{
         
@@ -231,15 +188,12 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
         
         return format.string(from: NSNumber(value: value)) ?? ""
     }
-    
     // writing order data into firestore
-    
     func updateOrder(){
         
         let db = Firestore.firestore()
         
         // creating dict of food details
-        
         if ordered{
             
             ordered = false
@@ -251,11 +205,8 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
                     self.ordered = true
                 }
             }
-            
             return
-            
         }
-        
         var details : [[String: Any]] = []
         
         cartItems.forEach { (cart) in
@@ -266,10 +217,7 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
                 "item_quantity": cart.quantity,
                 "item_cost": cart.item.item_cost,
             ])
-            
-            
         }
-        
         ordered = true
         
         db.collection("Users").document(Auth.auth().currentUser!.uid).setData([
@@ -277,8 +225,6 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
             "ordered_food": details,
             "total_cost": calculateTotalPrice(),
             "location": GeoPoint(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-            
-            
         ]){ (err) in
             
             if err != nil{
@@ -286,10 +232,7 @@ class HomeViewModel: NSObject,ObservableObject,CLLocationManagerDelegate {
                 return
             }
             print("success")
-            
         }
-        
     }
-    
 }
 

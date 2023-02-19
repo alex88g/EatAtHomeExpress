@@ -49,9 +49,7 @@ extension LocationsListView {
                     .scaledToFill()
                     .frame(width: 45,height: 45)
                     .cornerRadius(10)
-                
             }
-            
             VStack(alignment: .leading){
                 Text(location.name)
                     .font(.headline)
@@ -59,8 +57,6 @@ extension LocationsListView {
                     .font(.subheadline)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            
         }
     }
-    
 }

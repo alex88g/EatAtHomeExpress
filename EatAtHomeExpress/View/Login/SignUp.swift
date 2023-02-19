@@ -2,7 +2,6 @@ import SwiftUI
 import Firebase
 
 struct SignUp: View {
-    
     @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var pass = ""
@@ -13,19 +12,15 @@ struct SignUp: View {
     @State var alert = false
     @State var error = ""
     
-    
-    
-    
     var body: some View {
         
-        
         ZStack{
+           
             ZStack(alignment: .topLeading) {
                 
                 GeometryReader{_ in
                     
                     VStack{
-                        
                     }
                     
                     Color.red
@@ -43,7 +38,6 @@ struct SignUp: View {
                         Image("logo")
                             .padding(.top, 35)
                         
-                        
                         Text("Sign up to your account")
                             .font(.title)
                             .fontWeight(.bold)
@@ -57,11 +51,9 @@ struct SignUp: View {
                             .padding(.top, 5)
                             .foregroundColor(Color.black)
                          
-                            
                             HStack(spacing: 15){
                                 
                                 VStack {
-                                    
                                     if self.visible{
                                         
                                         TextField("Password", text: self.$pass)
@@ -73,16 +65,11 @@ struct SignUp: View {
                                         SecureField("Password", text: self.$pass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
-                                        
                                     }
                                 }
-                                
                                 Button(action: {
-                                    
                                     self.visible.toggle()
-                                    
                                 }) {
-                                    
                                     Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
                                         .foregroundColor(self.color)
                                 }
@@ -94,7 +81,6 @@ struct SignUp: View {
                             HStack(spacing: 15){
                                 
                                 VStack {
-                                    
                                     if self.revisible{
                                         
                                         TextField("Re-enter", text: self.$repass)
@@ -106,16 +92,11 @@ struct SignUp: View {
                                         SecureField("Re-enter", text: self.$repass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
-                                        
                                     }
                                 }
-                                
                                 Button(action: {
-                                    
                                     self.revisible.toggle()
-                                    
                                 }) {
-                                    
                                     Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
                                         .foregroundColor(self.color)
                                 }
@@ -124,54 +105,35 @@ struct SignUp: View {
                             .background(RoundedRectangle(cornerRadius: 15).stroke(self.repass != "" ? Color("red") : self.color,lineWidth: 2))
                             .padding(.top, 25)
                             
-                            
-                            
                             Button(action: {
-                                
                                 self.register()
-                                
                             }){
-                                
                                 Text("Register")
                                     .foregroundColor(.white)
                                     .padding(.vertical)
                                     .frame(width: UIScreen.main.bounds.width - 50)
-                                
                             }
-                            
                             .background(Color.red)
                             .cornerRadius(15)
                             .padding(.top, 25)
-                            
                         }
-                        
                         .padding(.horizontal, 25)
                     }
-                    
                     Button(action: {
-                        
                         self.show.toggle()
-                        
                     }){
                         
                         Image(systemName: "chevron.left")
                             .font(.title)
                             .foregroundColor(self.color)
-                        
                     }
                     .padding()
                 }
-                
                 if self.alert{
-                    
                     ErrorView(alert: self.$alert, error: self.$error)
-                    
                 }
-                
             }
-            
             .navigationBarBackButtonHidden(true)
-            
         }
         func register(){
             
@@ -199,20 +161,15 @@ struct SignUp: View {
                     self.error = "Password mismatch"
                     self.alert.toggle()
                 }
-                
             }
             else{
                 
                 self.error = "Please fill all the contents properly"
                 self.alert.toggle()
-                
             }
         }
-        
     }
-    
     struct ErrorView : View {
-        
         @State var color = Color.black.opacity(0.7)
         @Binding var alert : Bool
         @Binding var error : String
@@ -232,9 +189,7 @@ struct SignUp: View {
                         
                         
                         Spacer()
-                        
                     }
-                    
                     .padding(.horizontal, 25)
                     
                     Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
@@ -243,10 +198,7 @@ struct SignUp: View {
                         .padding(.horizontal, 25)
                     
                     Button(action: {
-                        
                         self.alert.toggle()
-                        
-                        
                     }){
                         
                         Text(self.error == "RESET" ? "Ok" : "Cancel")
@@ -254,27 +206,18 @@ struct SignUp: View {
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 120)
                     }
-                    
                     .background(Color.red)
                     .cornerRadius(10)
                     .padding(.top, 25)
-                    
                 }
-                
                 .frame(width: UIScreen.main.bounds.width - 70)
                 .background(Color.white)
                 .cornerRadius(15)
-                
             }
             .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
             .cornerRadius(15)
             .padding(.horizontal, 35)
             .padding(.top, 25)
             .padding(.bottom, 450)
-            
-            
-            
-            
         }
-        
-    }
+   }

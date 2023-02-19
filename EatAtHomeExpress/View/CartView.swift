@@ -14,15 +14,12 @@ struct CartView: View {
                     
                     Image(systemName: "chevron.left")
                         .font(.system(size: 26, weight: .heavy))
-//                        .foregroundColor(Color(.red))
                 }
-                
                 Text("My cart")
                     .font(.title)
                     .fontWeight(.heavy)
-//                    .foregroundColor(.black)
-                Spacer()
                 
+                Spacer()
             }
             .padding()
             
@@ -50,7 +47,6 @@ struct CartView: View {
                                 
                                 Text(cart.item.item_name)
                                     .fontWeight(.semibold)
-//                                    .foregroundColor(.gray)
                                     .shadow(radius: 10)
                                 
                                 Text(cart.item.item_details)
@@ -64,14 +60,11 @@ struct CartView: View {
                                     Text(homeData.getPrice(value: Float(truncating: cart.item.item_cost)))
                                         .font(.title2)
                                         .fontWeight(.heavy)
-//                                        .foregroundColor(.gray)
                                         .shadow(radius: 10)
                     
-                                    
                                     Spacer(minLength: 0)
                                     
                                     // add - sub button
-                                    
                                     Button(action: {
                                         if cart.quantity > 1{
                                             homeData.cartItems [homeData.getIndex(item: cart.item,isCartIndex: true) ].quantity -= 1
@@ -82,39 +75,29 @@ struct CartView: View {
                                         
                                         Image(systemName: "minus")
                                             .font(.system(size: 16, weight: .heavy))
-//                                            .foregroundColor(Color(.gray))
                                             .shadow(radius: 10)
                                         
                                         
                                     }
-                                    
                                     Text("\(cart.quantity)")
                                         .fontWeight(.heavy)
                                         .foregroundColor(.gray)
                                         .padding(.vertical,5)
                                         .padding(.horizontal,10)
-//                                        .background(Color.gray.opacity(0.06))
                                         .shadow(radius: 10)
                                     
                                     Button(action: {
                                         
                                         homeData.cartItems [homeData.getIndex(item: cart.item,isCartIndex: true) ].quantity += 1
-                                        
-                                        
                                     }) {
                                         
                                         Image(systemName: "plus")
                                             .font(.system(size: 16, weight: .heavy))
-//                                            .foregroundColor(Color(.gray))
                                             .shadow(radius: 10)
-                                        
                                     }
-                                    
                                 }
-                                
                             }
                             .padding()
-                            
                             .contextMenu{
                                 
                                 // for deleting
@@ -131,21 +114,18 @@ struct CartView: View {
                                 }){
                                     Text("Remove")
                                 }
-                   
                             }
                         }
                     }
                 }
                 
                 // Bottom view
-                
                 VStack{
                     
                     HStack{
                         
                         Text("Total:")
                             .fontWeight(.heavy)
-//                            .foregroundColor(.gray)
                         
                         Spacer()
                         
@@ -153,17 +133,12 @@ struct CartView: View {
                         Text(homeData.calculateTotalPrice())
                             .font(.title)
                             .fontWeight(.heavy)
-//                            .foregroundColor(.black)
                     }
                     .padding([.top,.horizontal])
                     
                     Button(action: homeData.updateOrder) {
                         
                     }
-                    
-                    
-                    
-                    
                     Text(homeData.ordered ? "Cancel Order" : "Check out")
                     
                         .font(.title2)
@@ -175,25 +150,17 @@ struct CartView: View {
                         .background(Color(.red))
                         .cornerRadius(15)
                     
-                    
-                    
                     Button(action: {
-                        
                         
                     }){
                         NavigationLink(destination: onTap()){
                             
                             Text("Add payment before checking out")
-                            
-//                                .foregroundColor(.gray)
+                                
                                 .padding(.bottom, 5)
                                 .padding(.leading)
                                 .fontWeight(.bold)
-                            
-                            
                         }
-                        
-                        
                         Image(systemName: "creditcard.circle").resizable()
                         
                             .frame(width: 30, height: 30)
@@ -202,28 +169,18 @@ struct CartView: View {
                             .padding(.leading, -320)
                         
                     }
-                    
-                }
-                
-                
-                
-                
-                
-                .background(Color(UIColor.secondarySystemBackground))
+                 }
+                 .background(Color(UIColor.secondarySystemBackground))
                  .shadow(radius: 10)
-                .cornerRadius(15)
+                 .cornerRadius(15)
+                
                 Spacer()
             }
-            
-            
-            
             .background(Color("").ignoresSafeArea())
-            
             .shadow(radius: 10)
             .cornerRadius(15)
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
         }
-        
     }
 }

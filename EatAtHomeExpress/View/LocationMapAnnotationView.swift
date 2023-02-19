@@ -11,6 +11,7 @@ struct LocationMapAnnotationView: View {
     var body: some View {
         
         VStack(spacing:0){
+            
             Image(systemName: "map.circle.fill")
                 .resizable()
                 .scaledToFit()
@@ -30,7 +31,6 @@ struct LocationMapAnnotationView: View {
                 .offset(y: -3)
                 .padding(.bottom, 40)
         }
-        
     }
 }
 
