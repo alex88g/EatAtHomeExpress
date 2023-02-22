@@ -38,7 +38,7 @@ struct SignUp: View {
                         Image("logo")
                             .padding(.top, 35)
                         
-                        Text("Sign up to your account")
+                        Text("Registrera dig på ditt konto")
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.top, 5)
@@ -56,13 +56,13 @@ struct SignUp: View {
                                 VStack {
                                     if self.visible{
                                         
-                                        TextField("Password", text: self.$pass)
+                                        TextField("Lösenord", text: self.$pass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
                                     }
                                     else{
                                         
-                                        SecureField("Password", text: self.$pass)
+                                        SecureField("Lösenord", text: self.$pass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
                                     }
@@ -83,13 +83,13 @@ struct SignUp: View {
                                 VStack {
                                     if self.revisible{
                                         
-                                        TextField("Re-enter", text: self.$repass)
+                                        TextField("Upprepa lösenord", text: self.$repass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
                                     }
                                     else{
                                         
-                                        SecureField("Re-enter", text: self.$repass)
+                                        SecureField("Upprepa lösenord", text: self.$repass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
                                     }
@@ -108,7 +108,7 @@ struct SignUp: View {
                             Button(action: {
                                 self.register()
                             }){
-                                Text("Register")
+                                Text("Registrera")
                                     .foregroundColor(.white)
                                     .padding(.vertical)
                                     .frame(width: UIScreen.main.bounds.width - 50)
@@ -158,13 +158,13 @@ struct SignUp: View {
                         NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                     }
                 } else{
-                    self.error = "Password mismatch"
+                    self.error = "Lösenord matchar inte"
                     self.alert.toggle()
                 }
             }
             else{
                 
-                self.error = "Please fill all the contents properly"
+                self.error = "Vänligen fyll i allt inehåll ordentligt"
                 self.alert.toggle()
             }
         }
@@ -182,7 +182,7 @@ struct SignUp: View {
                     
                     HStack{
                         
-                        Text(self.error == "RESET" ? "Message" : "Error")
+                        Text(self.error == "ÅTERSTÄLLA" ? "Message" : "Error")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
@@ -192,7 +192,7 @@ struct SignUp: View {
                     }
                     .padding(.horizontal, 25)
                     
-                    Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
+                    Text(self.error == "ÅTERSTÄLLA" ? "Lösenordsåterställningslänk har skickats" : self.error)
                         .foregroundColor(self.color)
                         .padding(.top)
                         .padding(.horizontal, 25)
@@ -201,7 +201,7 @@ struct SignUp: View {
                         self.alert.toggle()
                     }){
                         
-                        Text(self.error == "RESET" ? "Ok" : "Cancel")
+                        Text(self.error == "ÅTERSTÄLLNING" ? "Ok" : "Cancel")
                             .foregroundColor(self.color)
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 120)

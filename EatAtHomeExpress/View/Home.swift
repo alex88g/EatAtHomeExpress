@@ -86,7 +86,7 @@ struct Home: View {
                VStack{
                     
                    //categories view
-                    Text("Categories")
+                    Text("Kategorier")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
                         .font(.title2)
@@ -240,7 +240,7 @@ struct Home: View {
             
             if homeModel.noLocation{
                 
-                Text("Please Enable Location Access In Settings To Further Move On !!!")
+                Text("Vänligen Aktivera Platsåtkomst I Inställningarna För Att Gå Vidare !!!")
                     .foregroundColor(.black)
                     .frame(width: UIScreen.main.bounds.width - 100, height: 120)
                     .background(Color.white)

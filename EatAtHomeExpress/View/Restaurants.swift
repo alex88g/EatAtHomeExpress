@@ -30,6 +30,8 @@ struct Restaurants: View {
         ZStack{
          
             VStack(){
+                
+                Divider()
 
                 HStack(){
                     

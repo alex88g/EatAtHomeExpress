@@ -27,7 +27,7 @@ struct LocationsView: View {
                 VStack(spacing:0){
                     
                     backButton
-                        .padding(.top)
+                        .padding()
                     
                     header
                         .padding()
@@ -124,10 +124,12 @@ extension LocationsView{
                     Image(systemName: "chevron.left")
                         .font(.system(size: 26, weight: .heavy))
                         .foregroundColor(Color(.red))
+                        .padding(.vertical, 35)
+                        
                     
                     Spacer()
                 }
-                .padding()
+                
             }
         }
         

@@ -72,7 +72,7 @@ struct PickerView: View {
             Button(action: {
                 self.shown.toggle()
             }){
-                Text("Upload Image")
+                Text("Ladda upp bilden")
                 
             }.sheet(isPresented: $shown) {
                 

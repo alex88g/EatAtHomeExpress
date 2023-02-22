@@ -138,7 +138,7 @@ struct HomeMap: View {
                         //permission denied alert
                         .alert(isPresented: $mapData.permissionDenied, content: {
                             
-                            Alert(title: Text("Permission Denied"), message: Text("Please Enable Permission In App Settings"), dismissButton: .default(Text("Go To Settings"), action: {
+                            Alert(title: Text("Åtkomst nekad"), message: Text("Vänligen Aktivera Behörighet i Appens Inställningar "), dismissButton: .default(Text("Gå till inställningar"), action: {
                                 
                                 //redigering user to settings
                                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)

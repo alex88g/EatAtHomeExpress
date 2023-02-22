@@ -15,7 +15,7 @@ struct CartView: View {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 26, weight: .heavy))
                 }
-                Text("My cart")
+                Text("Min vagn")
                     .font(.title)
                     .fontWeight(.heavy)
                 
@@ -39,7 +39,7 @@ struct CartView: View {
                                 .frame(width: 130, height: 130)
                                 .cornerRadius(15)
                                 .shadow(radius: 10)
-                                
+                            
                                 .background(Color(UIColor.secondarySystemBackground).cornerRadius(15))
                             
                             
@@ -61,7 +61,7 @@ struct CartView: View {
                                         .font(.title2)
                                         .fontWeight(.heavy)
                                         .shadow(radius: 10)
-                    
+                                    
                                     Spacer(minLength: 0)
                                     
                                     // add - sub button
@@ -112,7 +112,7 @@ struct CartView: View {
                                     homeData.cartItems.remove(at: index)
                                     
                                 }){
-                                    Text("Remove")
+                                    Text("Ta bort")
                                 }
                             }
                         }
@@ -124,7 +124,7 @@ struct CartView: View {
                     
                     HStack{
                         
-                        Text("Total:")
+                        Text("Total kostnad:")
                             .fontWeight(.heavy)
                         
                         Spacer()
@@ -139,7 +139,7 @@ struct CartView: View {
                     Button(action: homeData.updateOrder) {
                         
                     }
-                    Text(homeData.ordered ? "Cancel Order" : "Check out")
+                    Text(homeData.ordered ? "Avbryta beställningen" : "Godkänn")
                     
                         .font(.title2)
                         .fontWeight(.heavy)
@@ -150,37 +150,41 @@ struct CartView: View {
                         .background(Color(.red))
                         .cornerRadius(15)
                     
+                    
                     Button(action: {
                         
                     }){
                         NavigationLink(destination: onTap()){
                             
-                            Text("Add payment before checking out")
-                                
+                            Text("Lägg till kort uppgifter innan du godkänner betalning")
+                            
                                 .padding(.bottom, 5)
                                 .padding(.leading)
                                 .fontWeight(.bold)
+                                .foregroundColor(.gray)
+                            //                        }
+                            
+                            Image(systemName: "creditcard.circle").resizable()
+                            
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.gray)
+                                .padding(.bottom, 5)
+                                .padding(.leading, -320)
+                            
                         }
-                        Image(systemName: "creditcard.circle").resizable()
-                        
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.red)
-                            .padding(.bottom, 5)
-                            .padding(.leading, -320)
-                        
                     }
-                 }
-                 .background(Color(UIColor.secondarySystemBackground))
-                 .shadow(radius: 10)
-                 .cornerRadius(15)
-                
-                Spacer()
+                    .background(Color(UIColor.secondarySystemBackground))
+                    .shadow(radius: 10)
+                    .cornerRadius(15)
+                    
+                    Spacer()
+                }
+                .background(Color("").ignoresSafeArea())
+                .shadow(radius: 10)
+                .cornerRadius(15)
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
             }
-            .background(Color("").ignoresSafeArea())
-            .shadow(radius: 10)
-            .cornerRadius(15)
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
         }
     }
 }

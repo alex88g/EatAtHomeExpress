@@ -41,7 +41,7 @@ struct Login: View {
                                 .padding(.top, 35)
                             
                             // Information about log in
-                            Text("Log in to your account")
+                            Text("Logga in på ditt konto")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .padding(.top, 15)
@@ -61,12 +61,12 @@ struct Login: View {
                                     if self.visible{
                                         
                                         //TextField with entering a paswword
-                                        TextField("Password", text: self.$pass)
+                                        TextField("Lösenord", text: self.$pass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
                                     }
                                     else{
-                                            SecureField("Password", text: self.$pass)
+                                            SecureField("Upprepa lösenord", text: self.$pass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
                                     }
@@ -93,7 +93,7 @@ struct Login: View {
                                 Button(action: {
                                     self.reset()
                                 }){
-                                    Text("Forget password")
+                                    Text("Glömt lösenord")
                                         .fontWeight(.bold)
                                         .foregroundColor(Color.red)
                                 }
@@ -104,7 +104,7 @@ struct Login: View {
                                 self.verify()
                             }){
                                 // Log in button
-                                Text("Log in")
+                                Text("Logga in")
                                     .foregroundColor(.white)
                                     .padding(.vertical)
                                     .frame(width: UIScreen.main.bounds.width - 50)
@@ -119,7 +119,7 @@ struct Login: View {
                     Button(action: {
                          self.show.toggle()
                     }){
-                        Text("Register")
+                        Text("Skapa konto")
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
                     }
@@ -153,7 +153,7 @@ struct Login: View {
         }
         else {
             // Must fill in all information correctly when logging with firebase
-            self.error = "Please fill all the contents properly"
+            self.error = "Vänligen fyll i allt inehåll ordentligt"
             self.alert.toggle()
         }
     }
@@ -170,13 +170,13 @@ struct Login: View {
                     return
                     
                 }
-                self.error = "RESET"
+                self.error = "ÅTERSTÄLLA"
                 self.alert.toggle()
             }
         }
         else{
             // Email must be filled in correctly
-            self.error = "Email Id is empty"
+            self.error = "Email Id är tom"
             self.alert.toggle()
         }
     }

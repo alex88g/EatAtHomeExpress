@@ -51,7 +51,7 @@ struct CameraView: View {
                     if camera.isTaken{
                         
                         Button(action: {if !camera.isSaved{camera.savePic()}}, label:{
-                            Text(camera.isSaved ? "Saved" : "Save")
+                            Text(camera.isSaved ? "Sparad" : "Spara")
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .padding(.vertical,10)
