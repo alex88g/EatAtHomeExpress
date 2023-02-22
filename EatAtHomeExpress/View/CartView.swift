@@ -138,39 +138,39 @@ struct CartView: View {
                     
                     Button(action: homeData.updateOrder) {
                         
+                        
+                        Text(homeData.ordered ? "Avbryt" : "Bekräfta")
+                        
+                            .font(.title2)
+                            .fontWeight(.heavy)
+                            .foregroundColor(.white)
+                            .padding(.vertical)
+                            .padding(.bottom, 0)
+                            .frame(width: UIScreen.main.bounds.width - 30)
+                            .background(Color(.red))
+                            .cornerRadius(15)
+                        
                     }
-                    Text(homeData.ordered ? "Avbryta beställningen" : "Godkänn")
-                    
-                        .font(.title2)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.white)
-                        .padding(.vertical)
-                        .padding(.bottom, 0)
-                        .frame(width: UIScreen.main.bounds.width - 30)
-                        .background(Color(.red))
-                        .cornerRadius(15)
-                    
                     
                     Button(action: {
                         
                     }){
                         NavigationLink(destination: onTap()){
                             
-                            Text("Lägg till kort uppgifter innan du godkänner betalning")
+                            Text("Lägg till kort betalning")
                             
                                 .padding(.bottom, 5)
                                 .padding(.leading)
                                 .fontWeight(.bold)
                                 .foregroundColor(.gray)
-                            }
                             
                             Image(systemName: "creditcard.circle").resizable()
                             
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(.gray)
                                 .padding(.bottom, 5)
-                                .padding(.leading, -320)
-                            
+                                .padding(.leading, -240)
+                            }
                         }
                     }
                     .background(Color(UIColor.secondarySystemBackground))

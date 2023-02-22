@@ -31,6 +31,7 @@ struct LocationsView: View {
                     
                     header
                         .padding()
+                    
                     Spacer()
                     locationsPreviewStack
                     
@@ -87,6 +88,7 @@ extension LocationsView{
         .background(.thickMaterial)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0,y:15)
+        .padding(.vertical, -40)
     }
     private var mapLayer: some View {
         Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.locations, annotationContent: { location in

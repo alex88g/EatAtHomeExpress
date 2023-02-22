@@ -90,7 +90,10 @@ struct Menu: View {
                     .padding()
                     Spacer()
                 }
-                Spacer()
+                
+            Spacer()
+                
+                .padding(.vertical, 200)
                
             //Logout button
                 Button(action: {
