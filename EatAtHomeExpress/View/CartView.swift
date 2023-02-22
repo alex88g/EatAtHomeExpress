@@ -162,7 +162,7 @@ struct CartView: View {
                                 .padding(.leading)
                                 .fontWeight(.bold)
                                 .foregroundColor(.gray)
-                            //                        }
+                            }
                             
                             Image(systemName: "creditcard.circle").resizable()
                             
@@ -187,4 +187,4 @@ struct CartView: View {
             }
         }
     }
-}
+
