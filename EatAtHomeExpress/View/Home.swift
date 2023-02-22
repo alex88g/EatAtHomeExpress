@@ -27,7 +27,6 @@ struct Home: View {
                         
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
-                            .padding()
                         
                     })
                     Text(homeModel.userLocation == nil ? "Localisering..." : "Leverera till")
@@ -36,7 +35,7 @@ struct Home: View {
                         .font(.caption)
                         .fontWeight(.heavy)
                     
-                    Spacer(minLength: 0)
+                    
                     
                     Button(action: {
                    
@@ -44,12 +43,9 @@ struct Home: View {
                         NavigationLink(destination: HomeMap()){
                             Image(systemName: "mappin.and.ellipse")
                                 .foregroundColor(.red)
-                                .padding(.top, 10)
-                                .padding(.horizontal, 35)
-                            
-                            
-                            
                         }}}
+                
+                Spacer(minLength: 0)
                 
                 Divider()
                 
@@ -89,7 +85,6 @@ struct Home: View {
                    //categories view
                     Text("Kategorier")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading)
                         .font(.title2)
                         .fontWeight(.bold)
                         
@@ -138,11 +133,10 @@ struct Home: View {
                             }
                             
                         }
-                        .padding(.horizontal)
-                        
                     })
                 }
-                .padding()
+               .padding()
+               
  
                 if homeModel.items.isEmpty{
                     
