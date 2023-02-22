@@ -27,6 +27,7 @@ struct Home: View {
                         
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
+                            .padding()
                         
                     })
                     Text(homeModel.userLocation == nil ? "Localisering..." : "Leverera till")
@@ -141,7 +142,7 @@ struct Home: View {
                         
                     })
                 }
-                .padding(.vertical)
+                .padding()
  
                 if homeModel.items.isEmpty{
                     
@@ -214,12 +215,11 @@ struct Home: View {
                                 .shadow(radius: 10)
                             }
                         }
-                        
-                        .padding(.top, 10)
                     })
                 }
-                
             }
+            .padding(.vertical, 30)
+            
             // side menu
             
             HStack{
