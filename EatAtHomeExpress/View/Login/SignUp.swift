@@ -31,14 +31,14 @@ struct SignUp: View {
                     Circle()
                         .scale(1.25)
                         .foregroundColor(.white)
-                        .padding(.top, 220)
+                        .padding(.top, 250)
                     
                     VStack{
                         
                         Image("logo")
                             .padding(.top, 35)
                         
-                        Text("Registrera dig på ditt konto")
+                        Text("Registrera ditt konto")
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.top, 5)

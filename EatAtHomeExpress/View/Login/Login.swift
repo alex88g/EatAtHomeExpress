@@ -66,7 +66,7 @@ struct Login: View {
                                             .foregroundColor(Color.black)
                                     }
                                     else{
-                                            SecureField("Upprepa lösenord", text: self.$pass)
+                                            SecureField("Lösenord", text: self.$pass)
                                             .autocapitalization(.none)
                                             .foregroundColor(Color.black)
                                     }
